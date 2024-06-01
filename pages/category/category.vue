@@ -136,10 +136,10 @@
     },
     async onShow() {
       //检测是否实名
-      if(uni.getStorageSync('token')) {
-        if(uni.getStorageSync('userInfo')) this.is_auth = uni.getStorageSync('userInfo').is_auth;
-        if(!this.is_auth) this.show = true;
-      }
+      // if(uni.getStorageSync('token')) {
+      //   if(uni.getStorageSync('userInfo')) this.is_auth = uni.getStorageSync('userInfo').is_auth;
+      //   if(!this.is_auth) this.show = true;
+      // }
       
       this.address = uni.getStorageSync('location').address;
       //获取选择日期的参数
