@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "开通VIP",
+  "enablePullDownRefresh": false,
+  "navigationBarBackgroundColor": "#2A2B2F",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "u--text": "/node-modules/uview-ui/components/u--text/u--text"
+  }
+}

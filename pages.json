@@ -1,0 +1,416 @@
+{
+  "pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": "质电出行"
+      }
+    }, {
+      "path": "pages/category/category",
+      "style": {
+        "navigationBarTitleText": "车型",
+        "enablePullDownRefresh": false
+      }
+
+    }, {
+      "path": "pages/order/order",
+      "style": {
+        "navigationBarTitleText": "订单",
+        "enablePullDownRefresh": false
+      }
+
+    }, {
+      "path": "pages/my/my",
+      "style": {
+        "navigationBarTitleText": "我的",
+        "enablePullDownRefresh": false
+      }
+
+    }
+      ,{
+            "path" : "pages/info/info",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "个人资料",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/agree/agree",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "服务协议",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        
+        ,{
+            "path" : "pages/orderDetail/orderDetail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "订单详情",
+                "enablePullDownRefresh": false,
+                "navigationBarBackgroundColor": "#00BC7E",
+                "navigationBarTextStyle": "white"
+            }
+            
+        }
+        ,{
+            "path" : "pages/detail/detail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "车辆详情",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/submitOrder/submitOrder",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "订单确认",
+                "enablePullDownRefresh": false,
+                "navigationBarBackgroundColor": "#00BC7E",
+                "navigationBarTextStyle": "white"
+            }
+            
+        }
+        
+        ,{
+            "path" : "pages/user/index/index",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "首页",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        
+        ,{
+            "path" : "pages/user/member/member",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/login/login",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "登录",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/info_edit/info_edit",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "个人资料",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
+  "subPackages": [
+    {
+      "root": "otherpages",
+      "pages": [
+        {
+            "path" : "openVip/openVip",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "开通VIP",
+                "enablePullDownRefresh": false,
+                "navigationBarBackgroundColor": "#2A2B2F",
+                "navigationBarTextStyle": "white"
+            }
+            
+        }
+          ,{
+                    "path" : "balance/balance",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "余额",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "balanceRecord/balanceRecord",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "充值记录",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "shiming/shiming",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "实名认证",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "coupon/coupon",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "优惠券",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "integral/integral",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "积分",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "integralRecord/integralRecord",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "积分明细",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "cancelOrder/cancelOrder",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "取消订单",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "order_xuzu/order_xuzu",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "续租",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "verification/verification",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "取车码",
+                    "enablePullDownRefresh": false,
+                    "navigationBarBackgroundColor": "#00BC7E",
+                    "navigationBarTextStyle": "white"
+                }
+                
+                }
+                ,{
+                    "path" : "addDriver/addDriver",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "新建驾驶人",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "payOrder/payOrder",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "支付",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "chooseAddress/chooseAddress",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "地点选择",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "chooseDate/chooseDate",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "选择时间",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "useCoupon/useCoupon",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "优惠券",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "noticeList/noticeList",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "公告列表",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "noticeDetail/noticeDetail",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "公告详情",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "becomeCarOwner/becomeCarOwner",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "成为车主",
+                    "enablePullDownRefresh": false,
+                    "navigationBarBackgroundColor": "#00BC7E",
+                    "navigationBarTextStyle": "white"
+                }
+                
+                }
+                ,{
+                    "path" : "becomeCompany/becomeCompany",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "企业用车",
+                    "enablePullDownRefresh": false,
+                    "navigationBarBackgroundColor": "#00BC7E",
+                    "navigationBarTextStyle": "white"
+                }
+                
+                }
+                
+            ]
+    },
+    {
+      "root": "employee",
+      "pages": [
+        {
+            "path" : "order/order",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "订单",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+          ,{
+                    "path" : "orderDetail/orderDetail",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "订单详情",
+                    "enablePullDownRefresh": false,
+                    "navigationBarBackgroundColor": "#00BC7E",
+                    "navigationBarTextStyle": "white"
+                }
+                
+                }
+                ,{
+                    "path" : "transferCar/transferCar",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "外调车辆",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "performance/performance",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "业绩管理",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "client/client",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "我的客户",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "invite/invite",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "邀请用户",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "examine/examine",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "验车",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+            ]
+    }
+  ],
+  "easycom": {
+    "^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
+  },
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "质电出行",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#B3B3B3",
+    "selectedColor": "#00BC7E",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [{
+        "pagePath": "pages/index/index",
+        "iconPath": "./static/tabbar/1-1.png",
+        "selectedIconPath": "./static/tabbar/1-2.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "iconPath": "./static/tabbar/2-1.png",
+        "selectedIconPath": "./static/tabbar/2-2.png",
+        "text": "车型"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "iconPath": "./static/tabbar/3-1.png",
+        "selectedIconPath": "./static/tabbar/3-2.png",
+        "text": "订单"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "./static/tabbar/4-1.png",
+        "selectedIconPath": "./static/tabbar/4-2.png",
+        "text": "我的"
+      }
+    ]
+  }
+}

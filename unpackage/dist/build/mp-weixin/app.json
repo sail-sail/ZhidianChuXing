@@ -1,0 +1,106 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/category/category",
+    "pages/order/order",
+    "pages/my/my",
+    "pages/info/info",
+    "pages/agree/agree",
+    "pages/orderDetail/orderDetail",
+    "pages/detail/detail",
+    "pages/submitOrder/submitOrder",
+    "pages/user/index/index",
+    "pages/user/member/member",
+    "pages/login/login",
+    "pages/info_edit/info_edit"
+  ],
+  "subPackages": [
+    {
+      "root": "otherpages",
+      "pages": [
+        "openVip/openVip",
+        "balance/balance",
+        "balanceRecord/balanceRecord",
+        "shiming/shiming",
+        "coupon/coupon",
+        "integral/integral",
+        "integralRecord/integralRecord",
+        "cancelOrder/cancelOrder",
+        "order_xuzu/order_xuzu",
+        "verification/verification",
+        "addDriver/addDriver",
+        "payOrder/payOrder",
+        "chooseAddress/chooseAddress",
+        "chooseDate/chooseDate",
+        "useCoupon/useCoupon",
+        "noticeList/noticeList",
+        "noticeDetail/noticeDetail",
+        "becomeCarOwner/becomeCarOwner",
+        "becomeCompany/becomeCompany"
+      ]
+    },
+    {
+      "root": "employee",
+      "pages": [
+        "order/order",
+        "orderDetail/orderDetail",
+        "transferCar/transferCar",
+        "performance/performance",
+        "client/client",
+        "invite/invite",
+        "examine/examine"
+      ]
+    }
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "质电出行",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#B3B3B3",
+    "selectedColor": "#00BC7E",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "./static/tabbar/1-1.png",
+        "selectedIconPath": "./static/tabbar/1-2.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "iconPath": "./static/tabbar/2-1.png",
+        "selectedIconPath": "./static/tabbar/2-2.png",
+        "text": "车型"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "iconPath": "./static/tabbar/3-1.png",
+        "selectedIconPath": "./static/tabbar/3-2.png",
+        "text": "订单"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "./static/tabbar/4-1.png",
+        "selectedIconPath": "./static/tabbar/4-2.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "为了更好地为您提供服务"
+    }
+  },
+  "requiredPrivateInfos": [
+    "getLocation",
+    "chooseLocation"
+  ],
+  "usingComponents": {
+    "loading-cover": "/components/loading-cover/loading-cover"
+  },
+  "sitemapLocation": "sitemap.json"
+}

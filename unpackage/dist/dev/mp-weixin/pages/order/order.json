@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "订单",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "u-sticky": "/node-modules/uview-ui/components/u-sticky/u-sticky",
+    "u-tabs": "/node-modules/uview-ui/components/u-tabs/u-tabs",
+    "u-empty": "/node-modules/uview-ui/components/u-empty/u-empty",
+    "diy-bottom-nav": "/components/diy-bottom-nav/diy-bottom-nav",
+    "change-car": "/components/change-car/change-car",
+    "zu-pop": "/components/zu-pop/zu-pop"
+  }
+}
