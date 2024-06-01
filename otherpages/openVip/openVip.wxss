@@ -1,0 +1,179 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+.topbg.data-v-1a02b18a {
+  width: 100%;
+  height: 200rpx;
+  background-color: #2A2B2F;
+}
+.vipuser.data-v-1a02b18a {
+  position: relative;
+  height: 250rpx;
+  background: linear-gradient(180deg, #F6EACC 0%, #E3C485 100%);
+  box-shadow: 0px 16rpx 24rpx 0px rgba(176, 150, 100, 0.24);
+  border-radius: 20rpx;
+  margin: -170rpx 28rpx 0;
+  padding: 40rpx 0 0 40rpx;
+  box-sizing: border-box;
+}
+.vipuser .bg.data-v-1a02b18a {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 202rpx;
+  height: 222rpx;
+}
+.vipuser .userHead.data-v-1a02b18a {
+  display: flex;
+  align-items: center;
+}
+.vipuser .userHead .avatar.data-v-1a02b18a {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+  margin-right: 16rpx;
+}
+.vipuser .userHead .name1.data-v-1a02b18a {
+  color: #351D00;
+}
+.vipuser .userHead .name2.data-v-1a02b18a {
+  font-size: 24rpx;
+  color: rgba(53, 29, 0, 0.4);
+}
+.vipuser .usertip.data-v-1a02b18a {
+  color: rgba(53, 29, 0, 0.7);
+  margin-top: 40rpx;
+  font-size: 24rpx;
+}
+.vipuser .usertip image.data-v-1a02b18a {
+  width: 28rpx;
+  height: 24rpx;
+  margin-right: 20rpx;
+}
+.priceList.data-v-1a02b18a {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 40rpx 28rpx;
+  background-color: #fff;
+}
+.priceList .priceItem.data-v-1a02b18a {
+  width: 216rpx;
+  height: 230rpx;
+  padding: 32rpx;
+  border-radius: 16rpx;
+  border: 2rpx solid rgba(230, 193, 119, 0.2);
+  text-align: center;
+  box-sizing: border-box;
+  margin-right: 22rpx;
+}
+.priceList .priceItem.data-v-1a02b18a:nth-child(3n) {
+  margin-right: 0;
+}
+.priceList .priceItem .money.data-v-1a02b18a {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  color: #000000;
+  font-size: 44rpx;
+}
+.priceList .priceItem .money ._i.data-v-1a02b18a {
+  font-style: normal;
+  font-size: 24rpx;
+}
+.priceList .priceItem .line_money.data-v-1a02b18a {
+  font-size: 24rpx;
+  color: rgba(0, 0, 0, 0.3);
+  text-decoration: line-through;
+}
+.priceList .price-on.data-v-1a02b18a {
+  background: rgba(244, 222, 177, 0.25);
+  border: 2rpx solid #E6C177;
+}
+.priceList .price-on .money.data-v-1a02b18a {
+  color: #F0483D;
+}
+.priceList .price-on .money ._i.data-v-1a02b18a {
+  color: #F0483D;
+}
+.coupon.data-v-1a02b18a {
+  background-color: #fff;
+  margin-top: 24rpx;
+  padding: 32rpx 28rpx;
+  margin-bottom: 200rpx;
+}
+.coupon .couponList.data-v-1a02b18a {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 46rpx;
+}
+.coupon .couponList .couponItem.data-v-1a02b18a {
+  width: 336rpx;
+  height: 214rpx;
+  margin-right: 22rpx;
+  margin-bottom: 22rpx;
+  background-image: url(data:image/png;base64,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);
+  background-size: cover;
+  text-align: center;
+}
+.coupon .couponList .couponItem.data-v-1a02b18a:nth-child(2n) {
+  margin-right: 0;
+}
+.coupon .couponList .couponItem .money.data-v-1a02b18a {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  font-size: 56rpx;
+  font-weight: 600;
+  color: #6B472F;
+  line-height: 1.4;
+}
+.coupon .couponList .couponItem .money ._i.data-v-1a02b18a {
+  font-style: normal;
+  font-size: 28rpx;
+  color: #6B472F;
+}
+.coupon .couponList .couponItem .couponName.data-v-1a02b18a {
+  font-weight: 500;
+  color: #FEE2BC;
+  margin-top: 32rpx;
+}
+.footer.data-v-1a02b18a {
+  position: fixed;
+  bottom: 0;
+  width: 92%;
+  padding: 32rpx 28rpx;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+.footer .btn.data-v-1a02b18a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #FEE2BC;
+  width: 692rpx;
+  height: 80rpx;
+  background: #2A2B2F;
+  border-radius: 10rpx;
+  font-size: 32rpx;
+}
+.footer .btn ._i.data-v-1a02b18a {
+  font-style: normal;
+  color: #FEE2BC;
+  font-size: 24rpx;
+}
+.footer .btn text.data-v-1a02b18a {
+  margin-left: 10rpx;
+}
+

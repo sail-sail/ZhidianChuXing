@@ -1,0 +1,130 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+.screenDialog.data-v-2a14adc4 {
+  position: absolute;
+  top: 83rpx;
+  left: 0;
+  width: 100%;
+  height: 1000rpx;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 99;
+}
+.screenDialog .pop_main.data-v-2a14adc4 {
+  background: #FFFFFF;
+  padding-top: 20rpx;
+  padding-bottom: 24rpx;
+  border-radius: 0px 0px 40rpx 40rpx;
+  height: 100%;
+}
+.screenDialog .pop_main .pop_row.data-v-2a14adc4 {
+  margin: 0 28rpx 20rpx;
+}
+.screenDialog .pop_main .pop_row .row.data-v-2a14adc4 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.screenDialog .pop_main .pop_row .row .row_item.data-v-2a14adc4 {
+  width: 160rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  text-align: center;
+  background: #F5F5F5;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  color: #676767;
+  margin-right: 18rpx;
+  margin-bottom: 20rpx;
+}
+.screenDialog .pop_main .pop_row .row .row_item_on.data-v-2a14adc4 {
+  background-color: #00BC7E !important;
+  color: #fff !important;
+}
+.screenDialog .pop_main .pop_operation.data-v-2a14adc4 {
+  display: flex;
+  justify-content: space-between;
+  margin: 60rpx 28rpx 0;
+}
+.screenDialog .pop_main .pop_operation .btn.data-v-2a14adc4 {
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  font-size: 32rpx;
+}
+.screenDialog .pop_main .pop_operation .btn_cancel.data-v-2a14adc4 {
+  width: 160rpx;
+  border: 2rpx solid #E7E7E7;
+  margin-right: 30rpx;
+  color: #9A9A9A;
+}
+.screenDialog .pop_main .pop_operation .btn_confirm.data-v-2a14adc4 {
+  width: 510rpx;
+  background: #00BC7E;
+  color: #fff;
+}
+.pop_main .pai_row.data-v-2a14adc4 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 28rpx;
+}
+.pop_main .pai_row .dui.data-v-2a14adc4 {
+  width: 28rpx;
+  height: 20rpx;
+}
+.pop_main .pmain_l.data-v-2a14adc4 {
+  background: #F5F5F5;
+  width: 160rpx;
+  height: 100%;
+}
+.pop_main .pmain_l .pmain_l_item.data-v-2a14adc4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80rpx;
+  color: #343434;
+}
+.pop_main .pmain_l .pmain_l_item_on.data-v-2a14adc4 {
+  position: relative;
+  background: #fff !important;
+}
+.pop_main .pmain_l .pmain_l_item_on.data-v-2a14adc4::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 6rpx;
+  height: 40rpx;
+  background: #00BC7E;
+}
+.pop_main .pmain_r.data-v-2a14adc4 {
+  width: calc(100% - 160rpx);
+  background-color: #fff;
+  height: 100%;
+}
+.pop_main .pmain_r .pmain_r_item.data-v-2a14adc4 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 28rpx 20rpx 40rpx;
+  color: #343434;
+}
+.pop_main .pmain_r .pmain_r_item .dui.data-v-2a14adc4 {
+  width: 28rpx;
+  height: 20rpx;
+}
+.pop_main .pmain_r .pmain_r_item_on.data-v-2a14adc4 {
+  color: #00BC7E;
+}
+

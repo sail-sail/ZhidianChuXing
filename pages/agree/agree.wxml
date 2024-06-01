@@ -1,0 +1,1 @@
+<view class="container data-v-40f10d20"><view class="goods-details data-v-40f10d20"><rich-text nodes="{{detail}}" data-nodes="{{detail}}" data-event-opts="{{[['tap',[['showImg',['$event']]]]]}}" bindtap="__e" class="data-v-40f10d20"></rich-text></view></view>

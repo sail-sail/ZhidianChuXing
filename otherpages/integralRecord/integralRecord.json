@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "积分明细",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "loading-cover": "/components/loading-cover/loading-cover"
+  }
+}

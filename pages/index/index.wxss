@@ -1,0 +1,267 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+.banner .swiper-box.data-v-57280228 {
+  height: 388rpx;
+  overflow: hidden;
+}
+.movableArea.data-v-57280228 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.movableArea .movableView.data-v-57280228 {
+  width: 120rpx;
+  height: 48rpx;
+  pointer-events: auto;
+}
+.kefu.data-v-57280228 {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120rpx;
+  height: 48rpx;
+  font-size: 24rpx;
+  color: #00BC7E;
+  background: #FFFFFF;
+  box-shadow: 0px 4rpx 8rpx 0px rgba(0, 0, 0, 0.1);
+  border-radius: 200rpx 0px 0px 200rpx;
+}
+.kefu image.data-v-57280228 {
+  width: 32rpx;
+  height: 28rpx;
+  margin-right: 6rpx;
+}
+.boxCon.data-v-57280228 {
+  position: relative;
+  background: #FFFFFF;
+  box-shadow: 0px 8rpx 16rpx 6rpx rgba(0, 0, 0, 0.03);
+  border-radius: 20rpx;
+  padding: 24rpx;
+  margin: -32rpx 28rpx 32rpx;
+}
+.boxCon .box-option.data-v-57280228 {
+  border-bottom: 1px solid #F5F5F5;
+}
+.boxCon .box-option .optionItem.data-v-57280228:first-child {
+  width: 30%;
+}
+.boxCon .box-option .optionItem.data-v-57280228:last-child {
+  width: 70%;
+}
+.boxCon .xuan.data-v-57280228 {
+  margin-top: 40rpx;
+}
+.boxCon .xuan button.data-v-57280228 {
+  border-radius: 10rpx;
+  margin: 0;
+}
+.journeyCon.data-v-57280228 {
+  margin: 0 28rpx;
+}
+.journeyCon .goods.data-v-57280228 {
+  padding: 24rpx 24rpx 30rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+}
+.journeyCon .goods .img.data-v-57280228 {
+  width: 160rpx;
+  height: 136rpx;
+  border-radius: 10rpx;
+  margin-right: 24rpx;
+}
+.journeyCon .goods .info.data-v-57280228 {
+  flex: 1;
+}
+.journeyCon .goods .status.data-v-57280228 {
+  background: rgba(42, 110, 241, 0.1);
+  border-radius: 4rpx;
+  color: #2A6EF1;
+  width: 56rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+  text-align: center;
+  margin-right: 16rpx;
+  font-weight: normal;
+}
+.journeyCon .goods .goodsBtn .navigator.data-v-57280228 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 168rpx;
+  height: 56rpx;
+  border-radius: 10rpx;
+  border: 2rpx solid #E7E7E7;
+  color: #495161;
+}
+.journeyCon .goods .goodsBtn .icon.data-v-57280228 {
+  width: 28rpx;
+  height: 28rpx;
+  margin-right: 10rpx;
+}
+.journeyCon .goods .goodsBtn .rent.data-v-57280228 {
+  width: 462rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  border: 2rpx solid #00BC7E;
+  color: #00BC7E;
+}
+.notice.data-v-57280228 {
+  padding: 12rpx 16rpx;
+  margin: 24rpx 28rpx;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+}
+.notice .txt-img.data-v-57280228 {
+  width: 56rpx;
+  height: 56rpx;
+}
+.notice .main-wrap.data-v-57280228 {
+  display: inline-block;
+  width: 500rpx;
+  position: relative;
+  margin-left: 40rpx;
+}
+.notice .main-wrap .uni-swiper-msg.data-v-57280228 {
+  padding: 0;
+}
+.notice .main-wrap .uni-swiper-msg swiper.data-v-57280228 {
+  height: 36rpx;
+  font-size: 24rpx;
+  color: rgba(0, 0, 0, 0.8);
+}
+.advertiseCon.data-v-57280228 {
+  padding: 20rpx 16rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  margin: 0 28rpx;
+}
+.advertiseCon .vip.data-v-57280228 {
+  width: 662rpx;
+  height: 144rpx;
+  margin-bottom: 24rpx;
+}
+.advertiseCon .options .options-item.data-v-57280228 {
+  position: relative;
+  padding: 28rpx 24rpx;
+  width: 322rpx;
+  height: 168rpx;
+  border-radius: 20rpx;
+  box-sizing: border-box;
+}
+.advertiseCon .options .options-item .imgs.data-v-57280228 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 322rpx;
+  height: 168rpx;
+}
+.advertiseCon .options .item-scan.data-v-57280228 {
+  display: flex;
+  align-items: center;
+  font-size: 20rpx;
+  color: rgba(0, 0, 0, 0.4);
+}
+.advertiseCon .options .item1 .color1.data-v-57280228 {
+  color: #00A26D;
+}
+.advertiseCon .options .item2 .color2.data-v-57280228 {
+  color: #1556D1;
+}
+.goodsCon.data-v-57280228 {
+  margin: 40rpx 28rpx;
+}
+.goodsCard.data-v-57280228 {
+  margin-top: 24rpx;
+}
+.goodsCard .goods.data-v-57280228 {
+  padding: 24rpx;
+  border-radius: 20rpx;
+  margin-bottom: 24rpx;
+  background-color: #fff;
+}
+.goodsCard .goods .goodsTop.data-v-57280228 {
+  border-bottom: 2rpx solid #F5F5F5;
+  padding-bottom: 24rpx;
+}
+.goodsCard .goods .goodsTop .img.data-v-57280228 {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 10rpx;
+  margin-right: 24rpx;
+}
+.goodsCard .goods .goodsTop .info.data-v-57280228 {
+  flex: 1;
+}
+.goodsCard .goods .label.data-v-57280228 {
+  background: rgba(42, 241, 127, 0.15);
+  color: #00BC7E;
+  padding: 4rpx 8rpx;
+  font-size: 20rpx;
+  margin-right: 16rpx;
+  margin-bottom: 10rpx;
+}
+.goodsCard .goods .goodsBot .price.data-v-57280228 {
+  color: #FF622D;
+}
+.timeCon.data-v-57280228 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #F2F7F5;
+  margin: 0 auto;
+  padding: 8rpx 0;
+}
+.timeCon .line.data-v-57280228 {
+  display: inline-block;
+  width: 20rpx;
+  height: 4rpx;
+  background-color: #000;
+  margin: 0 20rpx;
+}
+.timeCon .timeTip.data-v-57280228 {
+  position: absolute;
+  bottom: -88rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 466rpx;
+  height: 64rpx;
+  background-color: #00BC7E;
+  border-radius: 10rpx;
+  color: #fff;
+  font-size: 30rpx;
+  z-index: 9;
+}
+.timeCon .timeTip.data-v-57280228:before {
+  position: absolute;
+  top: -20rpx;
+  content: '';
+  display: inline-block;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #00BC7E;
+}
+
