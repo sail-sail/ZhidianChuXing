@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "公告详情",
-  "enablePullDownRefresh": false,
-  "usingComponents": {
-    "u--text": "/node-modules/uview-ui/components/u--text/u--text"
-  }
-}

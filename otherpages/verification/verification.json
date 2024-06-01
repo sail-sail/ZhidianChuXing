@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "取车码",
-  "enablePullDownRefresh": false,
-  "navigationBarBackgroundColor": "#00BC7E",
-  "navigationBarTextStyle": "white",
-  "usingComponents": {
-    "u--text": "/node-modules/uview-ui/components/u--text/u--text"
-  }
-}

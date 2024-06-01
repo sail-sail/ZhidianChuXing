@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "外调车辆",
-  "enablePullDownRefresh": false,
-  "usingComponents": {
-    "u--text": "/node-modules/uview-ui/components/u--text/u--text",
-    "u-icon": "/node-modules/uview-ui/components/u-icon/u-icon",
-    "transfer-car": "/components/transfer-car/transfer-car"
-  }
-}

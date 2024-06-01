@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "取消订单",
-  "enablePullDownRefresh": false,
-  "usingComponents": {
-    "u-icon": "/node-modules/uview-ui/components/u-icon/u-icon",
-    "cancel-pop": "/components/cancel-pop/cancel-pop"
-  }
-}
