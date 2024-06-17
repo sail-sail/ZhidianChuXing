@@ -1,1 +1,0 @@
-.row-list{background-color:#fff;border-radius:20rpx;margin:32rpx 24rpx}.row-list .row-item{display:flex;justify-content:space-between;align-items:center;height:82rpx;padding:0 24rpx}.row-list .menu-img{width:52rpx;height:52rpx;margin-right:12rpx}

@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "业绩管理",
-  "enablePullDownRefresh": false,
-  "usingComponents": {
-    "u-datetime-picker": "/node-modules/uview-ui/components/u-datetime-picker/u-datetime-picker"
-  }
-}

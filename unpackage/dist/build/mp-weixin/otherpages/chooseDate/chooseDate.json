@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "选择时间",
-  "enablePullDownRefresh": false,
-  "usingComponents": {
-    "calendar": "/components/dc-calendar/dc-calendar"
-  }
-}

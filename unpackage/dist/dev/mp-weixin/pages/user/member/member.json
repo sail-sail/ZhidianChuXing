@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "我的",
-  "enablePullDownRefresh": false,
-  "usingComponents": {
-    "u-icon": "/node-modules/uview-ui/components/u-icon/u-icon",
-    "diy-bottom-nav": "/components/diy-bottom-nav/diy-bottom-nav"
-  }
-}
