@@ -1,0 +1,329 @@
+// 页面容器
+.container {
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  padding-bottom: calc(100px + env(safe-area-inset-bottom));
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background-color: rgb(245, 246, 249);
+}
+
+//初次弹窗 租车声明
+.info {
+  color: rgb(0, 157, 255);
+}
+
+.btn-item {
+  border: none !important;
+}
+
+// 轮播图
+.swiper {
+  height: 380px;
+}
+
+.swiper-item {
+  image {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// 送还地点 选车
+.return-vehicle-box {
+  box-sizing: border-box;
+  width: 90vw;
+  position: relative;
+  top: -1vh;
+  left: 5vw;
+  background-color: #fff;
+  box-shadow: 0px 8rpx 16rpx 6rpx rgba(0, 0, 0, 0.03);
+  border-radius: 20rpx;
+  padding: 15rpx;
+
+  .use-time {
+    font-weight: bold;
+    height: 60px;
+    width: 100%;
+    background-color: rgb(242, 247, 245);
+    text-align: center;
+    line-height: 60px;
+  }
+
+  .city-address {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 16rpx;
+
+    .city-model {
+      width: 25%;
+    }
+
+    .address-model {
+      flex: 1;
+    }
+
+    .city-title,
+    .address-title {
+      font-size: 24rpx;
+      color: gray;
+      text-align: center;
+      margin-bottom: 8rpx;
+    }
+
+    .city-content,
+    .address-content {
+      text-align: center;
+      margin-bottom: 16rpx;
+    }
+  }
+
+  .service-fee {
+    font-size: 24rpx;
+    color: gray;
+    margin-top: 8rpx;
+  }
+}
+
+// 租车须知
+.notice-box {
+  box-sizing: border-box;
+  width: 90vw;
+  position: relative;
+  left: 5vw;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 8rpx 16rpx 6rpx rgba(0, 0, 0, 0.03);
+  border-radius: 20rpx;
+  padding: 15rpx;
+
+  .model {
+    display: flex;
+    align-items: center;
+
+    view {
+      margin-left: 36rpx;
+      font-size: 24rpx;
+      color: gray;
+    }
+  }
+
+  .noticeImg {
+    width: 60rpx;
+    height: 60rpx;
+  }
+}
+
+// 广告
+.advertisement {
+  box-sizing: border-box;
+  width: 90vw;
+  position: relative;
+  left: 5vw;
+  background-color: #fff;
+  box-shadow: 0px 8rpx 16rpx 6rpx rgba(0, 0, 0, 0.03);
+  border-radius: 20rpx;
+  padding: 15rpx;
+  margin-top: 1vh;
+
+  .advertisement-top {
+    width: 100%;
+    height: 150rpx;
+
+    image {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .advertisement-bottom {
+    margin-top: 1vh;
+    width: 100%;
+    height: 150rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .left {
+      width: 49%;
+      height: 100%;
+      position: relative;
+
+      image {
+        width: 100%;
+        height: 100%;
+      }
+
+      .model {
+        position: absolute;
+        top: 10%;
+        left: 5%;
+
+        & view:nth-child(1) {
+          color: #00A26D;
+        }
+
+        & view:nth-child(2) {
+          font-size: 28rpx;
+          margin-top: 8rpx;
+          margin-bottom: 8rpx;
+        }
+
+        & view:nth-child(3) {
+          color: rgba(0, 0, 0, 0.4);
+          font-size: 20rpx;
+        }
+      }
+    }
+
+    .right {
+      width: 49%;
+      height: 100%;
+      position: relative;
+
+      image {
+        width: 100%;
+        height: 100%;
+      }
+
+      .model {
+        position: absolute;
+        top: 10%;
+        left: 5%;
+
+        & view:nth-child(1) {
+          color: #1556D1;
+        }
+
+        & view:nth-child(2) {
+          font-size: 28rpx;
+          margin-top: 8rpx;
+          margin-bottom: 8rpx;
+        }
+
+        & view:nth-child(3) {
+          color: rgba(0, 0, 0, 0.4);
+          font-size: 20rpx;
+        }
+      }
+    }
+
+  }
+}
+
+// 特价推荐
+.special-recommen {
+  box-sizing: border-box;
+  width: 90vw;
+  position: relative;
+  left: 5vw;
+  // box-shadow: 0px 8rpx 16rpx 6rpx rgba(0, 0, 0, 0.03);
+  border-radius: 20rpx;
+  padding: 15rpx;
+  margin-top: 1vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & view:nth-child(1) {
+    font-weight: bold;
+  }
+
+  & view:nth-child(2) {
+    color: gray;
+    font-size: 24rpx;
+  }
+}
+
+// 车型列表
+.vehicle-list {
+  box-sizing: border-box;
+  width: 90vw;
+  position: relative;
+  left: 5vw;
+  background-color: #fff;
+  box-shadow: 0px 8rpx 16rpx 6rpx rgba(0, 0, 0, 0.03);
+  border-radius: 20rpx;
+  padding: 15rpx;
+  margin-top: 1vh;
+
+  .images-codes {
+    display: flex;
+
+    image {
+      width: 35%;
+      height: 175px;
+    }
+
+    .codes {
+      flex: 1;
+      margin-left: 16rpx;
+
+      .code-name {
+        font-weight: bold;
+      }
+
+      .code-special {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 8rpx;
+
+        view {
+          font-size: 24rpx;
+          color: #666;
+        }
+      }
+    }
+  }
+
+  .at-divider {
+    height: 50rpx;
+    .at-divider__line{
+      background-color: #ddd;
+    }
+  }
+
+  .character {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1vh;
+    view {
+      font-size: 22rpx;
+      color: #00BC7E;
+      background-color: rgba(42, 241, 127, 0.15);
+      height: 36rpx;
+      line-height: 36rpx;
+      margin-right: 8rpx;
+    }
+  }
+
+  .detail-money{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .detail{
+      font-size: 24rpx;
+      color: gray;
+    }
+    .money{
+      color: red;
+      font-size: 28rpx;
+      & text:nth-child(1){
+        font-size: 24rpx;
+      }
+      & text:nth-child(2){
+        font-size: 30rpx;
+        color:rgba(0,0,0,0.5);
+      }
+      & text:nth-child(3){
+        font-size: 30rpx;
+        color: rgba(0,0,0,0.5);
+      }
+    }
+  }
+
+
+}
