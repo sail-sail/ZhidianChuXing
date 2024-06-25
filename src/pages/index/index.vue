@@ -10,10 +10,16 @@
 
     <!-- 送还地点 选车 -->
     <view class="return-vehicle-box">
-      <view class="use-time">
-        {{ returnVehicleObj.startDate }}&nbsp;{{ returnVehicleObj.startTime }}
-        <text>-</text>
-        {{ returnVehicleObj.endDate }}&nbsp;{{ returnVehicleObj.endTime }}
+      <view class="use-time" v-on:touchstart="chooseDateInfo">
+        <text>
+          {{ returnVehicleObj.startDate }}
+          {{ returnVehicleObj.startTime }}
+        </text>
+        <text>&nbsp;-&nbsp;</text>
+        <text>
+          {{ returnVehicleObj.endDate }}
+          {{ returnVehicleObj.endTime }}
+        </text>
       </view>
       <!-- 送车城市 地点 -->
       <view class="city-address">
@@ -28,7 +34,7 @@
         </view>
       </view>
       <!-- 选车按钮 -->
-      <AtButton type='primary' :size="'small'" >去选车</AtButton>
+      <AtButton type='primary' :size="'small'">去选车</AtButton>
       <!-- 提示服务费 -->
       <view class="service-fee">上门送取¥{{ serviceFee }}</view>
     </view>
@@ -117,18 +123,16 @@
     <customTabBar></customTabBar>
 
     <!-- 租车声明 -->
-    <AtModal :isOpened="isOpened">
-      <AtModalHeader>感谢您使用质电租车小程序</AtModalHeader>
-      <AtModalContent>
-        我们非常重视您的个人信息和隐私保护。为了有效保障您的个人权益，在使用神州租车小程序前，请您务必审慎阅读
-        <text class="info">《质电租车小程序隐私保护指引》</text>
-        内的所有条款。当您点击同意并开始使用产品服务时，即表示您已理解并同意该条款内容，该条款将对您产生法律约束力。如后再次使用质电租车小程序，即表示您已同意《质电租车小程序隐私保护指引》
-      </AtModalContent>
-      <AtModalAction>
-        <AtButton class="btn-item" @click="handleCancel">取消</AtButton>
-        <AtButton class="btn-item" @click="handleConfirm">确定</AtButton>
-      </AtModalAction>
-    </AtModal>
+    <stateMent :isOpened="stateMentOpened" @confirm="handleStateMentConfirm" @cancel="handleStateMentCancel">
+    </stateMent>
+
+    <!-- 选择时间 -->
+    <selectDate
+      :isOpened="isSelectDateOpend"
+      :returnVehicleObj="returnVehicleObj"
+      @close="handleSelectDateClose"
+    ></selectDate>
+
   </view>
 </template>
 
@@ -144,6 +148,8 @@ import config from '../utils/config';
 import './index.scss'
 
 import customTabBar from '../custom-tab-bar/custom-tab-bar.vue'
+import stateMent from '../statement/statement.vue'
+import selectDate from '../selectdate/selectdate.vue';
 
 // 轮播图
 let bannarList = ref<any[]>([])
@@ -172,19 +178,35 @@ let advertisement3 = require('/src/assets/advertisement3.png')
 // 车型列表
 let vehicleList = ref<any[]>([])
 
-//后期需要根据userInfo(是否登录过控制弹出)
-let isOpened = ref<boolean>(true)
+let isSelectDateOpend = ref<boolean>(false)
+function chooseDateInfo() {
+  isSelectDateOpend.value = true;
+}
 
-//初次登录的时候的弹窗确认
-function handleConfirm() {
-  isOpened.value = !isOpened.value;
+function handleSelectDateClose(){
+  isSelectDateOpend.value = false;
+}
+
+
+//后期需要根据userInfo(是否登录过控制弹出)
+let stateMentOpened = ref<boolean>(true)
+function handleStateMentConfirm(obj) {
+  if (obj) {
+    positionInfo.value = obj
+  }
+}
+function handleStateMentCancel() {
+  stateMentOpened.value = false
+}
+
+// 选择地点
+function chooseLoactionInfo() {
   Taro.authorize({
     scope: 'scope.userLocation',
     success: function () {
-      Taro.getLocation({
-        type: 'wgs84',
+      Taro.chooseLocation({
         success: function (res) {
-          console.log(res)
+          console.log(res, '选择的地址')
           const latitude = res.latitude
           const longitude = res.longitude
           const qqmapsdk = new QQMapWX({ key: config.mpKey })
@@ -194,7 +216,7 @@ function handleConfirm() {
               longitude: longitude
             },
             success: function (res) {
-              console.log(res.result);
+              console.log(res, '解析的地址')
               Taro.setStorage({
                 key: 'location',
                 data: {
@@ -211,28 +233,7 @@ function handleConfirm() {
             fail: function (res) {
               console.log('解析具体位置失败：', res);
             }
-          }
-          )
-        }
-      })
-    }
-  });
-
-}
-//初次登录的时候的弹窗取消
-function handleCancel() {
-  isOpened.value = !isOpened.value;
-}
-
-// 选择地点
-function chooseLoactionInfo() {
-  Taro.authorize({
-    scope: 'scope.userLocation',
-    success: function (res) {
-      console.log(res)
-      Taro.chooseLocation({
-        success: function (res) {
-          console.log(res, 'res')
+          })
         },
         fail: function (err) {
           console.log(err)
@@ -241,7 +242,6 @@ function chooseLoactionInfo() {
     }
   });
 }
-
 
 
 //获取轮播图
@@ -258,7 +258,6 @@ async function getBannerListApi() {
             })
           }
           bannarList.value = banner
-          console.log(bannarList)
         }
       }
     }
