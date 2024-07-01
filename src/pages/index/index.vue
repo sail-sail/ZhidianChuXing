@@ -34,7 +34,7 @@
         </view>
       </view>
       <!-- 选车按钮 -->
-      <AtButton type='primary' :size="'small'">去选车</AtButton>
+      <AtButton type='primary' :size="'small'" v-on:touchstart="selectVehicleMoedl">去选车</AtButton>
       <!-- 提示服务费 -->
       <view class="service-fee">上门送取¥{{ serviceFee }}</view>
     </view>
@@ -127,11 +127,8 @@
     </stateMent>
 
     <!-- 选择时间 -->
-    <selectDate
-      :isOpened="isSelectDateOpend"
-      :returnVehicleObj="returnVehicleObj"
-      @close="handleSelectDateClose"
-    ></selectDate>
+    <selectDate :isOpened="isSelectDateOpend" :returnVehicleObj="returnVehicleObj" @close="handleSelectDateClose">
+    </selectDate>
 
   </view>
 </template>
@@ -183,13 +180,13 @@ function chooseDateInfo() {
   isSelectDateOpend.value = true;
 }
 
-function handleSelectDateClose(){
+function handleSelectDateClose() {
   isSelectDateOpend.value = false;
 }
 
 
 //后期需要根据userInfo(是否登录过控制弹出)
-let stateMentOpened = ref<boolean>(true)
+let stateMentOpened = ref<boolean>(false)
 function handleStateMentConfirm(obj) {
   if (obj) {
     positionInfo.value = obj
@@ -241,6 +238,13 @@ function chooseLoactionInfo() {
       })
     }
   });
+}
+
+// 跳转到选车页面
+function selectVehicleMoedl() {
+  Taro.navigateTo({
+    url: '/pages/vehicleModel/vehicleModel',
+  })
 }
 
 
