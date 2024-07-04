@@ -75,3 +75,12 @@
     }
   }
 }
+
+.nut-category__cateListItemChecked::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  width: 10rpx;
+  height: 36rpx;
+  background: var(--nut-category-list-item-checked-img-bg-color, var(--nut-primary-color, rgb(38, 177, 121)));
+}
