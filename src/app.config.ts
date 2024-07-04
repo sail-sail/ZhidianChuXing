@@ -2,7 +2,7 @@ export default defineAppConfig({
   pages: [
     'pages/index/index',
     'pages/my/my',
-    'pages/vehicleModel/vehicleModel'
+    'pages/vehicleModel/vehicleModel',
   ],
 
   window: {

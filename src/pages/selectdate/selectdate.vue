@@ -1,6 +1,14 @@
 <template>
   <!-- 选择日期 -->
   <AtFloatLayout :isOpened="isOpened" title="请选择取还车日期" @close="handleClose">
+    <nut-date-picker
+    v-model="val"
+    type="datetime"
+    :min-date="min"
+    :max-date="max"
+    :three-dimensional="false"
+    @confirm="confirm"
+  ></nut-date-picker>
     <!-- 取车日期 -->
     <view class="error" v-if="startDatetext !== ''">{{ startDatetext }}</view>
     <view class="pickup">
@@ -55,8 +63,14 @@ const props = withDefaults(
     returnVehicleObj: any
   }>(), {
   isOpened: false
+})
+
+const min = new Date(2020, 0, 1, 10, 40)
+const max = new Date(2025, 10, 1, 23, 29)
+const val = ref(new Date())
+const confirm = ({ selectedValue }) => {
+  console.log(selectedValue)
 }
-)
 
 //后期需要根据userInfo(是否登录过控制弹出)
 let isOpened = ref<boolean>(props.isOpened)

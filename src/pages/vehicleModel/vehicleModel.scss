@@ -1,5 +1,77 @@
-.index{
-  color: red;
-  background-color: green;
-  border: none;
+.vehicle-container{
+  background-color: rgb(245, 246, 249);
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+// 送还地点 选车
+.return-vehicle-box {
+  box-sizing: border-box;
+  position: relative;
+  background-color: #fff;
+  box-shadow: 0px 8rpx 16rpx 6rpx rgba(0, 0, 0, 0.03);
+  border-radius: 20rpx;
+  padding: 15rpx;
+  font-size: 36rpx;
+  .use-time {
+    font-weight: bold;
+    height: 60px;
+    width: 100%;
+    background-color: rgb(242, 247, 245);
+    text-align: center;
+    line-height: 60px;
+    z-index: 2;
+  }
+
+  .city-address {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 16rpx;
+
+    .city-model {
+      width: 25%;
+    }
+
+    .address-model {
+      flex: 1;
+      z-index: 2;
+    }
+
+    .city-title,
+    .address-title {
+      font-size: 24rpx;
+      color: #333;
+      text-align: center;
+      margin-bottom: 8rpx;
+    }
+
+    .city-content,
+    .address-content {
+      text-align: center;
+      margin-bottom: 16rpx;
+    }
+  }
+
+  .service-fee-search {
+    font-size: 24rpx;
+    color: #333;
+    margin-top: 8rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .service-fee{
+      background-color: rgb(242, 247, 245);
+      border-radius: 20px;
+      box-sizing: border-box;
+      padding: 10px 20px;
+    }
+    .search{
+      background-color: rgb(242, 247, 245);
+      border-radius: 20px;
+      box-sizing: border-box;
+      padding: 10px 20px;
+    }
+  }
 }

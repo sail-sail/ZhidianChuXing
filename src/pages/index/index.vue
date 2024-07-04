@@ -1,12 +1,13 @@
 <template>
   <view class="container">
+    <nut-button shape="round" type="info" :size="'small'" @click="login">一键登录</nut-button>
     <!-- 轮播图 -->
-    <swiper indicator-color='#999' indicator-active-color='#333' :vertical="false" :circular="true" :autoplay="true"
-      class="swiper">
-      <swiper-item v-for="item in bannarList" :key="item.id" :itemId="item.id" class="swiper-item">
+    <nut-swiper :init-page="0" :auto-play="3000" pagination-visible pagination-color="#426543"
+      pagination-unselected-color="#808080" class="swiper">
+      <nut-swiper-item v-for="item in bannarList" :key="item.id" :itemId="item.id" class="swiper-item">
         <image :src="item.image"></image>
-      </swiper-item>
-    </swiper>
+      </nut-swiper-item>
+    </nut-swiper>
 
     <!-- 送还地点 选车 -->
     <view class="return-vehicle-box">
@@ -34,7 +35,8 @@
         </view>
       </view>
       <!-- 选车按钮 -->
-      <AtButton type='primary' :size="'small'" v-on:touchstart="selectVehicleMoedl">去选车</AtButton>
+      <nut-button class="select-vehicle-button" shape="round" type="info" :size="'small'"
+        @click="selectVehicleMoedl">去选车</nut-button>
       <!-- 提示服务费 -->
       <view class="service-fee">上门送取¥{{ serviceFee }}</view>
     </view>
@@ -142,6 +144,7 @@ import QQMapWX from '../utils/map-wx-jssdk';
 import sentRequest from '../utils/http'
 import common from '../utils/common'
 import config from '../utils/config';
+import auth from '../utils/auth'
 import './index.scss'
 
 import customTabBar from '../custom-tab-bar/custom-tab-bar.vue'
@@ -186,7 +189,7 @@ function handleSelectDateClose() {
 
 
 //后期需要根据userInfo(是否登录过控制弹出)
-let stateMentOpened = ref<boolean>(false)
+let stateMentOpened = ref<boolean>(true)
 function handleStateMentConfirm(obj) {
   if (obj) {
     positionInfo.value = obj
@@ -299,8 +302,16 @@ async function getVehicleListApi() {
   })
 }
 
+function login() {
+  // 登录 记录userInfo
+  auth.login()
+}
+
 // 页面加载的时
 onMounted(async () => {
+
+
+
   //后期需要根据userInfo(是否登录过控制弹出)
 
 

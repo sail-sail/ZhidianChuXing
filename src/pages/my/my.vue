@@ -3,8 +3,7 @@
     <!-- 头像 是否是vip -->
     <view class="avater-vip-container">
       <!-- 头像 -->
-      <AtAvatar :image='noticeImg' circle>
-      </AtAvatar>
+      <nut-avatar size="normal"> <img :src="noticeImg" /> </nut-avatar>
       <!-- 用户名 是否是vip  赚积分-->
       <view class="vip-container">
         <view>
@@ -47,7 +46,7 @@
         </view>
         <view class="balance-container">
           <view>余额</view>
-          <view>0.00</view>
+          <nut-price :price="8888.11" :decimal-digits="2" />
         </view>
         <view class="coupon-container">
           <view>优惠卷</view>

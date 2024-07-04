@@ -15,9 +15,9 @@ const App = createApp({
 })
 
 // 引用全部组件
-const tuv3 = createUI()
 const pinia = createPinia()
-App.use(tuv3)
+const tuv3 = createUI()
 App.use(pinia)
+App.use(tuv3)
 
 export default App

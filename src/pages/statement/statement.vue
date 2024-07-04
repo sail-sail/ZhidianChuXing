@@ -1,17 +1,19 @@
 <template>
   <!-- 租车声明 -->
-  <AtModal :isOpened="isOpened">
-    <AtModalHeader>感谢您使用质电租车小程序</AtModalHeader>
-    <AtModalContent>
-      我们非常重视您的个人信息和隐私保护。为了有效保障您的个人权益，在使用神州租车小程序前，请您务必审慎阅读
-      <text class="info">《质电租车小程序隐私保护指引》</text>
-      内的所有条款。当您点击同意并开始使用产品服务时，即表示您已理解并同意该条款内容，该条款将对您产生法律约束力。如后再次使用质电租车小程序，即表示您已同意《质电租车小程序隐私保护指引》
-    </AtModalContent>
-    <AtModalAction>
-      <AtButton class="btn-item" @click="handleCancel">取消</AtButton>
-      <AtButton class="btn-item" @click="handleConfirm">确定</AtButton>
-    </AtModalAction>
-  </AtModal>
+  <nut-dialog
+    teleport="#app"
+    close-on-click-overlay="false"
+    title="感谢您使用质电租车小程序"
+    v-model:visible="isOpened"
+    :onOk="handleConfirm"
+    :onCancel="handleCancel"
+  >
+    我们非常重视您的个人信息和隐私保护。为了有效保障您的个人权益，在使用神州租车小程序前，请您务必审慎阅读
+    <text style='color:red' v-on:touchstart="read">《质电租车小程序隐私保护指引》</text>
+    内的所有条款。当您点击同意并开始使用产品服务时，即表示您已理解并同意该条款内容，该条款将对您产生法律约束力。如后再次使用质电租车小程序，即表示您已同意《质电租车小程序隐私保护指引》
+  </nut-dialog>
+
+  <nut-popup v-model:visible="show" :style="{ padding: '30px 50px' }"> 正文 </nut-popup>
 </template>
 
 <script setup lang="ts">
@@ -22,7 +24,7 @@ import QQMapWX from '../utils/map-wx-jssdk';
 import config from '../utils/config';
 import './statement.scss'
 
-const emit = defineEmits(['confirm','cancel'])//声明传递的事件名
+const emit = defineEmits(['confirm', 'cancel'])//声明传递的事件名
 
 const props = withDefaults(
   defineProps<{
@@ -32,14 +34,17 @@ const props = withDefaults(
 }
 )
 
-//后期需要根据userInfo(是否登录过控制弹出)
 let isOpened = ref<boolean>(props.isOpened)
-
 watch(() => props.isOpened,
   () => {
     isOpened.value = props.isOpened;
   })
 
+let show = ref<boolean>(false)
+//阅读通知
+function read() {
+  show.value = true
+}
 
 //初次登录的时候的弹窗确认
 function handleConfirm() {
