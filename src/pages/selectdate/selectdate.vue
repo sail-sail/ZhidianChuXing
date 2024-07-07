@@ -11,6 +11,7 @@
 
 <script setup lang="ts">
 import { ref, watch } from 'vue'
+import Taro from '@tarojs/taro'
 import dayjs from 'dayjs';
 import './selectdate.scss'
 
@@ -32,6 +33,12 @@ const confirm = ({ selectedValue }) => {
     returnVehicleObj.value.endDate = dayjs(new Date(selectedValue[0], selectedValue[1], selectedValue[2])).format('YYYY-MM-DD')
     returnVehicleObj.value.endTime = `${selectedValue[3]}:${selectedValue[4]}`
   }
+  //存档。
+  Taro.setStorage({
+    key: "pickupDateTime",
+    data: returnVehicleObj
+  })
+
   isOpened.value = false
   emit('confirm')
 }

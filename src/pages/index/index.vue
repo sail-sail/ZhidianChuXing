@@ -129,15 +129,14 @@
     </stateMent>
 
     <!-- 选择时间 -->
-    <selectDate
-      :isOpened="isSelectDateOpend"
-      :returnVehicleObj="returnVehicleObj"
-      :type="type"
-      @confirm = "handleSelectDateCallBack"
-      @close = "handleSelectDateCallBack"
-    >
+    <selectDate :isOpened="isSelectDateOpend" :returnVehicleObj="returnVehicleObj" :type="type"
+      @confirm="handleSelectDateCallBack" @close="handleSelectDateCallBack">
     </selectDate>
 
+    <!-- 警告提示 -->
+    <nut-overlay v-model:visible="overlayShow" class=overlay-container>
+      <view style="font-size:28rpx;">{{ overlayText }}</view>
+    </nut-overlay>
   </view>
 </template>
 
@@ -160,7 +159,7 @@ import selectDate from '../selectdate/selectdate.vue';
 // 轮播图
 let bannarList = ref<any[]>([])
 // 送还选车时间
-let type = ref<string|undefined>()
+let type = ref<string | undefined>()
 let returnVehicleObj = ref<any>({
   startDate: dayjs().format('YYYY-MM-DD'),
   endDate: dayjs().add(2, 'day').format('YYYY-MM-DD'),
@@ -173,6 +172,7 @@ let positionInfo = ref<any>({
   city: '',
   address: ''
 })
+
 // 服务费用
 let serviceFee = ref<number>(0)
 // @ts-ignore
@@ -185,6 +185,9 @@ let advertisement2 = require('/src/assets/advertisement2.png')
 let advertisement3 = require('/src/assets/advertisement3.png')
 // 车型列表
 let vehicleList = ref<any[]>([])
+// 警告提示
+let overlayShow = ref<boolean>(false)
+let overlayText = ref<string>('')
 
 let isSelectDateOpend = ref<boolean>(false)
 function chooseDateInfo(type_: string) {
@@ -201,6 +204,7 @@ let stateMentOpened = ref<boolean>(false)
 function handleStateMentConfirm(obj) {
   if (obj) {
     positionInfo.value = obj
+    //存档。
   }
 }
 function handleStateMentCancel() {
@@ -253,11 +257,21 @@ function chooseLoactionInfo() {
 
 // 跳转到选车页面
 function selectVehicleMoedl() {
+  if (dayjs(returnVehicleObj.value.startDate).unix() >= dayjs(returnVehicleObj.value.endDate).unix()) {
+    overlayText.value = '取车时间不能大于还车时间'
+    overlayShow.value = true;
+    return;
+  }
+  if (positionInfo.value.city === '' && positionInfo.value.address === '') {
+    console.log(positionInfo.value,'positionInfo.value')
+    overlayText.value = '取车城市地点不能为空请授权定位!'
+    overlayShow.value = true;
+    return;
+  }
   Taro.navigateTo({
     url: '/pages/vehicleModel/vehicleModel',
   })
 }
-
 
 //获取轮播图
 async function getBannerListApi() {
@@ -317,8 +331,11 @@ function login() {
 
 // 页面加载的时
 onMounted(async () => {
-
-
+  //存档。
+  Taro.setStorage({
+    key: "pickupDateTime",
+    data: returnVehicleObj
+  })
 
   //后期需要根据userInfo(是否登录过控制弹出)
 

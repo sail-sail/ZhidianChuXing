@@ -37,9 +37,7 @@
 
     </view>
 
-    <!-- 选择时间 -->
-    <selectDate :isOpened="isSelectDateOpend" :returnVehicleObj="returnVehicleObj" @close="handleSelectDateClose">
-    </selectDate>
+
 
   </view>
 </template>
@@ -337,6 +335,13 @@ const onChange = (e) => {
 }
 // 页面加载的时
 onMounted(async () => {
+  //读取取车还车时间
+  Taro.getStorage({
+    key: 'pickupDateTime',
+    success: function (res) {
+      returnVehicleObj.value = res.data._value
+    }
+  })
 
   // 调取各接口
 
