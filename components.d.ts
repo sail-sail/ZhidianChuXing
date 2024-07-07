@@ -20,5 +20,7 @@ declare module 'vue' {
     NutPrice: typeof import('@nutui/nutui-taro')['Price']
     NutSwiper: typeof import('@nutui/nutui-taro')['Swiper']
     NutSwiperItem: typeof import('@nutui/nutui-taro')['SwiperItem']
+    NutTabPane: typeof import('@nutui/nutui-taro')['TabPane']
+    NutTabs: typeof import('@nutui/nutui-taro')['Tabs']
   }
 }

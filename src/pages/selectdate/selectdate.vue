@@ -26,11 +26,12 @@ const props = withDefaults(
 })
 
 const confirm = ({ selectedValue }) => {
+  console.log(selectedValue,'selectedValue')
   if (type.value === 'start') {
-    returnVehicleObj.value.startDate = dayjs(new Date(selectedValue[0], selectedValue[1], selectedValue[2])).format('YYYY-MM-DD')
+    returnVehicleObj.value.startDate = dayjs(new Date(selectedValue[0], selectedValue[1]-1, selectedValue[2])).format('YYYY-MM-DD')
     returnVehicleObj.value.startTime = `${selectedValue[3]}:${selectedValue[4]}`
   } else if (type.value === 'end') {
-    returnVehicleObj.value.endDate = dayjs(new Date(selectedValue[0], selectedValue[1], selectedValue[2])).format('YYYY-MM-DD')
+    returnVehicleObj.value.endDate = dayjs(new Date(selectedValue[0], selectedValue[1]-1, selectedValue[2])).format('YYYY-MM-DD')
     returnVehicleObj.value.endTime = `${selectedValue[3]}:${selectedValue[4]}`
   }
   //存档。

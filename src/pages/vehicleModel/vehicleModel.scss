@@ -1,9 +1,11 @@
-.vehicle-container{
+.vehicle-container {
   background-color: rgb(245, 246, 249);
   height: 100vh;
   width: 100vw;
   overflow: hidden;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 // 送还地点 选车
@@ -15,6 +17,7 @@
   border-radius: 20rpx;
   padding: 15rpx;
   font-size: 36rpx;
+
   .use-time {
     font-weight: bold;
     height: 60px;
@@ -61,13 +64,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    .service-fee{
+
+    .service-fee {
       background-color: rgb(242, 247, 245);
       border-radius: 20px;
       box-sizing: border-box;
       padding: 10px 20px;
     }
-    .search{
+
+    .search {
       background-color: rgb(242, 247, 245);
       border-radius: 20px;
       box-sizing: border-box;
@@ -76,11 +81,10 @@
   }
 }
 
-.nut-category__cateListItemChecked::before {
-  position: absolute;
-  content: "";
-  left: 0;
-  width: 10rpx;
-  height: 36rpx;
-  background: var(--nut-category-list-item-checked-img-bg-color, var(--nut-primary-color, rgb(38, 177, 121)));
+.nut-tabs.vertical {
+  flex: 1;
+}
+
+.nut-tabs.vertical>.nut-tabs__titles {
+  padding: 0 !important;
 }

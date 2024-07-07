@@ -169,8 +169,10 @@ let returnVehicleObj = ref<any>({
 
 // 位置信息
 let positionInfo = ref<any>({
-  city: '',
-  address: ''
+  latitude: '',
+  longitude: '',
+  city: '佛山市',
+  address: '顺德区大良街道欢乐大道'
 })
 
 // 服务费用
@@ -263,11 +265,20 @@ function selectVehicleMoedl() {
     return;
   }
   if (positionInfo.value.city === '' && positionInfo.value.address === '') {
-    console.log(positionInfo.value,'positionInfo.value')
+    console.log(positionInfo.value, 'positionInfo.value')
     overlayText.value = '取车城市地点不能为空请授权定位!'
     overlayShow.value = true;
     return;
   }
+  // 存储 日期时间 地点
+  Taro.setStorage({
+    key: "pickupDateTime",
+    data: returnVehicleObj
+  })
+  Taro.setStorage({
+    key: 'location',
+    data: positionInfo
+  })
   Taro.navigateTo({
     url: '/pages/vehicleModel/vehicleModel',
   })
@@ -331,12 +342,6 @@ function login() {
 
 // 页面加载的时
 onMounted(async () => {
-  //存档。
-  Taro.setStorage({
-    key: "pickupDateTime",
-    data: returnVehicleObj
-  })
-
   //后期需要根据userInfo(是否登录过控制弹出)
 
 
