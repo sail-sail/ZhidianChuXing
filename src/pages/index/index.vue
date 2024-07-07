@@ -11,13 +11,13 @@
 
     <!-- 送还地点 选车 -->
     <view class="return-vehicle-box">
-      <view class="use-time" v-on:touchstart="chooseDateInfo">
-        <text>
+      <view class="use-time">
+        <text v-on:touchstart="chooseDateInfo('start')">
           {{ returnVehicleObj.startDate }}
           {{ returnVehicleObj.startTime }}
         </text>
         <text>&nbsp;-&nbsp;</text>
-        <text>
+        <text v-on:touchstart="chooseDateInfo('end')">
           {{ returnVehicleObj.endDate }}
           {{ returnVehicleObj.endTime }}
         </text>
@@ -129,7 +129,13 @@
     </stateMent>
 
     <!-- 选择时间 -->
-    <selectDate :isOpened="isSelectDateOpend" :returnVehicleObj="returnVehicleObj" @close="handleSelectDateClose">
+    <selectDate
+      :isOpened="isSelectDateOpend"
+      :returnVehicleObj="returnVehicleObj"
+      :type="type"
+      @confirm = "handleSelectDateCallBack"
+      @close = "handleSelectDateCallBack"
+    >
     </selectDate>
 
   </view>
@@ -154,12 +160,14 @@ import selectDate from '../selectdate/selectdate.vue';
 // 轮播图
 let bannarList = ref<any[]>([])
 // 送还选车时间
+let type = ref<string|undefined>()
 let returnVehicleObj = ref<any>({
   startDate: dayjs().format('YYYY-MM-DD'),
   endDate: dayjs().add(2, 'day').format('YYYY-MM-DD'),
   startTime: '14:00',
   endTime: '14:00',
 })
+
 // 位置信息
 let positionInfo = ref<any>({
   city: '',
@@ -179,11 +187,11 @@ let advertisement3 = require('/src/assets/advertisement3.png')
 let vehicleList = ref<any[]>([])
 
 let isSelectDateOpend = ref<boolean>(false)
-function chooseDateInfo() {
+function chooseDateInfo(type_: string) {
+  type.value = type_
   isSelectDateOpend.value = true;
 }
-
-function handleSelectDateClose() {
+function handleSelectDateCallBack() {
   isSelectDateOpend.value = false;
 }
 

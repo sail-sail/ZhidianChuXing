@@ -1,79 +1,48 @@
 <template>
-  <!-- 选择日期 -->
-  <AtFloatLayout :isOpened="isOpened" title="请选择取还车日期" @close="handleClose">
-    <nut-date-picker
-    v-model="val"
-    type="datetime"
-    :min-date="min"
-    :max-date="max"
-    :three-dimensional="false"
-    @confirm="confirm"
-  ></nut-date-picker>
-    <!-- 取车日期 -->
-    <view class="error" v-if="startDatetext !== ''">{{ startDatetext }}</view>
-    <view class="pickup">
-      <picker mode='date' :value="returnVehicleObj.startDate" @change="handleStartDateChange">
-        <view class="datetime">
-          <text>取车日期</text>
-          <text>{{ returnVehicleObj.startDate }}</text>
-        </view>
-      </picker>
-
-      <picker mode='time' :value="returnVehicleObj.startTime" @change="handleStartTimeChange">
-        <view class="datetime">
-          <text>取车当日时间</text>
-          <text>{{ returnVehicleObj.startTime }}</text>
-        </view>
-      </picker>
-    </view>
-
-    <!-- 还车日期 -->
-    <view class="error" v-if="endDatetext !== ''">{{ endDatetext }}</view>
-    <view class="pickup">
-      <picker mode='date' :value="returnVehicleObj.endDate" @change="handleEndDateChange">
-        <view class="datetime">
-          <text>还车日期</text>
-          <text>{{ returnVehicleObj.endDate }}</text>
-        </view>
-      </picker>
-
-      <picker mode='time' :value="returnVehicleObj.endTime" @change="handleEndTimeChange">
-        <view class="datetime">
-          <text>还车当日时间</text>
-          <text>{{ returnVehicleObj.endTime }}</text>
-        </view>
-      </picker>
-    </view>
-  </AtFloatLayout>
-
+  <nut-popup v-model:visible="isOpened" position="bottom" :style="{ height: '50%' }" round
+    :close-on-click-overlay="false">
+    <nut-date-picker type="datetime" :min-date="min" :three-dimensional="false" @confirm="confirm" @cancel="cancle">
+      <view style="text-align: center;">
+        {{ type === 'start' ? '取车时间' : '还车时间' }}
+      </view>
+    </nut-date-picker>
+  </nut-popup>
 </template>
 
 <script setup lang="ts">
 import { ref, watch } from 'vue'
-
 import dayjs from 'dayjs';
-
 import './selectdate.scss'
 
-const emit = defineEmits(['close'])//声明传递的事件名
-
+const emit = defineEmits(['confirm', 'close'])//声明传递的事件名
 const props = withDefaults(
   defineProps<{
     isOpened: boolean,
-    returnVehicleObj: any
+    returnVehicleObj: any;
+    type: string | undefined;
   }>(), {
   isOpened: false
 })
 
-const min = new Date(2020, 0, 1, 10, 40)
-const max = new Date(2025, 10, 1, 23, 29)
-const val = ref(new Date())
 const confirm = ({ selectedValue }) => {
-  console.log(selectedValue)
+  if (type.value === 'start') {
+    returnVehicleObj.value.startDate = dayjs(new Date(selectedValue[0], selectedValue[1], selectedValue[2])).format('YYYY-MM-DD')
+    returnVehicleObj.value.startTime = `${selectedValue[3]}:${selectedValue[4]}`
+  } else if (type.value === 'end') {
+    returnVehicleObj.value.endDate = dayjs(new Date(selectedValue[0], selectedValue[1], selectedValue[2])).format('YYYY-MM-DD')
+    returnVehicleObj.value.endTime = `${selectedValue[3]}:${selectedValue[4]}`
+  }
+  isOpened.value = false
+  emit('confirm')
+}
+const cancle = () => {
+  isOpened.value = false
+  emit('close')
 }
 
-//后期需要根据userInfo(是否登录过控制弹出)
+let min = ref<any>(new Date());
 let isOpened = ref<boolean>(props.isOpened)
+let type = ref<string | undefined>()
 let returnVehicleObj = ref<any>({
   startDate: '',
   endDate: '',
@@ -81,57 +50,21 @@ let returnVehicleObj = ref<any>({
   endTime: '',
 })
 
-let startDatetext = ref<string>('')
-let endDatetext = ref<string>('')
-
 watch(() => props.isOpened,
   () => {
     isOpened.value = props.isOpened;
   })
-watch(() => props.returnVehicleObj,
+watch(() => [props.returnVehicleObj, props.type],
   () => {
-    returnVehicleObj.value = props.returnVehicleObj
+    type.value = props.type
+    returnVehicleObj.value = props.returnVehicleObj;
+    min.value = type.value === 'end'
+      ? new Date(dayjs(returnVehicleObj.value.startDate)
+        .add(2, 'day')
+        .format('YYYY-MM-DD hh:mm:ss'))
+      : new Date()
   }, {
   deep: true,
   immediate: true
 })
-
-function handleStartDateChange(obj) {
-  // 判断所选时间不能小于当天
-  const today = dayjs().subtract(1, 'day').unix()//当前时间 -1天 时间戳
-  const selectDay = dayjs(obj.detail.value).unix()
-  if (selectDay < today) {
-    startDatetext.value = '取车日期不能早于今天'
-  } else {
-    returnVehicleObj.value.startDate = obj.detail.value
-    startDatetext.value = ''
-  }
-}
-function handleStartTimeChange(obj) {
-  returnVehicleObj.value.startTime = obj.detail.value
-  returnVehicleObj.value.endTime = obj.detail.value
-}
-function handleEndDateChange(obj) {
-  // 判断所选时间不能小于当天
-  const startDay = dayjs(returnVehicleObj.value.startDate).unix()
-  const selectDay = dayjs(obj.detail.value).unix()
-  if (selectDay <= startDay) {
-    endDatetext.value = '还车日期不能早于等于取车日期'
-  } else {
-    returnVehicleObj.value.endDate = obj.detail.value
-    endDatetext.value = ''
-  }
-}
-function handleEndTimeChange(obj) {
-  returnVehicleObj.value.startTime = obj.detail.value
-  returnVehicleObj.value.endTime = obj.detail.value
-}
-
-// 取消
-function handleClose() {
-  isOpened.value = false
-  emit('close')
-  startDatetext.value = ''
-  endDatetext.value = ''
-}
 </script>
