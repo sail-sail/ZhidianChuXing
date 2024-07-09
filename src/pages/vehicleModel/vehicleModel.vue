@@ -1,5 +1,5 @@
 <template>
-  <view class="vehicle-container">
+  <view class="vehicle-container" v-if="inited">
     <!-- 送还地点 选车 -->
     <view class="return-vehicle-box">
       <view class="use-time">
@@ -27,16 +27,56 @@
       </view>
     </view>
 
-
-    <nut-menu>
-      <nut-menu-item v-model="val1" :options="options1" />
-      <nut-menu-item v-model="val2" :options="options2" @change="onChange" />
-      <nut-menu-item v-model="val3" :options="options3" @change="onChange" />
-    </nut-menu>
+    <nut-row>
+      <nut-col :span="6">
+        <view class="col" v-on:touchstart="selectType('sort')">综合排序</view>
+      </nut-col>
+      <nut-col :span="6">
+        <view class="col" v-on:touchstart="selectType('brand')">品牌</view>
+      </nut-col>
+      <nut-col :span="6">
+        <view class="col" v-on:touchstart="selectType('price')">价格</view>
+      </nut-col>
+      <nut-col :span="6">
+        <view class="col" v-on:touchstart="selectType('types')">类型</view>
+      </nut-col>
+    </nut-row>
 
     <nut-tabs v-model="value" direction="vertical" title-scroll style="height: 200px">
-      <nut-tab-pane v-for="item in list" :key="item" :title="`Tab ${item}`" :pane-key="item">
-        Content {{ item }}
+      <nut-tab-pane v-for="item in list" :key="item.id" :title="item.power_name" :pane-key="item.id">
+        <!-- 车型列表 -->
+        <view class="vehicle-list" v-for="item in vehicleList" :key="item.id">
+          <!-- 车辆图片 车辆代号 -->
+          <view class="images-codes">
+            <image :src="item.image" :mode="'widthFix'"></image>
+            <view class="codes">
+              <view class="code-name">{{ item.motorcycle_name }}</view>
+              <view class="code-special" v-if="Array.isArray(item.home1_tags) && item.home1_tags.length > 0">
+                <view v-for="(i, index) in item.home1_tags" :key="index">
+                  {{ i }}<text v-if="index !== item.home1_tags.length - 1">&nbsp;|&nbsp;</text>
+                </view>
+              </view>
+            </view>
+          </view>
+          <!-- 分割线 -->
+          <AtDivider />
+          <!-- 车辆特点 -->
+          <view class="character" v-if="Array.isArray(item.home2_tags) && item.home2_tags.length > 0">
+            <view v-for="(i, index) in item.home2_tags" :key="index">
+              {{ i }}
+            </view>
+          </view>
+          <!-- 车辆详情 租金 -->
+          <view class="detail-money">
+            <view class="detail">车辆详情</view>
+            <view class="money">
+              <text>¥</text>
+              {{ item.price }}
+              <text>/</text>
+              <text>天</text>
+            </view>
+          </view>
+        </view>
       </nut-tab-pane>
     </nut-tabs>
 
@@ -44,11 +84,22 @@
     <selectDate :isOpened="isSelectDateOpend" :returnVehicleObj="returnVehicleObj" :type="type"
       @confirm="handleSelectDateCallBack" @close="handleSelectDateCallBack">
     </selectDate>
+
+    <!-- 排序 价格 类型 的选择器弹窗 -->
+    <nut-popup v-model:visible="selectTypeShow" position="bottom">
+      <nut-picker :columns="columns" :title="selectTypeName()" three-dimensional @confirm="selectTypeChange"
+        @cancel="selectTypeCancel" />
+    </nut-popup>
+    <nut-popup v-model:visible="selectTypeShow2" position="bottom">
+      <nut-picker :columns="columns2" title="请选择车辆的品牌" three-dimensional @confirm="selectTypeChange2"
+        @cancel="selectTypeCancel2" />
+    </nut-popup>
+
   </view>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, reactive } from 'vue'
+import { ref, onMounted, reactive, computed } from 'vue'
 import Taro from '@tarojs/taro'
 import dayjs from 'dayjs'
 import QQMapWX from '../utils/map-wx-jssdk';
@@ -57,7 +108,9 @@ import config from '../utils/config';
 import './vehicleModel.scss'
 
 import selectDate from '../selectdate/selectdate.vue';
+import { nextTick } from 'vue';
 
+let inited = ref<boolean>(false)
 let type = ref<string | undefined>('')
 // 送还选车时间
 let returnVehicleObj = ref<any>({
@@ -129,28 +182,155 @@ function chooseLoactionInfo() {
   });
 }
 
-let val1 = ref(0)
-let val2 = ref('a')
-let val3 = ref('b')
-const options1 = ref([
-  { text: '全部商品', value: 0 },
-  { text: '新款商品', value: 1 },
-  { text: '活动商品', value: 2 }
-])
-const options2 = ref([
-  { text: '默认排序', value: 'a' },
-  { text: '好评排序', value: 'b' },
-  { text: '销量排序', value: 'c' }
-])
+let selectTypeShow = ref<boolean>(false)
+let selectTypeShow2 = ref<boolean>(false)
+let columns2 = reactive<any[]>([])
+let t = ref<string>('')
+function selectType(_t: string) {
+  if (_t === 'brand') {
+    selectTypeShow2.value = true
+  } else {
+    t.value = _t;
+    selectTypeShow.value = true;
+  }
+}
+let columns = computed(() => {
+  if (t.value === 'sort') {
+    return [
+      { text: '综合排序', value: 0 },
+      { text: '价格从低到高', value: 1 },
+      { text: '价格从高到低', value: 2 }
+    ]
+  } else if (t.value === 'price') {
+    return [
+      { text: '不限', value: '' },
+      { text: '0-150元/天', value: 'b' },
+      { text: '150-250元/天', value: 'c' },
+      { text: '250-350元/天', value: 'b' },
+      { text: '350-1000元/天', value: 'c' },
+      { text: '1000-2000元/天', value: 'b' },
+      { text: '2000-3000元/天', value: 'c' }
+    ]
 
-const options3 = ref([
-  { text: '默认排序', value: 'a' },
-  { text: '好评排序', value: 'b' },
-  { text: '销量排序', value: 'c' }
-])
+  } else if (t.value === 'types') {
+    return [
+      { text: '全部', value: 0 },
+      { text: '自助取还', value: 1 },
+      { text: '上门送取', value: 2 }
+    ]
+  } else {
+    return []
+  }
+})
+function selectTypeName() {
+  if (t.value === 'sort') {
+    return '请选择车辆的排序规则'
+  } else if (t.value === 'price') {
+    return '请选择车辆价格区间'
+  } else if (t.value === 'types') {
+    return '请选择车辆取还类型'
+  } else {
+    return ''
+  }
+}
 
-const value = ref('1')
-const list = new Array(10).fill(0).map((_, index) => index + 1)
+// 或许下拉选择 的 品牌选项
+async function getColumns2() {
+  sentRequest({
+    url: '/api/car/Index/carBrand',
+    data: {},
+    success: function (res) {
+      if (res.code >= 1 && res.data.length) {
+        const list = res.data
+        for (let i = 0; i < list.length; ++i) {
+          const item = list[i];
+          columns2.push({
+            text: item.brand_name,
+            value: item.id,
+            children: []
+          })
+
+          // 级联组装数据
+          sentRequest({
+            url: '/api/car/Index/carSeries',
+            data: { brand_id: item.id },
+            success: function (res) {
+              if (res.code >= 1 && res.data.length) {
+                columns2[i].children = res.data.map((val) => {
+                  return {
+                    text: val.series_name,
+                    value: val.id,
+                  }
+                })
+              }
+            }
+          })
+
+        }
+      }
+    }
+  })
+}
+
+function selectTypeChange(obj) {
+  console.log(obj.selectedValue[0]);
+  // console.log(obj.selectedOptions)
+  selectTypeShow.value = false;
+}
+function selectTypeCancel() {
+  selectTypeShow.value = false;
+}
+
+function selectTypeChange2(obj) {
+  console.log(obj.selectedValue[0]);
+  // console.log(obj.selectedOptions)
+  selectTypeShow2.value = false;
+}
+function selectTypeCancel2() {
+  selectTypeShow2.value = false;
+}
+
+let value = ref(0)
+let list = reactive<any>([])
+let vehicleList = reactive<any>([])
+//获取左侧分类
+async function getCarDong() {
+  sentRequest({
+    url: '/api/car/Index/powertype',
+    data: {},
+    success: res => {
+      if (res.code >= 1 && res.data.length) {
+        list = res.data;
+        list.unshift({
+          id: 0,
+          power_name: '全部',
+          starting_price: 0,
+        })
+        console.log(list)
+        inited.value = true
+      }
+    }
+  })
+}
+
+//获取车型列表
+async function getVehicleListApi() {
+  sentRequest({
+    url: '/api/car/Index/motorcycle',
+    data: {
+      page: 1,
+      limit: 100,
+    },
+    success: function (res) {
+      if (res.code == 1) {
+        vehicleList = res.data.data;
+        console.log(res.data.data, '车型列表')
+      }
+    }
+  })
+}
+
+
 
 // 页面加载的时
 onMounted(async () => {
@@ -170,6 +350,8 @@ onMounted(async () => {
   })
 
   // 调取各接口
-
+  await getVehicleListApi()
+  await getColumns2()
+  await getCarDong()
 })
 </script>
