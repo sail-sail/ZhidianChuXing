@@ -87,12 +87,12 @@
 
     <!-- 排序 价格 类型 的选择器弹窗 -->
     <nut-popup v-model:visible="selectTypeShow" position="bottom">
-      <nut-picker :columns="columns" :title="selectTypeName()" three-dimensional @confirm="selectTypeChange"
+      <nut-picker :columns="columns" :title="selectTypeName()" three-dimensional @confirm="selectTypeConfirm"
         @cancel="selectTypeCancel" />
     </nut-popup>
     <nut-popup v-model:visible="selectTypeShow2" position="bottom">
-      <nut-picker :columns="columns2" title="请选择车辆的品牌" three-dimensional @confirm="selectTypeChange2"
-        @cancel="selectTypeCancel2" />
+      <nut-picker :columns="columns2" title="请选择车辆的品牌" three-dimensional @change="selectType2Change2"
+        @confirm="selectTypeConfirm2" @cancel="selectTypeCancel2" />
     </nut-popup>
 
   </view>
@@ -249,41 +249,57 @@ async function getColumns2() {
             value: item.id,
             children: []
           })
-
-          // 级联组装数据
-          sentRequest({
-            url: '/api/car/Index/carSeries',
-            data: { brand_id: item.id },
-            success: function (res) {
-              if (res.code >= 1 && res.data.length) {
-                columns2[i].children = res.data.map((val) => {
-                  return {
-                    text: val.series_name,
-                    value: val.id,
-                  }
-                })
-              }
-            }
-          })
-
         }
+        // 级联组装数据
+        sentRequest({
+          url: '/api/car/Index/carSeries',
+          data: { brand_id: columns2[0].value },
+          success: function (res) {
+            if (res.code >= 1 && res.data.length) {
+              columns2[0].children = res.data.map((val) => {
+                return {
+                  text: val.series_name,
+                  value: val.id,
+                }
+              })
+            }
+          }
+        })
       }
     }
   })
 }
 
-function selectTypeChange(obj) {
+function selectType2Change2(obj) {
+  console.log(obj)
+  if (obj.columnIndex === 0) {
+    sentRequest({
+      url: '/api/car/Index/carSeries',
+      data: { brand_id: obj.selectedOptions[0].value },
+      success: function (res) {
+        if (res.code >= 1 && res.data.length) {
+          obj.selectedOptions[0].children = res.data.map((val) => {
+            return {
+              text: val.series_name,
+              value: val.id,
+            }
+          })
+        }
+      }
+    })
+  }
+}
+
+function selectTypeConfirm(obj) {
   console.log(obj.selectedValue[0]);
-  // console.log(obj.selectedOptions)
   selectTypeShow.value = false;
 }
 function selectTypeCancel() {
   selectTypeShow.value = false;
 }
 
-function selectTypeChange2(obj) {
-  console.log(obj.selectedValue[0]);
-  // console.log(obj.selectedOptions)
+function selectTypeConfirm2(obj) {
+  console.log(obj.selectedValue[obj.selectedValue.length-1]);
   selectTypeShow2.value = false;
 }
 function selectTypeCancel2() {
@@ -331,7 +347,6 @@ async function getVehicleListApi() {
 }
 
 
-
 // 页面加载的时
 onMounted(async () => {
   //读取取车还车时间
@@ -350,8 +365,8 @@ onMounted(async () => {
   })
 
   // 调取各接口
-  await getVehicleListApi()
-  await getColumns2()
   await getCarDong()
+  await getColumns2()
+  await getVehicleListApi()
 })
 </script>
