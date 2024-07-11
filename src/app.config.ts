@@ -3,6 +3,8 @@ export default defineAppConfig({
     'pages/index/index',
     'pages/my/my',
     'pages/vehicleModel/vehicleModel',
+    'pages/carRentalNotice/carRentalNotice',
+    'pages/carRentalNotice/detail/detail'
   ],
 
   window: {

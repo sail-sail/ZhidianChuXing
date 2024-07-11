@@ -1,6 +1,6 @@
 <template>
   <view class="container">
-    <nut-button shape="round" type="info" :size="'small'" @click="login">一键登录</nut-button>
+    <!-- <nut-button shape="round" type="info" :size="'small'" @click="login">一键登录</nut-button> -->
     <!-- 轮播图 -->
     <nut-swiper :init-page="0" :auto-play="3000" pagination-visible pagination-color="#426543"
       pagination-unselected-color="#808080" class="swiper">
@@ -42,7 +42,7 @@
     </view>
 
     <!-- 租车须知 -->
-    <view class="notice-box">
+    <view class="notice-box" v-on:touchstart="gotoCarRentailNotice">
       <view class="model">
         <image :src="noticeImg" class="noticeImg"></image>
         <view>租车须知</view>
@@ -106,7 +106,7 @@ import Taro from '@tarojs/taro'
 import dayjs from 'dayjs'
 
 import QQMapWX from '../utils/map-wx-jssdk';
-import sentRequest from '../utils/http'
+import sendRequest from '../utils/http'
 import common from '../utils/common'
 import config from '../utils/config';
 import auth from '../utils/auth'
@@ -242,9 +242,17 @@ function selectVehicleMoedl() {
   })
 }
 
+// 跳转到租车须知页面
+function gotoCarRentailNotice(){
+  Taro.navigateTo({
+    url: '/pages/carRentalNotice/carRentalNotice',
+  })
+}
+
+
 //获取轮播图
 async function getBannerListApi() {
-  sentRequest({
+  sendRequest({
     url: '/api/index.index/bannerList',
     success: function (res) {
       if (res.code == 1) {
@@ -263,7 +271,7 @@ async function getBannerListApi() {
 }
 //获取服务费
 async function getServiceFeeApi() {
-  sentRequest({
+  sendRequest({
     url: '/api/car/Index/sever_money',
     success: function (res) {
       if (res.code == 1) {

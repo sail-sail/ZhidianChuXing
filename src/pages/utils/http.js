@@ -1,7 +1,7 @@
 import Taro from '@tarojs/taro'
 import config  from './config';
 
-export default async function SentRequest(params) {
+export default async function sendRequest(params) {
   const method = params.data != undefined ? 'POST' : 'GET'; // 请求方式
   let url = config.baseUrl + params.url; // 请求路径
   let data = {};

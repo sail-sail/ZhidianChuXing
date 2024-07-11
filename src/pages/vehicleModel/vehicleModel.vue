@@ -103,7 +103,7 @@ import { ref, onMounted, reactive, computed } from 'vue'
 import Taro from '@tarojs/taro'
 import dayjs from 'dayjs'
 import QQMapWX from '../utils/map-wx-jssdk';
-import sentRequest from '../utils/http'
+import sendRequest from '../utils/http'
 import config from '../utils/config';
 import './vehicleModel.scss'
 
@@ -236,7 +236,7 @@ function selectTypeName() {
 
 // 或许下拉选择 的 品牌选项
 async function getColumns2() {
-  sentRequest({
+  sendRequest({
     url: '/api/car/Index/carBrand',
     data: {},
     success: function (res) {
@@ -251,7 +251,7 @@ async function getColumns2() {
           })
         }
         // 级联组装数据
-        sentRequest({
+        sendRequest({
           url: '/api/car/Index/carSeries',
           data: { brand_id: columns2[0].value },
           success: function (res) {
@@ -273,7 +273,7 @@ async function getColumns2() {
 function selectType2Change2(obj) {
   console.log(obj)
   if (obj.columnIndex === 0) {
-    sentRequest({
+    sendRequest({
       url: '/api/car/Index/carSeries',
       data: { brand_id: obj.selectedOptions[0].value },
       success: function (res) {
@@ -311,7 +311,7 @@ let list = reactive<any>([])
 let vehicleList = reactive<any>([])
 //获取左侧分类
 async function getCarDong() {
-  sentRequest({
+  sendRequest({
     url: '/api/car/Index/powertype',
     data: {},
     success: res => {
@@ -331,7 +331,7 @@ async function getCarDong() {
 
 //获取车型列表
 async function getVehicleListApi() {
-  sentRequest({
+  sendRequest({
     url: '/api/car/Index/motorcycle',
     data: {
       page: 1,
