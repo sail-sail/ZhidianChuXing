@@ -20,8 +20,8 @@
 import { ref, watch } from 'vue'
 import Taro from '@tarojs/taro'
 
-import QQMapWX from '../utils/map-wx-jssdk';
-import config from '../utils/config';
+import QQMapWX from '../../utils/map-wx-jssdk';
+import config from '../../utils/config';
 import './statement.scss'
 
 const emit = defineEmits(['confirm', 'cancel'])//声明传递的事件名

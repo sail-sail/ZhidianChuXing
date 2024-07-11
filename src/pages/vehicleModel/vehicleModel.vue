@@ -102,9 +102,9 @@
 import { ref, onMounted, reactive, computed } from 'vue'
 import Taro from '@tarojs/taro'
 import dayjs from 'dayjs'
-import QQMapWX from '../utils/map-wx-jssdk';
-import sendRequest from '../utils/http'
-import config from '../utils/config';
+import QQMapWX from '../../utils/map-wx-jssdk';
+import sendRequest from '../../utils/http'
+import config from '../../utils/config';
 import './vehicleModel.scss'
 
 import selectDate from '../selectdate/selectdate.vue';

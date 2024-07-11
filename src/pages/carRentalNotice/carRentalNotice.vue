@@ -13,7 +13,7 @@
 import { ref, onMounted } from 'vue';
 import Taro from '@tarojs/taro'
 import './carRentalNotice.scss'
-import sendRequest from '../utils/http'
+import sendRequest from '../../utils/http'
 
 let noticeList = ref<any>([])
 async function getNoticeList() {

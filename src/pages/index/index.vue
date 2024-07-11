@@ -105,11 +105,11 @@ import { ref, onMounted } from 'vue'
 import Taro from '@tarojs/taro'
 import dayjs from 'dayjs'
 
-import QQMapWX from '../utils/map-wx-jssdk';
-import sendRequest from '../utils/http'
-import common from '../utils/common'
-import config from '../utils/config';
-import auth from '../utils/auth'
+import QQMapWX from '../../utils/map-wx-jssdk';
+import sendRequest from '../../utils/http'
+import common from '../../utils/common'
+import config from '../../utils/config';
+import auth from '../../utils/auth'
 import './index.scss'
 
 import customTabBar from '../custom-tab-bar/custom-tab-bar.vue'

@@ -12,7 +12,6 @@ declare module 'vue' {
     NutCol: typeof import('@nutui/nutui-taro')['Col']
     NutDatePicker: typeof import('@nutui/nutui-taro')['DatePicker']
     NutDialog: typeof import('@nutui/nutui-taro')['Dialog']
-    NutImage: typeof import('@nutui/nutui-taro')['Image']
     NutOverlay: typeof import('@nutui/nutui-taro')['Overlay']
     NutPicker: typeof import('@nutui/nutui-taro')['Picker']
     NutPopup: typeof import('@nutui/nutui-taro')['Popup']

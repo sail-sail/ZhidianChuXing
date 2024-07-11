@@ -16,8 +16,8 @@ import {
   onMounted
 } from 'vue'
 import Taro from '@tarojs/taro'
-import sendRequest from '../../utils/http'
-import common from '../../utils/common'
+import sendRequest from '../../../utils/http'
+import common from '../../../utils/common'
 import './detail.scss'
 
 let data = ref<any>({})
