@@ -4,7 +4,15 @@ export default defineAppConfig({
     'pages/my/my',
     'pages/vehicleModel/vehicleModel',
     'pages/carRentalNotice/carRentalNotice',
-    'pages/carRentalNotice/detail/detail'
+    'pages/carRentalNotice/detail/detail',
+    'pages/openVip/openVip',
+    'pages/enterpriseVehicles/enterpriseVehicles',
+    'pages/carOwner/carOwner',
+    'pages/vehicleAssociation/vehicleAssociation',
+    'pages/orderList/orderList',
+    'pages/realNameAuthentication/realNameAuthentication',
+    'pages/privacyStatement/privacyStatement',
+
   ],
 
   window: {
