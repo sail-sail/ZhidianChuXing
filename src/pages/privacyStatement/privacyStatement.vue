@@ -7,7 +7,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import Taro from '@tarojs/taro'
-import './realNameAuthentication.scss'
+import './privacyStatement.scss'
 import sendRequest from '../../utils/http'
 
 

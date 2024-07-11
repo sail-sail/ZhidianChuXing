@@ -12,7 +12,9 @@ export default defineAppConfig({
     'pages/orderList/orderList',
     'pages/realNameAuthentication/realNameAuthentication',
     'pages/privacyStatement/privacyStatement',
-
+    'pages/serviceAgreement/serviceAgreement',
+    'pages/userAgreement/userAgreement',
+    'pages/privacyStatement/privacyStatement',
   ],
 
   window: {
