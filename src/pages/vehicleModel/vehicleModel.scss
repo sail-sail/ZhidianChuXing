@@ -12,9 +12,10 @@
   display: flex;
   justify-content: space-around;
   background-color: rgb(242, 247, 245);
+  padding: 10rpx 0;
 
   .city-model {
-    width: 30%;
+    width: 50%;
   }
 
   .address-model {
@@ -30,14 +31,15 @@
 
   .city-content,
   .address-content {
-    font-size: 24rpx;
+    padding: 10rpx 0;
+    font-size: 20rpx;
     text-align: center;
   }
 }
 
 // 送还地点 选车
 .return-vehicle-box {
-  padding: 20rpx 0;
+  padding-bottom: 10rpx;
   font-size: 24rpx;
   background-color: rgb(242, 247, 245);
 
@@ -49,13 +51,12 @@
 }
 
 .col {
-  font-size: 30rpx;
-  height: 60rpx;
+  font-size: 24rpx;
+  height: 50rpx;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 500;
-  background-color: #fff;
+  box-shadow: 0px 0rpx 0rpx 1rpx rgba(0, 0, 0, 0.03);
 }
 
 // 自动撑满
@@ -73,7 +74,7 @@
 
 // 车型列表
 .vehicle-list {
-  box-shadow: 0px 8rpx 16rpx 6rpx rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 8rpx 16rpx 6rpx rgba(0, 0, 0, 0.05);
   border-radius: 20rpx;
   padding: 10rpx;
   margin-bottom: 15rpx;
@@ -89,17 +90,16 @@
 
     .codes {
       flex: 1;
-      margin-left: 15rpx;
+      margin-left: 10rpx;
 
       .code-name {
         font-size: 28rpx;
-        // font-weight: bold;
       }
 
       .code-special {
         display: flex;
         flex-wrap: wrap;
-        margin: 8rpx 0;
+        margin: 8rpx;
 
         view {
           font-size: 20rpx;
@@ -115,13 +115,10 @@
     margin-bottom: 10rpx;
 
     view {
-      font-size: 22rpx;
-      // color: #00BC7E;
-      color: #666;
+      font-size: 20rpx;
+      color: #999;
       background-color: rgb(242, 247, 245);
-      height: 36rpx;
-      line-height: 36rpx;
-      margin-right: 8rpx;
+      margin-right: 16rpx;
     }
   }
 
@@ -132,7 +129,7 @@
 
     .detail {
       font-size: 20rpx;
-      color: #666;
+      color: #999;
     }
 
     .money {

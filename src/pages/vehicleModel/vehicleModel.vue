@@ -18,7 +18,6 @@
           {{ returnVehicleObj.startDate }}
           {{ returnVehicleObj.startTime }}
         </view>
-        <view >至</view>
         <view v-on:touchstart="chooseDateInfo('end')">
           {{ returnVehicleObj.endDate }}
           {{ returnVehicleObj.endTime }}
