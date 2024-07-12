@@ -8,28 +8,13 @@
   flex-direction: column;
 }
 
-// 送还地点 选车
-.return-vehicle-box {
-  box-sizing: border-box;
-  position: relative;
-  font-size: 30rpx;
-
-  .use-time {
-    font-weight: bold;
-    width: 100%;
-    background-color: rgb(242, 247, 245);
-    text-align: center;
-  }
-}
-
 .city-address {
   display: flex;
   justify-content: space-around;
   background-color: rgb(242, 247, 245);
-  padding-top: 16rpx;
 
   .city-model {
-    width: 35%;
+    width: 30%;
   }
 
   .address-model {
@@ -40,20 +25,32 @@
   .city-title,
   .address-title {
     font-size: 24rpx;
-    color: #333;
     text-align: center;
-    margin-bottom: 8rpx;
   }
 
   .city-content,
   .address-content {
+    font-size: 24rpx;
     text-align: center;
-    margin-bottom: 16rpx;
+  }
+}
+
+// 送还地点 选车
+.return-vehicle-box {
+  padding: 20rpx 0;
+  font-size: 24rpx;
+  background-color: rgb(242, 247, 245);
+
+  .use-time {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
   }
 }
 
 .col {
-  height: 80rpx;
+  font-size: 30rpx;
+  height: 60rpx;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -61,6 +58,7 @@
   background-color: #fff;
 }
 
+// 自动撑满
 .nut-tabs.vertical {
   flex: 1;
 }
@@ -75,60 +73,52 @@
 
 // 车型列表
 .vehicle-list {
-  box-sizing: border-box;
-  width: 100%;
-  position: relative;
-  background-color: #fff;
+  box-shadow: 0px 8rpx 16rpx 6rpx rgba(0, 0, 0, 0.1);
   border-radius: 20rpx;
-  padding: 15rpx;
-  margin-top: 1vh;
+  padding: 10rpx;
+  margin-bottom: 15rpx;
 
   .images-codes {
     display: flex;
+    margin-bottom: 10rpx;
 
     image {
-      width: 35%;
-      height: 175px;
+      width: 40%;
+      height: 200rpx;
     }
 
     .codes {
       flex: 1;
-      margin-left: 16rpx;
+      margin-left: 15rpx;
 
       .code-name {
-        font-weight: bold;
+        font-size: 28rpx;
+        // font-weight: bold;
       }
 
       .code-special {
         display: flex;
         flex-wrap: wrap;
-        margin-top: 8rpx;
+        margin: 8rpx 0;
 
         view {
-          font-size: 24rpx;
+          font-size: 20rpx;
           color: #666;
         }
       }
     }
   }
 
-  .at-divider {
-    height: 50rpx;
-
-    .at-divider__line {
-      background-color: #ddd;
-    }
-  }
-
   .character {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 1vh;
+    margin-bottom: 10rpx;
 
     view {
       font-size: 22rpx;
-      color: #00BC7E;
-      background-color: rgba(42, 241, 127, 0.15);
+      // color: #00BC7E;
+      color: #666;
+      background-color: rgb(242, 247, 245);
       height: 36rpx;
       line-height: 36rpx;
       margin-right: 8rpx;
@@ -141,25 +131,19 @@
     justify-content: space-between;
 
     .detail {
-      font-size: 24rpx;
-      color: gray;
+      font-size: 20rpx;
+      color: #666;
     }
 
     .money {
       color: red;
-      font-size: 28rpx;
-
-      & text:nth-child(1) {
-        font-size: 24rpx;
-      }
+      font-size: 24rpx;
 
       & text:nth-child(2) {
-        font-size: 30rpx;
         color: rgba(0, 0, 0, 0.5);
       }
 
       & text:nth-child(3) {
-        font-size: 30rpx;
         color: rgba(0, 0, 0, 0.5);
       }
     }

@@ -2,27 +2,27 @@
   <view class="vehicle-container" v-if="inited">
     <!-- 送车城市 地点 -->
     <view class="city-address">
-        <view class="city-model">
-          <view class="city-title">送车城市</view>
-          <view class="city-content">{{ positionInfo.city }}</view>
-        </view>
-        <view class="address-model" v-on:touchstart="chooseLoactionInfo">
-          <view class="address-title">送车地点</view>
-          <view class="address-content">{{ positionInfo.address }}</view>
-        </view>
+      <view class="city-model">
+        <view class="city-title">送车城市</view>
+        <view class="city-content">{{ positionInfo.city }}</view>
       </view>
+      <view class="address-model" v-on:touchstart="chooseLoactionInfo">
+        <view class="address-title">送车地点</view>
+        <view class="address-content">{{ positionInfo.address }}</view>
+      </view>
+    </view>
     <!-- 送还地点 选车 -->
     <view class="return-vehicle-box">
       <view class="use-time">
-        <text v-on:touchstart="chooseDateInfo('start')">
+        <view v-on:touchstart="chooseDateInfo('start')">
           {{ returnVehicleObj.startDate }}
           {{ returnVehicleObj.startTime }}
-        </text>
-        <text>&nbsp;-&nbsp;</text>
-        <text v-on:touchstart="chooseDateInfo('end')">
+        </view>
+        <view >至</view>
+        <view v-on:touchstart="chooseDateInfo('end')">
           {{ returnVehicleObj.endDate }}
           {{ returnVehicleObj.endTime }}
-        </text>
+        </view>
       </view>
     </view>
 
@@ -57,8 +57,6 @@
               </view>
             </view>
           </view>
-          <!-- 分割线 -->
-          <AtDivider />
           <!-- 车辆特点 -->
           <view class="character" v-if="Array.isArray(item.home2_tags) && item.home2_tags.length > 0">
             <view v-for="(i, index) in item.home2_tags" :key="index">
