@@ -1,5 +1,16 @@
 <template>
   <view class="vehicle-container" v-if="inited">
+    <!-- 送车城市 地点 -->
+    <view class="city-address">
+        <view class="city-model">
+          <view class="city-title">送车城市</view>
+          <view class="city-content">{{ positionInfo.city }}</view>
+        </view>
+        <view class="address-model" v-on:touchstart="chooseLoactionInfo">
+          <view class="address-title">送车地点</view>
+          <view class="address-content">{{ positionInfo.address }}</view>
+        </view>
+      </view>
     <!-- 送还地点 选车 -->
     <view class="return-vehicle-box">
       <view class="use-time">
@@ -12,18 +23,6 @@
           {{ returnVehicleObj.endDate }}
           {{ returnVehicleObj.endTime }}
         </text>
-      </view>
-
-      <!-- 送车城市 地点 -->
-      <view class="city-address">
-        <view class="city-model">
-          <view class="city-title">送车城市</view>
-          <view class="city-content">{{ positionInfo.city }}</view>
-        </view>
-        <view class="address-model" v-on:touchstart="chooseLoactionInfo">
-          <view class="address-title">送车地点</view>
-          <view class="address-content">{{ positionInfo.address }}</view>
-        </view>
       </view>
     </view>
 
@@ -79,6 +78,8 @@
         </view>
       </nut-tab-pane>
     </nut-tabs>
+
+
 
     <!-- 选择时间 -->
     <selectDate :isOpened="isSelectDateOpend" :returnVehicleObj="returnVehicleObj" :type="type"
@@ -271,7 +272,7 @@ async function getColumns2() {
 }
 
 function selectType2Change2(obj) {
-  console.log(obj)
+  // console.log(obj)
   if (obj.columnIndex === 0) {
     sendRequest({
       url: '/api/car/Index/carSeries',
@@ -291,7 +292,7 @@ function selectType2Change2(obj) {
 }
 
 function selectTypeConfirm(obj) {
-  console.log(obj.selectedValue[0]);
+  // console.log(obj.selectedValue[0]);
   selectTypeShow.value = false;
 }
 function selectTypeCancel() {
@@ -299,7 +300,7 @@ function selectTypeCancel() {
 }
 
 function selectTypeConfirm2(obj) {
-  console.log(obj.selectedValue[obj.selectedValue.length-1]);
+  // console.log(obj.selectedValue[obj.selectedValue.length-1]);
   selectTypeShow2.value = false;
 }
 function selectTypeCancel2() {
@@ -322,7 +323,7 @@ async function getCarDong() {
           power_name: '全部',
           starting_price: 0,
         })
-        console.log(list)
+        // console.log(list)
         inited.value = true
       }
     }
@@ -340,7 +341,7 @@ async function getVehicleListApi() {
     success: function (res) {
       if (res.code == 1) {
         vehicleList = res.data.data;
-        console.log(res.data.data, '车型列表')
+        // console.log(res.data.data, '车型列表')
       }
     }
   })
