@@ -1,6 +1,6 @@
 <template>
   <view class="container">
-    开通会员
+    隐私管理 需要 客户补充相关条例
   </view>
 </template>
 

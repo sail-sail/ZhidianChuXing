@@ -83,7 +83,7 @@
           <AtIcon value='chevron-right' size='22' color="#ccc"></AtIcon>
         </view>
         <!-- 隐私管理 -->
-        <view class="order-container">
+        <view class="order-container" v-on:touchstart="gotoPgaes('privacyStatement')">
           <view class="image-order">
             <image :src="listImg2"></image>
             <view>隐私管理</view>
@@ -91,7 +91,7 @@
           <AtIcon value='chevron-right' size='22' color="#ccc"></AtIcon>
         </view>
         <!-- 服务协议 -->
-        <view class="order-container">
+        <view class="order-container" v-on:touchstart="gotoPgaes('serviceAgreement')">
           <view class="image-order">
             <image :src="listImg3"></image>
             <view>服务协议</view>
@@ -99,7 +99,7 @@
           <AtIcon value='chevron-right' size='22' color="#ccc"></AtIcon>
         </view>
         <!-- 用户协议 -->
-        <view class="order-container">
+        <view class="order-container" v-on:touchstart="gotoPgaes('userAgreement')">
           <view class="image-order">
             <image :src="listImg4"></image>
             <view>用户协议</view>
@@ -107,7 +107,7 @@
           <AtIcon value='chevron-right' size='22' color="#ccc"></AtIcon>
         </view>
         <!-- 联系平台 -->
-        <view class="order-container">
+        <view class="order-container" v-on:touchstart="contactPlatform">
           <view class="image-order">
             <image :src="listImg5"></image>
             <view>联系平台</view>
@@ -115,13 +115,14 @@
           <AtIcon value='chevron-right' size='22' color="#ccc"></AtIcon>
         </view>
         <!-- 客服 -->
-        <view class="order-container">
-          <view class="image-order">
-            <image :src="listImg6"></image>
-            <view>客服</view>
-          </view>
-          <AtIcon value='chevron-right' size='22' color="#ccc"></AtIcon>
-        </view>
+        <nut-button :block="true" type="default" class="serviceChat-container" v-on:click="serviceChat">
+          <template #icon>
+            <view class="icon-container">
+              <image :src="listImg6"></image>
+              <span>客服</span>
+            </view>
+          </template>
+        </nut-button>
       </view>
     </view>
 
@@ -154,4 +155,46 @@ let listImg3 = require('/src/assets/list3.png')
 let listImg4 = require('/src/assets/list4.png')
 let listImg5 = require('/src/assets/list5.png')
 let listImg6 = require('/src/assets/list6.png')
+
+// 隐私管理 服务协议 用户协议
+function gotoPgaes(type: string) {
+  //跳转到隐私管理页面
+  if (type === 'privacyStatement') {
+    Taro.navigateTo({
+      url: '/pages/privacyStatement/privacyStatement',
+    })
+  }
+
+  //跳转到服务协议页面
+  if (type === 'serviceAgreement') {
+    Taro.navigateTo({
+      url: '/pages/serviceAgreement/serviceAgreement',
+    })
+  }
+
+  //跳转到用户协议页面
+  if (type === 'userAgreement') {
+    Taro.navigateTo({
+      url: '/pages/userAgreement/userAgreement',
+    })
+  }
+}
+
+// 联系平台
+function contactPlatform() {
+  Taro.makePhoneCall({
+    phoneNumber: '40012341234'
+  })
+}
+
+// 联系客服
+function serviceChat() {
+  Taro.openCustomerServiceChat({
+    extInfo: { url: '' },
+    corpId: '',
+    success: function (res) { }
+  })
+}
+
+
 </script>

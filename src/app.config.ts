@@ -1,7 +1,7 @@
 export default defineAppConfig({
   pages: [
-    'pages/index/index',
     'pages/my/my',
+    'pages/index/index',
     'pages/vehicleModel/vehicleModel',
     'pages/carRentalNotice/carRentalNotice',
     'pages/carRentalNotice/detail/detail',
@@ -14,7 +14,6 @@ export default defineAppConfig({
     'pages/privacyStatement/privacyStatement',
     'pages/serviceAgreement/serviceAgreement',
     'pages/userAgreement/userAgreement',
-    'pages/privacyStatement/privacyStatement',
   ],
 
   window: {
