@@ -1,6 +1,7 @@
 <template>
   <view class="container">
-    服务协议  需要 客户补充相关条例
+
+    <canvas style="width: 300px; height: 200px;" canvas-id="canvas" />
   </view>
 </template>
 

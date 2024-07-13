@@ -131,8 +131,8 @@ let returnVehicleObj = ref<any>({
 let positionInfo = ref<any>({
   latitude: '',
   longitude: '',
-  city: '佛山市',
-  address: '顺德区大良街道欢乐大道'
+  city: '测试市',
+  address: '测试地址'
 })
 
 // 服务费用
@@ -160,7 +160,7 @@ function handleSelectDateCallBack() {
 
 
 //后期需要根据userInfo(是否登录过控制弹出)
-let stateMentOpened = ref<boolean>(false)
+let stateMentOpened = ref<boolean>(true)
 function handleStateMentConfirm(obj) {
   if (obj) {
     positionInfo.value = obj
