@@ -56,8 +56,8 @@
 
       <!-- 车辆管理 订单 -->
       <view class="manage-container">
-        <view class="car-container">
-          <view class="image-car">
+        <view class="car-container" v-on:touchstart="gotoVehicleAssociation">
+          <view class="image-car" >
             <image :src="carImg"></image>
             <view>车辆管理</view>
           </view>
@@ -156,6 +156,12 @@ let listImg4 = require('/src/assets/list4.png')
 let listImg5 = require('/src/assets/list5.png')
 let listImg6 = require('/src/assets/list6.png')
 
+
+function gotoVehicleAssociation(){
+  Taro.navigateTo({
+    url: '/pages/vehicleAssociation/vehicleAssociation',
+  })
+}
 
 // 跳转到订单列表页面
 function gotoOrderList() {
