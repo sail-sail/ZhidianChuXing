@@ -21,5 +21,6 @@ declare module 'vue' {
     NutSwiperItem: typeof import('@nutui/nutui-taro')['SwiperItem']
     NutTabPane: typeof import('@nutui/nutui-taro')['TabPane']
     NutTabs: typeof import('@nutui/nutui-taro')['Tabs']
+    NutUploader: typeof import('@nutui/nutui-taro')['Uploader']
   }
 }

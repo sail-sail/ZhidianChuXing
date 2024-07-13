@@ -5,7 +5,7 @@
       <nut-swiper :init-page="0" pagination-visible pagination-color="#426543" pagination-unselected-color="#808080"
         class="swiper">
         <nut-swiper-item class="swiper-item">
-          <view v-on:touchstart="chooseImage">11111111</view>
+          <image :src="carBgImg"></image>
         </nut-swiper-item>
         <nut-swiper-item class="swiper-item">
           <image :src="carBgImg"></image>
@@ -41,10 +41,114 @@
       </nut-swiper>
     </view>
 
+    <!-- 评论 -->
+    <view class="commen-container">
 
-    <view class="updateVehicle">
+      <view class="reviews-contaner">
+        <view class="reviews">精选评价</view>
+        <view class="more">查看更多(107)</view>
+      </view>
+
+      <view class="comprehensive-evaluation">
+        <view class="evaluation" v-for="item in evaluations" :key="item.type">
+          {{ item.type }}&nbsp;{{ item.correSponding }}
+        </view>
+      </view>
+
+      <scroll-view :scroll-y="true" style="height: 600rpx;">
+        <view class="user-evaluation">
+          <!-- 头像 姓名 时间 地点  热评-->
+          <view class="header">
+            <view class="header-left">
+              <view class="avatar"> <nut-avatar size="normal"> <img :src="noticeImg" /> </nut-avatar></view>
+              <view class="name-time">
+                <view>黄先生</view>
+                <view>2024-06</view>
+              </view>
+              <view class="repeat-customer-address">
+                <view>回头客</view>
+                <view>发布地点:湖北</view>
+              </view>
+            </view>
+            <view class="header-right">热评</view>
+          </view>
+          <view class="comprehensive-evaluation">
+            <view class="evaluation">油耗低</view>
+            <view class="evaluation">配置实用</view>
+            <view class="evaluation">外观时尚</view>
+            <view class="evaluation">续航满意</view>
+          </view>
+          <!-- 内容 -->
+          <view class="contents-images">
+            <view class="contents">
+              几次都是租的雪佛兰科鲁兹，该有的配置都有，油耗也低，内外都非常干净，工作人员也十分热情态度很好，每次用车都很满意，专门来给天门神州租车公司点个赞。
+            </view>
+            <view class="images">
+              <view class="image-item">
+                <image :src="carBgImg"></image>
+              </view>
+              <view class="image-item">
+                <image :src="carBgImg"></image>
+              </view>
+              <view class="image-item">
+                <image :src="carBgImg"></image>
+              </view>
+              <view class="image-item">
+                <image :src="carBgImg"></image>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view class="user-evaluation">
+          <!-- 头像 姓名 时间 地点  热评-->
+          <view class="header">
+            <view class="header-left">
+              <view class="avatar"> <nut-avatar size="normal"> <img :src="noticeImg" /> </nut-avatar></view>
+              <view class="name-time">
+                <view>黄先生</view>
+                <view>2024-06</view>
+              </view>
+              <view class="repeat-customer-address">
+                <view>回头客</view>
+                <view>发布地点:湖北</view>
+              </view>
+            </view>
+            <view class="header-right">热评</view>
+          </view>
+          <view class="comprehensive-evaluation">
+            <view class="evaluation">油耗低</view>
+            <view class="evaluation">配置实用</view>
+            <view class="evaluation">外观时尚</view>
+            <view class="evaluation">续航满意</view>
+          </view>
+          <!-- 内容 -->
+          <view class="contents-images">
+            <view class="contents">
+              几次都是租的雪佛兰科鲁兹，该有的配置都有，油耗也低，内外都非常干净，工作人员也十分热情态度很好，每次用车都很满意，专门来给天门神州租车公司点个赞。
+            </view>
+            <view class="images">
+              <view class="image-item">
+                <image :src="carBgImg"></image>
+              </view>
+              <view class="image-item">
+                <image :src="carBgImg"></image>
+              </view>
+              <view class="image-item">
+                <image :src="carBgImg"></image>
+              </view>
+              <view class="image-item">
+                <image :src="carBgImg"></image>
+              </view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+
+    <view class="gotoOrder">
       <view></view>
-      <view class="save">保存</view>
+      <view class="book">立即预订</view>
     </view>
   </view>
 </template>
@@ -52,7 +156,7 @@
 <script setup lang="ts">
 import { ref, onMounted, nextTick } from 'vue';
 import Taro from '@tarojs/taro'
-import './vehicleDetail.scss'
+import './order.scss'
 import sendRequest from '../../utils/http'
 
 
@@ -268,21 +372,7 @@ let evaluations = ref<any>([
     correSponding: '12'
   }
 ])
-
-let urls = ref<string[]>([])
-function chooseImage() {
-  Taro.chooseImage({
-    count: 1, // 默认9
-    sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-    sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有，在H5浏览器端支持使用 `user` 和 `environment`分别指定为前后摄像头
-    success: function (res) {
-      console.log(res)
-      // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-      url.value = res.tempFilePaths
-    }
-  })
-}
-
+let noticeImg = require('/src/assets/notice.png')
 onMounted(async () => {
   arr.value = []
   infoList.value.forEach((item, i) => {

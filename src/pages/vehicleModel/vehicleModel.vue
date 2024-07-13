@@ -43,7 +43,7 @@
     <nut-tabs v-model="value" direction="vertical" title-scroll style="height: 200px">
       <nut-tab-pane v-for="item in list" :key="item.id" :title="item.power_name" :pane-key="item.id">
         <!-- 车型列表 -->
-        <view class="vehicle-list" v-for="item in vehicleList" :key="item.id" v-on:touchstart="gotoDetail(item.id)">
+        <view class="vehicle-list" v-for="item in vehicleList" :key="item.id" v-on:touchstart="gotoOrder(item.id)">
           <!-- 车辆图片 车辆代号 -->
           <view class="images-codes">
             <image :src="item.image" :mode="'widthFix'"></image>
@@ -333,7 +333,7 @@ async function getVehicleListApi() {
     url: '/api/car/Index/motorcycle',
     data: {
       page: 1,
-      limit: 100,
+      limit: 20,
     },
     success: function (res) {
       if (res.code == 1) {
@@ -344,9 +344,9 @@ async function getVehicleListApi() {
   })
 }
 
-function gotoDetail(id:string){
+function gotoOrder(id:string){
   Taro.navigateTo({
-    url: '/pages/vehicleDetail/vehicleDetail',
+    url: '/pages/order/order',
   })
 }
 

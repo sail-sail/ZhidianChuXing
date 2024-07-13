@@ -69,17 +69,16 @@ let list = reactive<any>([
 let vehicleList = reactive<any>([])
 
 //获取车型列表
-async function getVehicleListApi() {
+function getVehicleListApi() {
   sendRequest({
     url: '/api/car/Index/motorcycle',
     data: {
       page: 1,
-      limit: 100,
+      limit: 20,
     },
     success: function (res) {
       if (res.code == 1) {
         vehicleList = res.data.data;
-        // console.log(res.data.data, '车型列表')
       }
     }
   })
@@ -93,6 +92,6 @@ function gotoDetail(id: string) {
 
 // 页面加载的时
 onMounted(async () => {
-  await getVehicleListApi()
+  getVehicleListApi()
 })
 </script>
