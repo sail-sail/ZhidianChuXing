@@ -63,7 +63,7 @@
           </view>
           <AtIcon value='chevron-right' size='22' color="#ccc"></AtIcon>
         </view>
-        <view class="order-container">
+        <view class="order-container" v-on:touchstart="gotoOrderList">
           <view class="image-order">
             <image :src="orderImg"></image>
             <view>订单管理</view>
@@ -155,6 +155,15 @@ let listImg3 = require('/src/assets/list3.png')
 let listImg4 = require('/src/assets/list4.png')
 let listImg5 = require('/src/assets/list5.png')
 let listImg6 = require('/src/assets/list6.png')
+
+
+// 跳转到订单列表页面
+function gotoOrderList() {
+  Taro.navigateTo({
+    url: '/pages/orderList/orderList',
+  })
+}
+
 
 // 隐私管理 服务协议 用户协议
 function gotoPgaes(type: string) {

@@ -43,7 +43,7 @@
     <nut-tabs v-model="value" direction="vertical" title-scroll style="height: 200px">
       <nut-tab-pane v-for="item in list" :key="item.id" :title="item.power_name" :pane-key="item.id">
         <!-- 车型列表 -->
-        <view class="vehicle-list" v-for="item in vehicleList" :key="item.id">
+        <view class="vehicle-list" v-for="item in vehicleList" :key="item.id" v-on:touchstart="gotoDetail(item.id)">
           <!-- 车辆图片 车辆代号 -->
           <view class="images-codes">
             <image :src="item.image" :mode="'widthFix'"></image>
@@ -344,6 +344,11 @@ async function getVehicleListApi() {
   })
 }
 
+function gotoDetail(id:string){
+  Taro.navigateTo({
+    url: '/pages/vehicleDetail/vehicleDetail',
+  })
+}
 
 // 页面加载的时
 onMounted(async () => {
