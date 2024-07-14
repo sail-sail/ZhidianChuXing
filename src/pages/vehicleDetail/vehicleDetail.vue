@@ -1,14 +1,15 @@
 <template>
   <view class="container" v-if="inited">
-    <!-- 背景轮播图 -->
+    <nut-button shape="round" type="info" :size="'small'" @click="changeImg">切换是否有图片</nut-button>
+    <!-- 背景轮播图 可更换 -->
     <view class="swiper-container">
       <nut-swiper :init-page="0" pagination-visible pagination-color="#426543" pagination-unselected-color="#808080"
         class="swiper">
         <nut-swiper-item class="swiper-item">
-          <view v-on:touchstart="chooseImage">11111111</view>
-        </nut-swiper-item>
-        <nut-swiper-item class="swiper-item">
-          <image :src="carBgImg"></image>
+          <image :src="urls[0]" v-if="hasImg" ></image>
+          <view v-else v-on:touchstart="chooseImage" class="uploadImg">
+            +上传图片
+          </view>
         </nut-swiper-item>
       </nut-swiper>
     </view>
@@ -21,6 +22,19 @@
         <view class="detail" v-for="item in vehicleObj.details" :key="item.type">
           <view>{{ item.type }}</view>
           <view>{{ item.correSponding }}</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 四周图 -->
+    <view class="around-image">
+      <view class="arounds-container">
+        <view class="around" v-for="(item,index) in arounds" :key="item.type">
+          <view>{{ item.type }}</view>
+          <image :src="item.url" v-if="item.url!==''" v-on:touchstart="chooseImageAround(index)"></image>
+          <view v-else v-on:touchstart="chooseImageAround(index)" class="uploadImg">
+            +上传图片
+          </view>
         </view>
       </view>
     </view>
@@ -57,7 +71,7 @@ import sendRequest from '../../utils/http'
 
 
 // @ts-ignore
-let carBgImg = require('/src/assets/carBg.png')
+let carBgImgUrl = require('/src/assets/carBg.png')
 let vehicleObj = ref<any>({
   name: '雪佛兰科鲁泽',
   life: 2,
@@ -120,6 +134,44 @@ let vehicleObj = ref<any>({
     }
   ]
 })
+
+let arounds = ref<any>([
+  {
+    type: '前面',
+    url: ''
+  },
+  {
+    type: '后面',
+    url: ''
+  },
+  {
+    type: '左前',
+    url: ''
+  },
+  {
+    type: '右前',
+    url: ''
+  },
+  {
+    type: '左后',
+    url: ''
+  },
+  {
+    type: '右后',
+    url: ''
+  },
+  {
+    type: '左面',
+    url: ''
+  },
+  {
+    type: '右面',
+    url: ''
+  }
+])
+
+
+
 let infoList = ref<any>([
   {
     type: '前/后雷达',
@@ -230,46 +282,16 @@ function handleChange(index) {
   }) || []
 }
 
-let evaluations = ref<any>([
-  {
-    type: '行驶平稳',
-    correSponding: '72'
-  },
-  {
-    type: '外观时尚',
-    correSponding: '63'
-  },
-  {
-    type: '油耗低',
-    correSponding: '61'
-  },
-  {
-    type: '干净整洁',
-    correSponding: '52'
-  },
-  {
-    type: '后备厢空间大',
-    correSponding: '31'
-  },
-  {
-    type: '内饰好看',
-    correSponding: '28'
-  },
-  {
-    type: '配置实用',
-    correSponding: '22'
-  },
-  {
-    type: '经济好用',
-    correSponding: '12'
-  },
-  {
-    type: '续航满意',
-    correSponding: '12'
+let hasImg = ref<boolean>(true)
+function changeImg() {
+  hasImg.value = !hasImg.value
+  if (hasImg.value) {
+    urls.value[0] = carBgImgUrl;
+  } else {
+    urls.value[0] = ''
   }
-])
-
-let urls = ref<string[]>([])
+}
+let urls = ref<string[]>([carBgImgUrl])
 function chooseImage() {
   Taro.chooseImage({
     count: 1, // 默认9
@@ -278,11 +300,27 @@ function chooseImage() {
     success: function (res) {
       console.log(res)
       // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-      url.value = res.tempFilePaths
+      urls.value = res.tempFilePaths
+      // 仅此本地路径需上传到服务器 通过详情获取最新的图片
+      hasImg.value = true
     }
   })
 }
 
+function chooseImageAround(index){
+  console.log(index)
+  Taro.chooseImage({
+    count: 1, // 默认9
+    sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+    sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有，在H5浏览器端支持使用 `user` 和 `environment`分别指定为前后摄像头
+    success: function (res) {
+      console.log(res)
+      // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+      arounds.value[index].url = res.tempFilePaths[0]
+      // 仅此本地路径需上传到服务器 通过详情获取最新的图片
+    }
+  })
+}
 onMounted(async () => {
   arr.value = []
   infoList.value.forEach((item, i) => {

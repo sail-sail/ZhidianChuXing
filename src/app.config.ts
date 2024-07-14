@@ -1,7 +1,8 @@
 export default defineAppConfig({
   pages: [
-    'pages/index/index',
+    'pages/vehicleDetail/vehicleDetail',
     'pages/my/my',
+    'pages/index/index',
     'pages/carRentalNotice/carRentalNotice',
     'pages/carRentalNotice/detail/detail',
     'pages/openVip/openVip',
@@ -14,7 +15,9 @@ export default defineAppConfig({
     'pages/serviceAgreement/serviceAgreement',
     'pages/userAgreement/userAgreement',
     'pages/vehicleModel/vehicleModel',
-    'pages/vehicleDetail/vehicleDetail',
+
+    'pages/order/order',
+    'pages/orderTab/orderTab',
   ],
 
   window: {
@@ -32,8 +35,12 @@ export default defineAppConfig({
         text: '首页'
       },
       {
+        pagePath: 'pages/orderTab/orderTab',
+        text: '订单'
+      },
+      {
         pagePath: 'pages/my/my',
-        text: '首页2'
+        text: '我的'
       }
     ]
   },
@@ -43,4 +50,5 @@ export default defineAppConfig({
     }
   },
   requiredPrivateInfos: ["getLocation", "chooseLocation"],
+  lazyCodeLoading:'requiredComponents'
 })
