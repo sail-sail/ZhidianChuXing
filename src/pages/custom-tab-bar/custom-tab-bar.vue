@@ -20,8 +20,8 @@ const { selected } = storeToRefs(store)
 
 const systemInfo = Taro.getSystemInfoSync() // 获取系统信息
 const theme: 'light' | 'dark' = systemInfo.theme || 'light'
-console.log('systemInfo', systemInfo)
-console.log('theme', theme)
+// console.log('systemInfo', systemInfo)
+// console.log('theme', theme)
 
 const themeStyle = {
   light: {
@@ -40,6 +40,11 @@ const tabBarList = [
     title: '首页',
     icon: 'home',
     url: '/pages/index/index'
+  },
+  {
+    title: '订单',
+    icon: 'list',
+    url: '/pages/orderTab/orderTab'
   },
   {
     title: '我的',

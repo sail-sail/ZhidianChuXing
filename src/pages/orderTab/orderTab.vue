@@ -21,15 +21,17 @@
       </view>
     </view>
 
+    <customTabBar></customTabBar>
   </view>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import Taro from '@tarojs/taro'
-import './orderList.scss'
+import './orderTab.scss'
 import sendRequest from '../../utils/http'
 
+import customTabBar from '../custom-tab-bar/custom-tab-bar.vue'
 
 let orderList = ref<any>([
   {
