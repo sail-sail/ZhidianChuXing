@@ -5,31 +5,23 @@
         <!-- 车型列表 -->
         <view class="vehicle-list" v-for="item in vehicleList" :key="item.id" v-on:touchstart="gotoDetail(item.id)">
           <!-- 车辆图片 车辆代号 -->
-          <view class="images-codes">
+          <view class="images-codes-character">
             <image :src="item.image" :mode="'widthFix'"></image>
-            <view class="codes">
-              <view class="code-name">{{ item.motorcycle_name }}</view>
-              <view class="code-special" v-if="Array.isArray(item.home1_tags) && item.home1_tags.length > 0">
-                <view v-for="(i, index) in item.home1_tags" :key="index">
-                  {{ i }}<text v-if="index !== item.home1_tags.length - 1">&nbsp;|&nbsp;</text>
+            <view class="codes-character">
+              <view class="codes">
+                <view class="code-name">{{ item.motorcycle_name }}</view>
+                <view class="code-special" v-if="Array.isArray(item.home1_tags) && item.home1_tags.length > 0">
+                  <view v-for="(i, index) in item.home1_tags" :key="index">
+                    {{ i }}
+                  </view>
                 </view>
               </view>
-            </view>
-          </view>
-          <!-- 车辆特点 -->
-          <view class="character" v-if="Array.isArray(item.home2_tags) && item.home2_tags.length > 0">
-            <view v-for="(i, index) in item.home2_tags" :key="index">
-              {{ i }}
-            </view>
-          </view>
-          <!-- 车辆详情 租金 -->
-          <view class="detail-money">
-            <view class="detail">车辆详情</view>
-            <view class="money">
-              <text>¥</text>
-              {{ item.price }}
-              <text>/</text>
-              <text>天</text>
+              <!-- 车辆特点 -->
+              <view class="character" v-if="Array.isArray(item.home2_tags) && item.home2_tags.length > 0">
+                <view v-for="(i, index) in item.home2_tags" :key="index">
+                  {{ i }}
+                </view>
+              </view>
             </view>
           </view>
         </view>
@@ -74,7 +66,7 @@ function getVehicleListApi() {
     url: '/api/car/Index/motorcycle',
     data: {
       page: 1,
-      limit: 20,
+      limit: 5,
     },
     success: function (res) {
       if (res.code == 1) {

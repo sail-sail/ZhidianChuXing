@@ -28,69 +28,45 @@
   padding: 10rpx;
   margin-bottom: 15rpx;
 
-  .images-codes {
+  .images-codes-character {
     display: flex;
-    margin-bottom: 10rpx;
 
     image {
       width: 40%;
-      height: 200rpx;
     }
 
-    .codes {
+    .codes-character {
       flex: 1;
       margin-left: 10rpx;
 
-      .code-name {
-        font-size: 28rpx;
-      }
-
-      .code-special {
-        display: flex;
-        flex-wrap: wrap;
-        margin: 8rpx;
-
-        view {
+      .codes {
+        margin-bottom: 10rpx;
+        .code-name {
           font-size: 20rpx;
-          color: #666;
+          margin-bottom: 10rpx;
+        }
+
+        .code-special {
+          display: flex;
+          flex-wrap: wrap;
+
+          view {
+            font-size: 18rpx;
+            color: #333;
+          }
         }
       }
-    }
-  }
 
-  .character {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 10rpx;
+      .character {
+        display: flex;
+        flex-wrap: wrap;
 
-    view {
-      font-size: 20rpx;
-      color: #999;
-      background-color: rgb(242, 247, 245);
-      margin-right: 16rpx;
-    }
-  }
-
-  .detail-money {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    .detail {
-      font-size: 20rpx;
-      color: #999;
-    }
-
-    .money {
-      color: red;
-      font-size: 24rpx;
-
-      & text:nth-child(2) {
-        color: rgba(0, 0, 0, 0.5);
-      }
-
-      & text:nth-child(3) {
-        color: rgba(0, 0, 0, 0.5);
+        view {
+          font-size: 18rpx;
+          color: #333;
+          background-color: rgb(242, 247, 245);
+          margin-right: 16rpx;
+        }
       }
     }
   }
