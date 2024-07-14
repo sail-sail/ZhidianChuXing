@@ -1,7 +1,7 @@
 export default defineAppConfig({
   pages: [
-    'pages/vehicleDetail/vehicleDetail',
     'pages/my/my',
+    'pages/vehicleDetail/vehicleDetail',
     'pages/index/index',
     'pages/carRentalNotice/carRentalNotice',
     'pages/carRentalNotice/detail/detail',
