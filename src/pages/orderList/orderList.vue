@@ -16,7 +16,7 @@
         <view>订单金额:&nbsp;¥{{ item.amount }}</view>
       </view>
 
-      <view class="detail">
+      <view class="detail" v-on:touchstart="gotoOrderDetail">
         查看详情
       </view>
     </view>
@@ -94,7 +94,12 @@ let orderList = ref<any>([
   }
 ])
 
-
+// 跳转到订单列表页面
+function gotoOrderDetail() {
+  Taro.navigateTo({
+    url: '/pages/orderDetail/orderDetail',
+  })
+}
 
 onMounted(async () => {
 })
