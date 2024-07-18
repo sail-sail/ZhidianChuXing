@@ -1,15 +1,13 @@
-// 页面容器
 .container {
   box-sizing: border-box;
   width: 100vw;
   height: 100vh;
-  padding-bottom: calc(100px + env(safe-area-inset-bottom));
+  padding-bottom: env(safe-area-inset-bottom);
   overflow-y: scroll;
   overflow-x: hidden;
   background-color: rgb(245, 246, 249);
 }
 
-//初次弹窗 租车声明
 .info {
   color: rgb(0, 157, 255);
 }
@@ -18,7 +16,6 @@
   border: none !important;
 }
 
-// 轮播图
 .swiper {
   height: 380px;
 }
@@ -30,7 +27,6 @@
   }
 }
 
-// 送还地点 选车
 .return-vehicle-box {
   box-sizing: border-box;
   width: 90vw;
@@ -38,57 +34,65 @@
   top: -1vh;
   left: 5vw;
   background-color: #fff;
-  box-shadow: 0px 8rpx 16rpx 6rpx rgba(0, 0, 0, 0.03);
   border-radius: 20rpx;
-  padding: 15rpx;
-  font-size: 32rpx;
-  .use-time {
-    font-weight: bold;
-    height: 60px;
-    width: 100%;
-    background-color: rgb(242, 247, 245);
-    text-align: center;
-    line-height: 60px;
-    z-index: 2;
-  }
+  padding: 20rpx;
+  font-size: 24rpx;
+  text-align: center;
 
   .city-address {
     display: flex;
-    justify-content: space-around;
-    margin-top: 16rpx;
 
     .city-model {
       width: 25%;
+
+      .city-title {
+        color: #666;
+        margin-bottom: 10rpx;
+      }
+
+      .city-content {
+        font-size: 30rpx;
+        font-weight: 600;
+      }
     }
 
     .address-model {
       flex: 1;
-      z-index: 2;
+
+      .address-title {
+        color: #666;
+        margin-bottom: 10rpx;
+      }
+
+      .address-content {
+        font-size: 30rpx;
+        font-weight: 600;
+      }
     }
 
-    .city-title,
-    .address-title {
-      font-size: 24rpx;
-      color: gray;
-      text-align: center;
-      margin-bottom: 8rpx;
-    }
-
-    .city-content,
-    .address-content {
-      text-align: center;
-      margin-bottom: 16rpx;
-    }
   }
 
-  .select-vehicle-button{
-    width: 100%!important;
+  .use-time {
+    margin-top: 15rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 248, 245);
+    font-size: 28rpx;
+    border-radius: 20rpx;
+    padding: 20rpx 0;
+  }
+
+
+  .select-vehicle-button {
+    margin-top: 15rpx;
+    width: 100% !important;
   }
 
   .service-fee {
     font-size: 24rpx;
     color: gray;
-    margin-top: 8rpx;
+    margin-top: 15rpx;
   }
 }
 
@@ -287,7 +291,8 @@
 
   .at-divider {
     height: 50rpx;
-    .at-divider__line{
+
+    .at-divider__line {
       background-color: #ddd;
     }
   }
@@ -296,6 +301,7 @@
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 1vh;
+
     view {
       font-size: 22rpx;
       color: #00BC7E;
@@ -306,27 +312,32 @@
     }
   }
 
-  .detail-money{
+  .detail-money {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    .detail{
+
+    .detail {
       font-size: 24rpx;
       color: gray;
     }
-    .money{
+
+    .money {
       color: red;
       font-size: 28rpx;
-      & text:nth-child(1){
+
+      & text:nth-child(1) {
         font-size: 24rpx;
       }
-      & text:nth-child(2){
+
+      & text:nth-child(2) {
         font-size: 30rpx;
-        color:rgba(0,0,0,0.5);
+        color: rgba(0, 0, 0, 0.5);
       }
-      & text:nth-child(3){
+
+      & text:nth-child(3) {
         font-size: 30rpx;
-        color: rgba(0,0,0,0.5);
+        color: rgba(0, 0, 0, 0.5);
       }
     }
   }
@@ -335,7 +346,7 @@
 }
 
 // 警告
- .overlay-container{
+.overlay-container {
   color: red;
   display: flex;
   align-items: center;

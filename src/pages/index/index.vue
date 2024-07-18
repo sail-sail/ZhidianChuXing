@@ -9,20 +9,7 @@
       </nut-swiper-item>
     </nut-swiper>
 
-    <!-- 送还地点 选车 -->
     <view class="return-vehicle-box">
-      <view class="use-time">
-        <text v-on:touchstart="chooseDateInfo('start')">
-          {{ returnVehicleObj.startDate }}
-          {{ returnVehicleObj.startTime }}
-        </text>
-        <text>&nbsp;-&nbsp;</text>
-        <text v-on:touchstart="chooseDateInfo('end')">
-          {{ returnVehicleObj.endDate }}
-          {{ returnVehicleObj.endTime }}
-        </text>
-      </view>
-      <!-- 送车城市 地点 -->
       <view class="city-address">
         <view class="city-model">
           <view class="city-title">送车城市</view>
@@ -34,9 +21,21 @@
           <view class="address-content">{{ positionInfo.address }}</view>
         </view>
       </view>
+
+      <view class="use-time">
+        <text v-on:touchstart="chooseDateInfo('start')">
+          {{ returnVehicleObj.startDate }}
+          {{ returnVehicleObj.startTime }}
+        </text>
+        <text>&nbsp;-&nbsp;</text>
+        <text v-on:touchstart="chooseDateInfo('end')">
+          {{ returnVehicleObj.endDate }}
+          {{ returnVehicleObj.endTime }}
+        </text>
+      </view>
+
       <!-- 选车按钮 -->
-      <nut-button class="select-vehicle-button" shape="round" type="info" :size="'small'"
-        @click="selectVehicleMoedl">去选车</nut-button>
+      <nut-button class="select-vehicle-button" :size="'small'" @click="selectVehicleMoedl">去选车</nut-button>
       <!-- 提示服务费 -->
       <view class="service-fee">上门送取¥{{ serviceFee }}</view>
     </view>
@@ -160,7 +159,7 @@ function handleSelectDateCallBack() {
 
 
 //后期需要根据userInfo(是否登录过控制弹出)
-let stateMentOpened = ref<boolean>(true)
+let stateMentOpened = ref<boolean>(false)
 function handleStateMentConfirm(obj) {
   if (obj) {
     positionInfo.value = obj
@@ -243,7 +242,7 @@ function selectVehicleMoedl() {
 }
 
 // 跳转到租车须知页面
-function gotoCarRentailNotice(){
+function gotoCarRentailNotice() {
   Taro.navigateTo({
     url: '/pages/carRentalNotice/carRentalNotice',
   })
