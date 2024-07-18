@@ -15,6 +15,7 @@
   margin-bottom: 15rpx;
   width: 100%;
   box-sizing: border-box;
+  border-radius: 0 0 30rpx 30rpx;
 
   .left {
     margin-right: 20rpx;
@@ -27,20 +28,22 @@
       font-size: 30rpx;
       font-weight: 600;
       margin-bottom: 10rpx;
+      letter-spacing: 5rpx;
     }
 
     .orderNumber {
       width: 100%;
       font-size: 20rpx;
       box-sizing: border-box;
-      background-color: #fff;
       margin-bottom: 10rpx;
+      letter-spacing: 1rpx;
     }
 
     .vehicle-characteristics {
-      font-size: 24rpx;
-      color: #666;
+      font-size: 20rpx;
+      color: #999;
       margin-bottom: 10rpx;
+      letter-spacing: 1rpx;
     }
 
     .license-plate {
@@ -49,6 +52,7 @@
       border-radius: 5rpx;
       font-size: 30rpx;
       padding: 10rpx;
+      letter-spacing: 8rpx;
     }
   }
 
@@ -68,11 +72,12 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 20rpx;
+  padding: 10rpx;
   background-color: #fff;
   margin-bottom: 15rpx;
   width: 100%;
   box-sizing: border-box;
+  border-radius: 20rpx;
 
   .checkbox {
     width: 26%;
@@ -80,6 +85,7 @@
 }
 
 .vehicle-violation {
+  border-radius: 20rpx;
   display: flex;
   flex-direction: column;
   padding: 20rpx;
@@ -92,7 +98,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20rpx;
+    margin-bottom: 15rpx;
 
     .left {
       font-size: 36rpx;
@@ -101,6 +107,7 @@
 
     .right {
       color: orange;
+      font-size: 24rpx;
     }
   }
 
@@ -108,14 +115,15 @@
     padding: 15rpx 0;
     border-radius: 10rpx;
     background-color: rgb(244, 247, 245);
-    text-indent: 10rpx;
+    text-indent: 20rpx;
+    font-size: 24rpx;
   }
 }
 
 .car-rental-fee {
+  border-radius: 20rpx;
   padding: 20rpx;
   background-color: #fff;
-  margin-bottom: 15rpx;
   width: 100%;
   box-sizing: border-box;
 
@@ -151,7 +159,7 @@
     }
 
     .right {
-      font-size: 24rpx;
+      font-size: 26rpx;
     }
   }
 
@@ -161,13 +169,15 @@
     align-items: center;
 
     .payMen {
+      font-size: 28rpx;
     }
 
     .payDetail {
+      font-size: 28rpx;
     }
   }
 
-  .divider{
-    color: #ddd;
+  .divider {
+    color: #ededed;
   }
 }
