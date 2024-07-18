@@ -1,23 +1,29 @@
 export default defineAppConfig({
   pages: [
-    'pages/my/my',
-    'pages/vehicleDetail/vehicleDetail',
+
     'pages/index/index',
+    'pages/my/my',
+
+    'pages/vehicleModel/vehicleModel',
+    'pages/vehicleAssociation/vehicleAssociation',
+    'pages/vehicleDetail/vehicleDetail',
+
+    'pages/orderTab/orderTab',
+    'pages/orderList/orderList',
+    'pages/order/order',
+    'pages/orderDetail/orderDetail',
+
     'pages/carRentalNotice/carRentalNotice',
     'pages/carRentalNotice/detail/detail',
+
     'pages/openVip/openVip',
-    'pages/enterpriseVehicles/enterpriseVehicles',
     'pages/carOwner/carOwner',
-    'pages/vehicleAssociation/vehicleAssociation',
-    'pages/orderList/orderList',
+    'pages/enterpriseVehicles/enterpriseVehicles',
     'pages/realNameAuthentication/realNameAuthentication',
     'pages/privacyStatement/privacyStatement',
     'pages/serviceAgreement/serviceAgreement',
     'pages/userAgreement/userAgreement',
-    'pages/vehicleModel/vehicleModel',
 
-    'pages/order/order',
-    'pages/orderTab/orderTab',
   ],
 
   window: {

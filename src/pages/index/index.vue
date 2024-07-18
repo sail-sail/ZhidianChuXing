@@ -159,7 +159,7 @@ function handleSelectDateCallBack() {
 
 
 //后期需要根据userInfo(是否登录过控制弹出)
-let stateMentOpened = ref<boolean>(false)
+let stateMentOpened = ref<boolean>(true)
 function handleStateMentConfirm(obj) {
   if (obj) {
     positionInfo.value = obj
