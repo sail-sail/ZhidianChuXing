@@ -1,27 +1,19 @@
 <template>
   <view class="vehicle-container" v-if="inited">
-    <!-- 送车城市 地点 -->
-    <view class="city-address">
-      <view class="city-model">
-        <view class="city-title">送车城市</view>
-        <view class="city-content">{{ positionInfo.city }}</view>
+    <view class="address-time">
+      <view class="city-content" v-on:touchstart="chooseLoactionInfo">
+      {{ positionInfo.city }} {{ positionInfo.address }}
       </view>
-      <view class="address-model" v-on:touchstart="chooseLoactionInfo">
-        <view class="address-title">送车地点</view>
-        <view class="address-content">{{ positionInfo.address }}</view>
-      </view>
-    </view>
-    <!-- 送还地点 选车 -->
-    <view class="return-vehicle-box">
       <view class="use-time">
-        <view v-on:touchstart="chooseDateInfo('start')">
+        <span v-on:touchstart="chooseDateInfo('start')">
           {{ returnVehicleObj.startDate }}
           {{ returnVehicleObj.startTime }}
-        </view>
-        <view v-on:touchstart="chooseDateInfo('end')">
+        </span>
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span v-on:touchstart="chooseDateInfo('end')">
           {{ returnVehicleObj.endDate }}
           {{ returnVehicleObj.endTime }}
-        </view>
+        </span>
       </view>
     </view>
 
@@ -40,43 +32,24 @@
       </nut-col>
     </nut-row>
 
-    <nut-tabs v-model="value" direction="vertical" title-scroll style="height: 200px">
+    <nut-tabs v-model="value" direction="vertical" auto-height size="small">
       <nut-tab-pane v-for="item in list" :key="item.id" :title="item.power_name" :pane-key="item.id">
         <!-- 车型列表 -->
         <view class="vehicle-list" v-for="item in vehicleList" :key="item.id" v-on:touchstart="gotoOrder(item.id)">
-          <!-- 车辆图片 车辆代号 -->
-          <view class="images-codes">
-            <image :src="item.image" :mode="'widthFix'"></image>
-            <view class="codes">
-              <view class="code-name">{{ item.motorcycle_name }}</view>
-              <view class="code-special" v-if="Array.isArray(item.home1_tags) && item.home1_tags.length > 0">
-                <view v-for="(i, index) in item.home1_tags" :key="index">
-                  {{ i }}<text v-if="index !== item.home1_tags.length - 1">&nbsp;|&nbsp;</text>
-                </view>
-              </view>
-            </view>
-          </view>
-          <!-- 车辆特点 -->
-          <view class="character" v-if="Array.isArray(item.home2_tags) && item.home2_tags.length > 0">
-            <view v-for="(i, index) in item.home2_tags" :key="index">
-              {{ i }}
-            </view>
-          </view>
-          <!-- 车辆详情 租金 -->
-          <view class="detail-money">
-            <view class="detail">车辆详情</view>
-            <view class="money">
-              <text>¥</text>
-              {{ item.price }}
-              <text>/</text>
-              <text>天</text>
-            </view>
-          </view>
+          <nut-card :img-url="item.image" :title="item.motorcycle_name" :price="item.price">
+            <template #prolist>
+              <view class="tags1">{{ item.home1_tags.join(' ') }}</view>
+              <view class="tags2">{{ item.home2_tags.join(' ') }}</view>
+            </template>
+            <template #shop-tag>
+            </template>
+            <template #origin>
+              <span></span>
+            </template>
+          </nut-card>
         </view>
       </nut-tab-pane>
     </nut-tabs>
-
-
 
     <!-- 选择时间 -->
     <selectDate :isOpened="isSelectDateOpend" :returnVehicleObj="returnVehicleObj" :type="type"
@@ -106,7 +79,6 @@ import config from '../../utils/config';
 import './vehicleModel.scss'
 
 import selectDate from '../selectdate/selectdate.vue';
-import { nextTick } from 'vue';
 
 let inited = ref<boolean>(false)
 let type = ref<string | undefined>('')
@@ -121,8 +93,8 @@ let returnVehicleObj = ref<any>({
 let positionInfo = ref<any>({
   latitude: '',
   longitude: '',
-  city: '',
-  address: ''
+  city: '佛山市',
+  address: '顺德区大良街道'
 })
 
 let isSelectDateOpend = ref<boolean>(false)
@@ -333,7 +305,7 @@ async function getVehicleListApi() {
     url: '/api/car/Index/motorcycle',
     data: {
       page: 1,
-      limit: 20,
+      limit: 10,
     },
     success: function (res) {
       if (res.code == 1) {
@@ -344,7 +316,7 @@ async function getVehicleListApi() {
   })
 }
 
-function gotoOrder(id:string){
+function gotoOrder(id: string) {
   Taro.navigateTo({
     url: '/pages/order/order',
   })
@@ -352,20 +324,20 @@ function gotoOrder(id:string){
 
 // 页面加载的时
 onMounted(async () => {
-  //读取取车还车时间
-  Taro.getStorage({
-    key: 'pickupDateTime',
-    success: function (res) {
-      returnVehicleObj.value = res.data._value
-    }
-  })
-  // 读取地点
-  Taro.getStorage({
-    key: 'location',
-    success: function (res) {
-      positionInfo.value = res.data._value
-    }
-  })
+  // //读取取车还车时间
+  // Taro.getStorage({
+  //   key: 'pickupDateTime',
+  //   success: function (res) {
+  //     returnVehicleObj.value = res.data._value
+  //   }
+  // })
+  // // 读取地点
+  // Taro.getStorage({
+  //   key: 'location',
+  //   success: function (res) {
+  //     positionInfo.value = res.data._value
+  //   }
+  // })
 
   // 调取各接口
   await getCarDong()

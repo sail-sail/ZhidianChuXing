@@ -1,5 +1,4 @@
 .vehicle-container {
-  background-color: rgb(245, 246, 249);
   height: 100vh;
   width: 100vw;
   overflow: hidden;
@@ -8,45 +7,29 @@
   flex-direction: column;
 }
 
-.city-address {
+.address-time {
   display: flex;
-  justify-content: space-around;
-  background-color: rgb(242, 247, 245);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 85vw;
+  margin-left: 7.5vw;
+  background-color: rgb(255, 248, 245);
+  font-size: 26rpx;
+  border-radius: 20rpx;
+  border: 1px solid rgb(255, 201, 202);
   padding: 10rpx 0;
 
-  .city-model {
-    width: 50%;
-  }
 
-  .address-model {
-    flex: 1;
-    z-index: 2;
-  }
-
-  .city-title,
-  .address-title {
-    font-size: 24rpx;
+  .city-content {
     text-align: center;
+    margin-bottom: 15rpx;
   }
-
-  .city-content,
-  .address-content {
-    padding: 10rpx 0;
-    font-size: 20rpx;
-    text-align: center;
-  }
-}
-
-// 送还地点 选车
-.return-vehicle-box {
-  padding-bottom: 10rpx;
-  font-size: 24rpx;
-  background-color: rgb(242, 247, 245);
 
   .use-time {
+    width: 100%;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -56,12 +39,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0px 0rpx 0rpx 1rpx rgba(0, 0, 0, 0.03);
-}
-
-// 自动撑满
-.nut-tabs.vertical {
-  flex: 1;
 }
 
 .nut-tabs.vertical>.nut-tabs__titles {
@@ -72,77 +49,35 @@
   padding: 0 !important;
 }
 
-// 车型列表
 .vehicle-list {
-  box-shadow: 0px 8rpx 16rpx 6rpx rgba(0, 0, 0, 0.05);
-  border-radius: 20rpx;
-  padding: 10rpx;
-  margin-bottom: 15rpx;
+  margin-bottom: 20rpx;
+  border-bottom: 1px solid #eee;
 
-  .images-codes {
-    display: flex;
-    margin-bottom: 10rpx;
-
-    image {
-      width: 40%;
-      height: 200rpx;
-    }
-
-    .codes {
-      flex: 1;
-      margin-left: 10rpx;
-
-      .code-name {
-        font-size: 28rpx;
-      }
-
-      .code-special {
-        display: flex;
-        flex-wrap: wrap;
-        margin: 8rpx;
-
-        view {
-          font-size: 20rpx;
-          color: #666;
-        }
-      }
-    }
+  .nut-card .nut-card__left {
+    width: 50%;
+    height: 200rpx;
   }
 
-  .character {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 10rpx;
-
-    view {
-      font-size: 20rpx;
-      color: #999;
-      background-color: rgb(242, 247, 245);
-      margin-right: 16rpx;
-    }
+  .nut-card .nut-card__right {
+    padding-bottom: 0;
   }
 
-  .detail-money {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  .nut-card .nut-card__right .nut-card__right__title {
+    font-size: 22rpx;
+  }
 
-    .detail {
-      font-size: 20rpx;
-      color: #999;
-    }
+  .nut-card .nut-card__right .nut-card__right__other {
+    padding: 0;
+  }
 
-    .money {
-      color: red;
-      font-size: 24rpx;
+  .tags1 {
+    font-size: 20rpx;
+    color: #333;
+    margin: 10rpx 0;
+  }
 
-      & text:nth-child(2) {
-        color: rgba(0, 0, 0, 0.5);
-      }
-
-      & text:nth-child(3) {
-        color: rgba(0, 0, 0, 0.5);
-      }
-    }
+  .tags2 {
+    font-size: 20rpx;
+    color: #999;
   }
 }

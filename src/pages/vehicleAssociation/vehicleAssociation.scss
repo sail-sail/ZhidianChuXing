@@ -1,16 +1,10 @@
 .vehicle-container {
-  background-color: rgb(245, 246, 249);
   height: 100vh;
   width: 100vw;
   overflow: hidden;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-}
-
-// 自动撑满
-.nut-tabs.vertical {
-  flex: 1;
 }
 
 .nut-tabs.vertical>.nut-tabs__titles {
@@ -21,53 +15,35 @@
   padding: 0 !important;
 }
 
-// 车型列表
 .vehicle-list {
-  box-shadow: 0px 8rpx 16rpx 6rpx rgba(0, 0, 0, 0.05);
-  border-radius: 20rpx;
-  padding: 10rpx;
-  margin-bottom: 15rpx;
+  margin-bottom: 20rpx;
+  border-bottom: 1px solid #eee;
 
-  .images-codes-character {
-    display: flex;
+  .nut-card .nut-card__left {
+    width: 50%;
+    height: 200rpx;
+  }
 
-    image {
-      width: 40%;
-    }
+  .nut-card .nut-card__right {
+    padding-bottom: 0;
+  }
 
-    .codes-character {
-      flex: 1;
-      margin-left: 10rpx;
+  .nut-card .nut-card__right .nut-card__right__title {
+    font-size: 22rpx;
+  }
 
-      .codes {
-        margin-bottom: 10rpx;
-        .code-name {
-          font-size: 20rpx;
-          margin-bottom: 10rpx;
-        }
+  .nut-card .nut-card__right .nut-card__right__other {
+    padding: 0;
+  }
 
-        .code-special {
-          display: flex;
-          flex-wrap: wrap;
+  .tags1 {
+    font-size: 20rpx;
+    color: #333;
+    margin: 10rpx 0;
+  }
 
-          view {
-            font-size: 18rpx;
-            color: #333;
-          }
-        }
-      }
-
-      .character {
-        display: flex;
-        flex-wrap: wrap;
-
-        view {
-          font-size: 18rpx;
-          color: #333;
-          background-color: rgb(242, 247, 245);
-          margin-right: 16rpx;
-        }
-      }
-    }
+  .tags2 {
+    font-size: 20rpx;
+    color: #999;
   }
 }

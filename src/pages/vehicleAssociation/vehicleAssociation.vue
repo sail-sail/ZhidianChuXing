@@ -1,29 +1,20 @@
 <template>
   <view class="vehicle-container">
-    <nut-tabs v-model="value" direction="vertical" title-scroll style="height: 200px">
+    <nut-tabs v-model="value" direction="vertical"  auto-height size="small">
       <nut-tab-pane v-for="item in list" :key="item" :title="item" :pane-key="item">
         <!-- 车型列表 -->
         <view class="vehicle-list" v-for="item in vehicleList" :key="item.id" v-on:touchstart="gotoDetail(item.id)">
-          <!-- 车辆图片 车辆代号 -->
-          <view class="images-codes-character">
-            <image :src="item.image" :mode="'widthFix'"></image>
-            <view class="codes-character">
-              <view class="codes">
-                <view class="code-name">{{ item.motorcycle_name }}</view>
-                <view class="code-special" v-if="Array.isArray(item.home1_tags) && item.home1_tags.length > 0">
-                  <view v-for="(i, index) in item.home1_tags" :key="index">
-                    {{ i }}
-                  </view>
-                </view>
-              </view>
-              <!-- 车辆特点 -->
-              <view class="character" v-if="Array.isArray(item.home2_tags) && item.home2_tags.length > 0">
-                <view v-for="(i, index) in item.home2_tags" :key="index">
-                  {{ i }}
-                </view>
-              </view>
-            </view>
-          </view>
+          <nut-card :img-url="item.image" :title="item.motorcycle_name" :price="item.price">
+            <template #prolist>
+              <view class="tags1">{{ item.home1_tags.join(' ') }}</view>
+              <view class="tags2">{{ item.home2_tags.join(' ') }}</view>
+            </template>
+            <template #shop-tag>
+            </template>
+            <template #origin>
+              <span></span>
+            </template>
+          </nut-card>
         </view>
       </nut-tab-pane>
     </nut-tabs>
