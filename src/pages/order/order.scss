@@ -1,5 +1,4 @@
 .container {
-  background-color: rgb(245, 246, 249);
   height: 100vh;
   width: 100vw;
   overflow: auto;
@@ -32,9 +31,17 @@
   position: relative;
   left: 3vw;
   background-color: #fff;
-  box-shadow: 0px 8rpx 16rpx 6rpx rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 8rpx 8rpx 0rpx rgba(0, 0, 0, 0.1);
   border-radius: 20rpx;
   padding: 20rpx;
+
+  .name-life {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15rpx;
+
+  }
 
   .name {
     font-size: 36rpx;
@@ -44,32 +51,31 @@
   .life {
     box-sizing: border-box;
     padding: 10rpx;
-    background-color: #eee;
+    background-color: #efefef;
     width: 135rpx;
-    font-size: 24rpx;
+    font-size: 20rpx;
     text-align: center;
     letter-spacing: 5rpx;
     border-radius: 10rpx;
-    margin: 15rpx 0;
   }
 
   .details {
     width: 100%;
     height: auto;
-    overflow-x: scroll;
+    overflow-x: auto;
     overflow-y: hidden;
     display: flex;
 
     .detail {
       margin-right: 10rpx;
       border-radius: 20rpx;
-      color: #666;
-      font-size: 24rpx;
-      border: 1px solid #dedede;
+      color: #999;
+      font-size: 26rpx;
+      border: 1px solid #ddd;
 
       view {
         width: 200rpx;
-        height: 45rpx;
+        height: 40rpx;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -81,17 +87,16 @@
 
 // 配置信息
 .configuration-information {
-  margin-top: 20rpx;
+  margin-top: 15rpx;
   box-sizing: border-box;
   width: 94vw;
   position: relative;
   left: 3vw;
   background-color: #fff;
-  box-shadow: 0px 8rpx 16rpx 6rpx rgba(0, 0, 0, 0.1);
   border-radius: 20rpx;
-  padding: 20rpx;
-  margin-bottom: 20rpx;
-
+  padding: 15rpx;
+  margin-bottom: 15rpx;
+  box-shadow: 0px 8rpx 8rpx 0rpx rgba(0, 0, 0, 0.1);
 
   .title {
     font-size: 30rpx;
@@ -103,7 +108,6 @@
   }
 
   .infos {
-    overflow: hidden;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -111,13 +115,13 @@
     .info {
       border-radius: 20rpx;
       margin-bottom: 25rpx;
-      color: #666;
+      color: #999;
       font-size: 24rpx;
-      background-color: #efefef;
+      border: 1px solid #ddd;
 
       view {
         width: 200rpx;
-        height: 45rpx;
+        height: 40rpx;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -140,7 +144,7 @@
   background-color: #fff;
   box-shadow: 0px 8rpx 16rpx 6rpx rgba(0, 0, 0, 0.1);
   border-radius: 20rpx;
-  padding: 20rpx;
+  padding: 15rpx;
 
   .reviews-contaner {
     display: flex;
@@ -269,7 +273,7 @@
   position: fixed;
   bottom: 0;
   background-color: #fff;
-  padding: 10rpx 20rpx;
+  padding: 10rpx 30rpx;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -278,7 +282,7 @@
     font-size: 36rpx;
     box-sizing: border-box;
     padding: 20rpx 40rpx;
-    background-color: #eee;
+    background-color: #efefef;
     border-radius: 20rpx;
   }
 }

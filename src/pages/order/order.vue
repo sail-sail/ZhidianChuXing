@@ -15,8 +15,10 @@
 
     <!-- 车辆情况 -->
     <view class="vehicle-situation">
-      <view class="name">{{ vehicleObj.name }}</view>
-      <view class="life">车龄{{ vehicleObj.life }}内</view>
+      <view class="name-life">
+        <view class="name">{{ vehicleObj.name }}</view>
+        <view class="life">车龄{{ vehicleObj.life }}内</view>
+      </view>
       <view class="details">
         <view class="detail" v-for="item in vehicleObj.details" :key="item.type">
           <view>{{ item.type }}</view>
