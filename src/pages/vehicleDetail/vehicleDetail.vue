@@ -1,14 +1,12 @@
 <template>
   <view class="container" v-if="inited">
-    <nut-button shape="round" type="info" :size="'small'" @click="changeImg">切换是否有图片</nut-button>
-    <!-- 背景轮播图 可更换 -->
     <view class="swiper-container">
       <nut-swiper :init-page="0" pagination-visible pagination-color="#426543" pagination-unselected-color="#808080"
         class="swiper">
         <nut-swiper-item class="swiper-item">
-          <image :src="urls[0]" v-if="hasImg" ></image>
+          <image :src="urls[0]" v-if="hasImg" v-on:touchstart="chooseImage"></image>
           <view v-else v-on:touchstart="chooseImage" class="uploadImg">
-            +上传图片
+            +
           </view>
         </nut-swiper-item>
       </nut-swiper>
@@ -16,8 +14,11 @@
 
     <!-- 车辆情况 -->
     <view class="vehicle-situation">
-      <view class="name">{{ vehicleObj.name }}</view>
-      <view class="life">车龄{{ vehicleObj.life }}内</view>
+      <view class="name-life">
+        <view class="name">{{ vehicleObj.name }}</view>
+        <view class="life">车龄{{ vehicleObj.life }}内</view>
+      </view>
+
       <view class="details">
         <view class="detail" v-for="item in vehicleObj.details" :key="item.type">
           <view>{{ item.type }}</view>
@@ -29,11 +30,11 @@
     <!-- 四周图 -->
     <view class="around-image">
       <view class="arounds-container">
-        <view class="around" v-for="(item,index) in arounds" :key="item.type">
+        <view class="around" v-for="(item, index) in arounds" :key="item.type">
           <view>{{ item.type }}</view>
-          <image :src="item.url" v-if="item.url!==''" v-on:touchstart="chooseImageAround(index)"></image>
+          <image :src="item.url" v-if="item.url !== ''" v-on:touchstart="chooseImageAround(index)"></image>
           <view v-else v-on:touchstart="chooseImageAround(index)" class="uploadImg">
-            +上传图片
+            +
           </view>
         </view>
       </view>
@@ -282,15 +283,7 @@ function handleChange(index) {
   }) || []
 }
 
-let hasImg = ref<boolean>(true)
-function changeImg() {
-  hasImg.value = !hasImg.value
-  if (hasImg.value) {
-    urls.value[0] = carBgImgUrl;
-  } else {
-    urls.value[0] = ''
-  }
-}
+let hasImg = ref<boolean>(false)
 let urls = ref<string[]>([carBgImgUrl])
 function chooseImage() {
   Taro.chooseImage({
@@ -307,7 +300,7 @@ function chooseImage() {
   })
 }
 
-function chooseImageAround(index){
+function chooseImageAround(index) {
   console.log(index)
   Taro.chooseImage({
     count: 1, // 默认9
