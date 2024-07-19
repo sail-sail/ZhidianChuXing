@@ -35,7 +35,7 @@
       </view>
 
       <!-- 选车按钮 -->
-      <nut-button class="select-vehicle-button" :size="'small'" @click="selectVehicleMoedl">去选车</nut-button>
+      <nut-button class="select-vehicle-button" block type="warning" :size="'small'" @click="selectVehicleMoedl">去选车</nut-button>
       <!-- 提示服务费 -->
       <view class="service-fee">上门送取¥{{ serviceFee }}</view>
     </view>

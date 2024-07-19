@@ -8,11 +8,23 @@
   flex-direction: column;
 }
 
+.image-container {
+  width: 100%;
+  height: 350rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  image {
+    width: 100%;
+    height: 100%;
+  }
+}
+
 .vehicleInfo {
   display: flex;
   padding: 20rpx;
   background-color: #fff;
-  margin-bottom: 15rpx;
+  margin-bottom: 20rpx;
   width: 100%;
   box-sizing: border-box;
   border-radius: 0 0 30rpx 30rpx;
@@ -31,23 +43,9 @@
       letter-spacing: 5rpx;
     }
 
-    .orderNumber {
-      width: 100%;
-      font-size: 20rpx;
-      box-sizing: border-box;
-      margin-bottom: 10rpx;
-      letter-spacing: 1rpx;
-    }
 
-    .vehicle-characteristics {
-      font-size: 20rpx;
-      color: #999;
-      margin-bottom: 10rpx;
-      letter-spacing: 1rpx;
-    }
 
     .license-plate {
-      border: 1px solid #eee;
       background: linear-gradient(to bottom, #fff 0%, rgb(234, 249, 244) 750% rgb(192, 241, 225) 100%);
       border-radius: 5rpx;
       font-size: 30rpx;
@@ -58,14 +56,31 @@
 
   .right {
     flex: 1;
-    box-sizing: border-box;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 
-    image {
+    .orderNumber {
+      flex: 1;
       width: 100%;
-      height: 100%;
+      font-size: 24rpx;
+      box-sizing: border-box;
+      margin-bottom: 10rpx;
+      letter-spacing: 1rpx;
+      display: flex;
+      align-items: center;
+    }
+
+    .vehicle-characteristics {
+      flex: 1;
+      font-size: 24rpx;
+      color: #999;
+      letter-spacing: 1rpx;
+      display: flex;
+      align-items: center;
     }
   }
+
+
 }
 
 .checkboxs {
@@ -74,7 +89,7 @@
   justify-content: space-between;
   padding: 10rpx;
   background-color: #fff;
-  margin-bottom: 15rpx;
+  margin-bottom: 20rpx;
   width: 100%;
   box-sizing: border-box;
   border-radius: 20rpx;
@@ -90,7 +105,7 @@
   flex-direction: column;
   padding: 20rpx;
   background-color: #fff;
-  margin-bottom: 15rpx;
+  margin-bottom: 20rpx;
   width: 100%;
   box-sizing: border-box;
 

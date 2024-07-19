@@ -1,15 +1,17 @@
 <template>
   <view class="container">
+    <view class="image-container">
+      <image :src="carBgImgUrl"></image>
+    </view>
     <!-- 车牌信息 -->
     <view class="vehicleInfo">
       <view class="left">
         <view class="vehicle-model">宝沃BX5</view>
-        <view class="orderNumber">订单编号:16790431261342</view>
-        <view class="vehicle-characteristics">1.4T自动|SUV 5座|灰色</view>
         <view class="license-plate">苏A**Q1S</view>
       </view>
       <view class="right">
-        <image :src="carBgImgUrl"></image>
+        <view class="orderNumber">订单编号:16790431261342</view>
+        <view class="vehicle-characteristics">1.4T自动|SUV 5座|灰色</view>
       </view>
     </view>
 
@@ -41,7 +43,7 @@
         <view class="cost">总价 ¥809.84</view>
       </view>
 
-      <nut-divider class="divider"/>
+      <nut-divider class="divider" />
 
       <view class="basic-fee">
         <view class="title">基础费用</view>
@@ -63,7 +65,7 @@
         <view class="right">¥98.84</view>
       </view>
 
-      <nut-divider class="divider"/>
+      <nut-divider class="divider" />
 
       <view class="basic-fee">
         <view class="title">优惠组合</view>
@@ -73,7 +75,7 @@
         <view class="right">-¥30</view>
       </view>
 
-      <nut-divider class="divider"/>
+      <nut-divider class="divider" />
 
       <!-- 查看支付人 查看支付明细 按钮跳转-->
       <view class="pay-about">
