@@ -1,6 +1,5 @@
 export default defineAppConfig({
   pages: [
-    'pages/orderDetail/orderDetail',
 
     'pages/index/index',
     'pages/my/my',
@@ -12,6 +11,7 @@ export default defineAppConfig({
     'pages/orderTab/orderTab',
     'pages/orderList/orderList',
     'pages/order/order',
+    'pages/orderDetail/orderDetail',
 
     'pages/carRentalNotice/carRentalNotice',
     'pages/carRentalNotice/detail/detail',
