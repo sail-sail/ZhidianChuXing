@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "tm-sheet": "../tm-sheet/tm-sheet",
+    "tm-badge": "../tm-badge/tm-badge"
+  }
+}

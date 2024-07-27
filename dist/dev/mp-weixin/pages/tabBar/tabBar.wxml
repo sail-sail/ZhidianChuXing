@@ -1,0 +1,1 @@
+<tm-tabbar wx:if="{{f}}" u-s="{{['d']}}" u-i="422ff61d-0" bind:__l="__l" bindupdateActive="{{e}}" u-p="{{f}}"><tm-tabbar-item wx:if="{{b}}" bindclick="{{a}}" u-i="422ff61d-1,422ff61d-0" bind:__l="__l" u-p="{{b}}"></tm-tabbar-item><tm-tabbar-item wx:if="{{d}}" bindclick="{{c}}" u-i="422ff61d-2,422ff61d-0" bind:__l="__l" u-p="{{d}}"></tm-tabbar-item></tm-tabbar>

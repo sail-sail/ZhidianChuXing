@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "订单列表",
+  "titlePenetrate": "YES",
+  "transparentTitle": "always",
+  "usingComponents": {
+    "tm-segtab": "../../tmui/components/tm-segtab/tm-segtab",
+    "tm-app": "../../tmui/components/tm-app/tm-app"
+  }
+}

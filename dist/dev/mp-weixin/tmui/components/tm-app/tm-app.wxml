@@ -1,0 +1,1 @@
+<view class="flex relative app flex-1 data-v-690d8382" style="{{a + ';' + b + ';' + c}}"><slot></slot></view>

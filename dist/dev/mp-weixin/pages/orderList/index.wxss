@@ -1,0 +1,16 @@
+/* 需要放到文件最上面 */
+/* 水平间距 */
+/* 水平间距 */
+/*
+ 以下变量是默认值，如不需要修改可以不用给下面的变量重新赋值
+ */
+/* 水平间距 */
+.container.data-v-37f2245a {
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}

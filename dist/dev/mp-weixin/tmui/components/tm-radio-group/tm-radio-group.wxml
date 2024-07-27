@@ -1,0 +1,1 @@
+<view class="{{['flex', a, b]}}" style="{{'flex-wrap:' + c}}"><slot></slot></view>

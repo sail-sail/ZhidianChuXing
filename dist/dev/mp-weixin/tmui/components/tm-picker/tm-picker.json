@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "tm-drawer": "../tm-drawer/tm-drawer",
+    "tm-picker-view": "../tm-picker-view/tm-picker-view",
+    "tm-button": "../tm-button/tm-button"
+  }
+}

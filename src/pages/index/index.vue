@@ -1,302 +1,205 @@
 <template>
-  <view class="container">
-    <!-- <nut-button shape="round" type="info" :size="'small'" @click="login">一键登录</nut-button> -->
-    <!-- 轮播图 -->
-    <nut-swiper :init-page="0" :auto-play="3000" pagination-visible pagination-color="#426543"
-      pagination-unselected-color="#808080" class="swiper">
-      <nut-swiper-item v-for="item in bannarList" :key="item.id" :itemId="item.id" class="swiper-item">
-        <image :src="item.image"></image>
-      </nut-swiper-item>
-    </nut-swiper>
-
-    <view class="return-vehicle-box">
-      <view class="city-address">
-        <view class="city-model">
-          <view class="city-title">送车城市</view>
-          <view class="city-content">{{ positionInfo.city }}</view>
+  <tm-app>
+    <view class="container">
+      <view class="carousel">
+        <tm-carousel autoplay :margin="[0, 10]" :round="0" :width="750" :height="380" :list="bannerList"></tm-carousel>
+      </view>
+      <view class="content">
+        <view class="city-address-pickup">
+          <view class="city-address">
+            <view>上海市</view>
+            <view>&nbsp;|&nbsp;</view>
+            <view>{{ address }}</view>
+          </view>
+          <view class="pickup">到店</view>
         </view>
 
-        <view class="address-model" v-on:touchstart="chooseLoactionInfo">
-          <view class="address-title">送车地点</view>
-          <view class="address-content">{{ positionInfo.address }}</view>
-        </view>
-      </view>
+        <tm-divider color="#efefef" :margin="[0, 0]"></tm-divider>
 
-      <view class="use-time">
-        <text v-on:touchstart="chooseDateInfo('start')">
-          {{ returnVehicleObj.startDate }}
-          {{ returnVehicleObj.startTime }}
-        </text>
-        <text>&nbsp;-&nbsp;</text>
-        <text v-on:touchstart="chooseDateInfo('end')">
-          {{ returnVehicleObj.endDate }}
-          {{ returnVehicleObj.endTime }}
-        </text>
-      </view>
-
-      <!-- 选车按钮 -->
-      <nut-button class="select-vehicle-button" block type="warning" :size="'small'" @click="selectVehicleMoedl">去选车</nut-button>
-      <!-- 提示服务费 -->
-      <view class="service-fee">上门送取¥{{ serviceFee }}</view>
-    </view>
-
-    <!-- 租车须知 -->
-    <view class="notice-box" v-on:touchstart="gotoCarRentailNotice">
-      <view class="model">
-        <image :src="noticeImg" class="noticeImg"></image>
-        <view>租车须知</view>
-      </view>
-
-      <AtIcon value='chevron-right' size='24' color='#bbb'></AtIcon>
-    </view>
-
-    <!-- 广告 -->
-    <view class="advertisement">
-      <view class="advertisement-top">
-        <image :src="advertisement1"></image>
-      </view>
-      <view class="advertisement-bottom">
-        <view class="left">
-          <image :src="advertisement2"></image>
-          <view class="model">
-            <view>企业用车</view>
-            <view>一分钟教你租还车</view>
-            <view>查看详情
-              <AtIcon value="chevron-right" color="#D8D8D8" size="14"></AtIcon>
-            </view>
+        <view class="time-weekday-date">
+          <view class="item" @click="goCalendar">
+            <span class="time-weekday">{{ startWeekDay }}{{ startDateTime[1] }}</span>
+            <span class="date">{{ startDateTime[0] }}</span>
+          </view>
+          <view class="item">
+            <span></span>
+            <span class="total">{{ totalDayHour[0] ? (totalDayHour[0] + '天') : null }}&nbsp;{{ totalDayHour[1] ?
+              (totalDayHour[1] +
+                '时')
+              : null }}</span>
+          </view>
+          <view class="item" @click="goCalendar">
+            <span class="time-weekday">{{ endWeekDay }}{{ endDateTime[1] }}</span>
+            <span class="date">{{ endDateTime[0] }}</span>
           </view>
         </view>
-        <view class="right">
-          <image :src="advertisement3"></image>
-          <view class="model">
-            <view>成为车主</view>
-            <view>成为车主轻松赚钱</view>
-            <view>查看详情
-              <AtIcon value="chevron-right" color="#D8D8D8" size="14"></AtIcon>
-            </view>
+
+        <tm-button font-color="#fff" :margin="[100, 20]" :round="10" :width="550">去选车</tm-button>
+
+        <view class="store-navigation-share">
+          <view class="item" @click="callPhone"><tm-icon color="blue" :font-size="32"
+              name="tmicon-phone-fill"></tm-icon>&nbsp;&nbsp;<span>联系门店</span>
           </view>
+          <view class="item" @click="startNavigation"><tm-icon color="blue" :font-size="32"
+              name="tmicon-paperplane-fill"></tm-icon>&nbsp;&nbsp;<span>地址导航</span></view>
         </view>
       </view>
+      <!-- 底部导航栏 -->
+      <Tabbar></Tabbar>
     </view>
-
-
-    <!-- 底部导航栏 -->
-    <customTabBar></customTabBar>
-
-    <!-- 租车声明 -->
-    <stateMent :isOpened="stateMentOpened" @confirm="handleStateMentConfirm" @cancel="handleStateMentCancel">
-    </stateMent>
-
-    <!-- 选择时间 -->
-    <selectDate :isOpened="isSelectDateOpend" :returnVehicleObj="returnVehicleObj" :type="type"
-      @confirm="handleSelectDateCallBack" @close="handleSelectDateCallBack">
-    </selectDate>
-
-    <!-- 警告提示 -->
-    <nut-overlay v-model:visible="overlayShow" class=overlay-container>
-      <view style="font-size:28rpx;">{{ overlayText }}</view>
-    </nut-overlay>
-  </view>
+  </tm-app>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import Taro from '@tarojs/taro'
-import dayjs from 'dayjs'
+import { onMounted } from 'vue'
+import dayjs from 'dayjs';
 
-import QQMapWX from '../../utils/map-wx-jssdk';
-import sendRequest from '../../utils/http'
-import common from '../../utils/common'
-import config from '../../utils/config';
-import auth from '../../utils/auth'
-import './index.scss'
+import {
+  getBannerList
+} from './Api'
 
-import customTabBar from '../custom-tab-bar/custom-tab-bar.vue'
-import stateMent from '../statement/statement.vue'
-import selectDate from '../selectdate/selectdate.vue';
+import Tabbar from '../tabBar/tabBar.vue'
 
-// 轮播图
-let bannarList = ref<any[]>([])
-// 送还选车时间
-let type = ref<string | undefined>()
-let returnVehicleObj = ref<any>({
-  startDate: dayjs().format('YYYY-MM-DD'),
-  endDate: dayjs().add(2, 'day').format('YYYY-MM-DD'),
-  startTime: '14:00',
-  endTime: '14:00',
+import useCalendarStore from "@/store/calendar";
+const calendarStore = useCalendarStore();
+
+let bannerList = $ref<string[]>([])
+let address = $ref<string>('质电出行(虹桥客运站店)')
+//应有一个自取点的下拉列表选择然后匹配对应的经纬度，点击下方导航就会导航到对应的自取点
+
+let startDateTime = $computed<string[]>(() => calendarStore.startDateTime)
+let endDateTime = $computed<string[]>(() => calendarStore.endDateTime)
+let totalDayHour = $computed<number[]>(() => calendarStore.totalDayHour)
+let startWeekDay = $computed<string>(() => {
+  const temp = dayjs(startDateTime[0]).format('dddd')
+  const weekDay = calendarStore.weekDay[temp as string]
+  return weekDay
+})
+let endWeekDay = $computed<string>(() => {
+  const temp = dayjs(endDateTime[0]).format('dddd')
+  const weekDay = calendarStore.weekDay[temp as string]
+  return weekDay
 })
 
-// 位置信息
-let positionInfo = ref<any>({
-  latitude: '',
-  longitude: '',
-  city: '测试市',
-  address: '测试地址'
-})
-
-// 服务费用
-let serviceFee = ref<number>(0)
-// @ts-ignore
-let noticeImg = require('/src/assets/notice.png')
-// @ts-ignore
-let advertisement1 = require('/src/assets/advertisement1.png')
-// @ts-ignore
-let advertisement2 = require('/src/assets/advertisement2.png')
-// @ts-ignore
-let advertisement3 = require('/src/assets/advertisement3.png')
-// 警告提示
-let overlayShow = ref<boolean>(false)
-let overlayText = ref<string>('')
-
-let isSelectDateOpend = ref<boolean>(false)
-function chooseDateInfo(type_: string) {
-  type.value = type_
-  isSelectDateOpend.value = true;
-}
-function handleSelectDateCallBack() {
-  isSelectDateOpend.value = false;
-}
-
-
-//后期需要根据userInfo(是否登录过控制弹出)
-let stateMentOpened = ref<boolean>(true)
-function handleStateMentConfirm(obj) {
-  if (obj) {
-    positionInfo.value = obj
-    //存档。
-  }
-}
-function handleStateMentCancel() {
-  stateMentOpened.value = false
-}
-
-// 选择地点
-function chooseLoactionInfo() {
-  Taro.authorize({
-    scope: 'scope.userLocation',
-    success: function () {
-      Taro.chooseLocation({
-        success: function (res) {
-          console.log(res, '选择的地址')
-          const latitude = res.latitude
-          const longitude = res.longitude
-          const qqmapsdk = new QQMapWX({ key: config.mpKey })
-          qqmapsdk.reverseGeocoder({
-            location: {
-              latitude: latitude,
-              longitude: longitude
-            },
-            success: function (res) {
-              console.log(res, '解析的地址')
-              Taro.setStorage({
-                key: 'location',
-                data: {
-                  latitude: latitude,//存储经纬度
-                  longitude: longitude,
-                  city: res.result.ad_info.city,//存储城市
-                  address: res.result.address//存储详细地址
-                }
-              })
-              //记录送还车城市 和 地址
-              positionInfo.value.city = res.result.ad_info.city
-              positionInfo.value.address = res.result.address
-            },
-            fail: function (res) {
-              console.log('解析具体位置失败：', res);
-            }
-          })
-        },
-        fail: function (err) {
-          console.log(err)
-        }
-      })
-    }
+function goCalendar() {
+  uni.navigateTo({
+    url: '/pages/calendar/index'
   });
 }
 
-// 跳转到选车页面
-function selectVehicleMoedl() {
-  if (dayjs(returnVehicleObj.value.startDate).unix() >= dayjs(returnVehicleObj.value.endDate).unix()) {
-    overlayText.value = '取车时间不能大于还车时间'
-    overlayShow.value = true;
-    return;
-  }
-  if (positionInfo.value.city === '' && positionInfo.value.address === '') {
-    console.log(positionInfo.value, 'positionInfo.value')
-    overlayText.value = '取车城市地点不能为空请授权定位!'
-    overlayShow.value = true;
-    return;
-  }
-  // 存储 日期时间 地点
-  Taro.setStorage({
-    key: "pickupDateTime",
-    data: returnVehicleObj
-  })
-  Taro.setStorage({
-    key: 'location',
-    data: positionInfo
-  })
-  Taro.navigateTo({
-    url: '/pages/vehicleModel/vehicleModel',
-  })
+function callPhone() {
+  uni.makePhoneCall({
+    phoneNumber: '400-1234-1234'
+  });
 }
 
-// 跳转到租车须知页面
-function gotoCarRentailNotice() {
-  Taro.navigateTo({
-    url: '/pages/carRentalNotice/carRentalNotice',
-  })
+function startNavigation() {
+  uni.openLocation({
+    latitude: 31.194283, // 纬度，浮点数，范围为90 ~ -90
+    longitude: 121.317207, // 经度，浮点数，范围为180 ~ -180。
+    name: "质电出行(虹桥客运站店)", // 位置名
+    address: "上海市闵行区申虹路298号", // 地址详情说明
+  });
 }
 
-
-//获取轮播图
-async function getBannerListApi() {
-  sendRequest({
-    url: '/api/index.index/bannerList',
-    success: function (res) {
-      if (res.code == 1) {
-        if (res.data.banner) {
-          const banner = res.data.banner
-          if (banner && Array.isArray(banner)) {
-            banner.forEach((i) => {
-              i.image = common.getImgUrl(i.image)
-            })
-          }
-          bannarList.value = banner
-        }
-      }
-    }
-  })
-}
-//获取服务费
-async function getServiceFeeApi() {
-  sendRequest({
-    url: '/api/car/Index/sever_money',
-    success: function (res) {
-      if (res.code == 1) {
-        serviceFee.value = res.data;
-        Taro.setStorage({
-          key: 'serviceFee',
-          data: res.data
-        })
-      }
-    }
-  })
-}
-
-
-function login() {
-  // 登录 记录userInfo
-  auth.login()
-}
-
-// 页面加载的时
 onMounted(async () => {
-  //后期需要根据userInfo(是否登录过控制弹出)
-
-
-  // 调取各接口
-  await getBannerListApi()
-  await getServiceFeeApi()
+  const res = await getBannerList()
+  if (res && res.banner) {
+    bannerList = res.banner.map((i) => i.image)
+  }
 })
 </script>
+
+<style lang="scss" scoped>
+.container {
+  box-sizing: border-box;
+  width: 100vw;
+  height: calc(100vh - env(safe-area-inset-bottom) - 75rpx);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(247, 246, 250);
+}
+
+.carousel {
+  width: 100%;
+}
+
+.content {
+  box-sizing: border-box;
+  border-radius: 25rpx;
+  position: relative;
+  top: -80rpx;
+  z-index: 2;
+  background-color: #fff;
+  padding-bottom: 20rpx;
+
+  .city-address-pickup {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25rpx;
+    margin-bottom: 10rpx;
+
+    .city-address {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      font-size: 28rpx;
+    }
+
+    .pickup {
+      box-sizing: border-box;
+      padding: 5rpx 20rpx;
+      border-radius: 20rpx;
+      background-color: rgb(229, 229, 229);
+    }
+  }
+
+
+  .time-weekday-date {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    .item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .time-weekday {
+        color: gray;
+        font-size: 30rpx;
+        margin-top: 30rpx;
+        margin-bottom: 15rpx;
+      }
+
+      .date {
+        font-size: 36rpx;
+        font-weight: bold;
+      }
+
+      .total {
+        color: gray;
+        font-size: 30rpx;
+      }
+    }
+  }
+
+  .store-navigation-share {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 25rpx;
+    margin-bottom: 25rpx;
+
+    .item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+</style>

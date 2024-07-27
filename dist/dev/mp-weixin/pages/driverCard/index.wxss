@@ -1,0 +1,32 @@
+/* 需要放到文件最上面 */
+/* 水平间距 */
+/* 水平间距 */
+/*
+ 以下变量是默认值，如不需要修改可以不用给下面的变量重新赋值
+ */
+/* 水平间距 */
+.container.data-v-4eec2ef3 {
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(247, 246, 250);
+}
+.content.data-v-4eec2ef3 {
+  box-sizing: border-box;
+  margin: 25rpx;
+  background-color: #fff;
+  padding: 25rpx;
+}
+.images.data-v-4eec2ef3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.date.data-v-4eec2ef3 {
+  color: rgb(38, 38, 38) !important;
+  height: 36px;
+  line-height: 36px;
+}

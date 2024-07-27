@@ -1,0 +1,12 @@
+{
+  "component": true,
+  "usingComponents": {
+    "week-day": "./week-day",
+    "month-year": "./month-year",
+    "year-du": "./year-du",
+    "month-day": "./month-day",
+    "range-day": "./range-day",
+    "month-quarter": "./month-quarter",
+    "tm-sheet": "../tm-sheet/tm-sheet"
+  }
+}

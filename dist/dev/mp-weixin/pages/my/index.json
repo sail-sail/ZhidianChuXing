@@ -1,0 +1,15 @@
+{
+  "navigationBarTitleText": "个人中心",
+  "titlePenetrate": "YES",
+  "transparentTitle": "always",
+  "usingComponents": {
+    "tm-avatar": "../../tmui/components/tm-avatar/tm-avatar",
+    "tm-icon": "../../tmui/components/tm-icon/tm-icon",
+    "tm-text": "../../tmui/components/tm-text/tm-text",
+    "tm-grid-item": "../../tmui/components/tm-grid-item/tm-grid-item",
+    "tm-grid": "../../tmui/components/tm-grid/tm-grid",
+    "tm-card": "../../tmui/components/tm-card/tm-card",
+    "tm-app": "../../tmui/components/tm-app/tm-app",
+    "tabbar": "../tabBar/tabBar"
+  }
+}
