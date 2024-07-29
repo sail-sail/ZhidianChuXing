@@ -51,9 +51,9 @@ import dayjs from 'dayjs';
 import {
 } from './Api'
 
-import {
-  upLoadImg
-} from '@/util/util'
+// import {
+//   upLoadImg
+// } from '@/util/util'
 
 let driverCard = reactive<any>({
   frontSrc: '',

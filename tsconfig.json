@@ -1,42 +1,45 @@
 {
   "compilerOptions": {
-    "strict": true,
+    "target": "ESNext",
     "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "importHelpers": false,
-    "removeComments": false,
-    "target": "esnext",
     "useDefineForClassFields": true,
-    "module": "esnext",
-    "moduleResolution": "node",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "declaration": false,
+    "noImplicitAny": false,
+    "strict": true,
     "jsx": "preserve",
+    "jsxImportSource": "vue",
+    "allowJs": true,
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "lib": ["esnext", "dom"],
+    "skipLibCheck": true,
+    "lib": [ "esnext", "dom" ],
     "types": [
-      "@dcloudio/types",
       "@vue-macros/reactivity-transform/macros-global",
+      "node",
+      "vite/client",
+      "@dcloudio/types",
+      "@uni-helper/uni-app-types"
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [ "./src/*" ],
+      "#/*": [ "./src/typings/*" ]
     }
   },
   "vueCompilerOptions": {
-    "strictTemplates": false
-  },
-  "ts-node": {
-    "compilerOptions": {
-      "module": "CommonJS"
-    }
+    "strictTemplates": false,
+    "plugins": [
+      "@uni-helper/uni-app-types/volar-plugin"
+    ]
   },
   "include": [
-    "./src/*.vue",
-    "./src/**/*.vue",
-    "./src/*.nvue",
-    "./src/**/*.nvue",
-    "./src/*.ts",
-    "./src/*.d.ts",
-    "./src/**/*.ts"
+    "**/*.ts",
+    "**/*.d.ts",
+    "**/*.tsx",
+    "**/*.vue"
   ]
 }

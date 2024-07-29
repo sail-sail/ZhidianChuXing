@@ -65,8 +65,6 @@
         </template>
       </tm-card>
 
-      <!-- 底部导航栏 -->
-      <Tabbar></Tabbar>
     </view>
   </tm-app>
 </template>
@@ -75,8 +73,6 @@
 import { onMounted } from 'vue';
 import {
 } from './Api'
-
-import Tabbar from '../tabBar/tabBar.vue'
 
 function baseInfo() {
   uni.navigateTo({

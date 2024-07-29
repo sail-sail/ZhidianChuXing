@@ -49,9 +49,9 @@ import { onMounted } from 'vue';
 import {
 } from './Api'
 
-import {
-  upLoadImg
-} from '@/util/util'
+// import {
+//   upLoadImg
+// } from '@/util/util'
 
 let base = $ref<any>({
   nickname: '中国移动',

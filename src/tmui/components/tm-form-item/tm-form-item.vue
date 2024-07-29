@@ -9,9 +9,7 @@
             'flex',
             tmFormLayout == 'horizontal' ? 'flex-row ' : ' ',
             tmFormLayout == 'horizontal' && !props.align ? 'flex-row-center-start' : '',
-			<!-- #ifndef APP-NVUE -->
             tmFormLayout == 'vertical' && !props.align ? 'flex-col' : '',
-			<!-- #endif -->
             props.align,
             props.parentClass,
           ]">
@@ -113,7 +111,7 @@
 		},
 		margin: {
 			type: Array as PropType<Array<number>>,
-			default: () => [12, 12]
+			default: () => [0, 0],
 		},
 		padding: {
 			type: Array as PropType<Array<number>>,

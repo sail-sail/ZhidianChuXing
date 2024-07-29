@@ -44,8 +44,6 @@
               name="tmicon-paperplane-fill"></tm-icon>&nbsp;&nbsp;<span>地址导航</span></view>
         </view>
       </view>
-      <!-- 底部导航栏 -->
-      <Tabbar></Tabbar>
     </view>
   </tm-app>
 </template>
@@ -57,8 +55,6 @@ import dayjs from 'dayjs';
 import {
   getBannerList
 } from './Api'
-
-import Tabbar from '../tabBar/tabBar.vue'
 
 import useCalendarStore from "@/store/calendar";
 const calendarStore = useCalendarStore();

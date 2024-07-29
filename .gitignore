@@ -8,6 +8,7 @@ dist-ssr
 package-lock.json
 pnpm-lock.yaml
 .eslintrc-auto-import.json
+auto-imports.d.ts
 
 yarn.lock
 
