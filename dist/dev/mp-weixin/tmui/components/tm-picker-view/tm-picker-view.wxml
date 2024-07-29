@@ -1,1 +1,0 @@
-<view class="flex flex-row"><picker-panel-vue wx:for="{{a}}" wx:for-item="item" wx:key="d" bindend="{{item.a}}" bindstart="{{item.b}}" bindchange="{{item.c}}" class="flex-1" u-i="{{item.e}}" bind:__l="__l" u-p="{{item.f}}"></picker-panel-vue></view>

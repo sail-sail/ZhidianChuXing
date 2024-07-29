@@ -1,6 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "tm-sheet": "../tm-sheet/tm-sheet"
-  }
-}

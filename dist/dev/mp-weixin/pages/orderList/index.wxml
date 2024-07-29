@@ -1,1 +1,0 @@
-<tm-app class="data-v-37f2245a" u-s="{{['d']}}" u-i="37f2245a-0" bind:__l="__l"><view class="container data-v-37f2245a"><tm-segtab wx:if="{{a}}" class="data-v-37f2245a" u-i="37f2245a-1,37f2245a-0" bind:__l="__l" u-p="{{a}}"></tm-segtab></view></tm-app>
