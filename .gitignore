@@ -1,0 +1,14 @@
+node_modules
+Cargo.lock
+.DS_Store
+.rsw
+dist
+dist-ssr
+*.local
+package-lock.json
+pnpm-lock.yaml
+.eslintrc-auto-import.json
+
+yarn.lock
+
+**/vite.config.mts.timestamp-*.mjs
