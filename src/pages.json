@@ -11,8 +11,8 @@
 		{
 			"path": "pages/index/index",
 			"style": {
+        "navigationStyle": "custom",
 				"navigationBarTitleText": "质电出行",
-				"titlePenetrate": "YES",
 				"transparentTitle": "always"
 			}
 		},
@@ -20,7 +20,6 @@
 			"path": "pages/baseInfo/index",
 			"style": {
 				"navigationBarTitleText": "基本信息",
-				"titlePenetrate": "YES",
 				"transparentTitle": "always"
 			}
 		},
@@ -28,7 +27,6 @@
 			"path": "pages/my/index",
 			"style": {
 				"navigationBarTitleText": "个人中心",
-				"titlePenetrate": "YES",
 				"transparentTitle": "always"
 			}
 		},
@@ -36,7 +34,6 @@
 			"path": "pages/idCard/index",
 			"style": {
 				"navigationBarTitleText": "身份证认证",
-				"titlePenetrate": "YES",
 				"transparentTitle": "always"
 			}
 		},
@@ -44,7 +41,6 @@
 			"path": "pages/driverCard/index",
 			"style": {
 				"navigationBarTitleText": "驾驶证认证",
-				"titlePenetrate": "YES",
 				"transparentTitle": "always"
 			}
 		},
@@ -52,15 +48,6 @@
 			"path": "pages/orderList/index",
 			"style": {
 				"navigationBarTitleText": "订单列表",
-				"titlePenetrate": "YES",
-				"transparentTitle": "always"
-			}
-		},
-		{
-			"path": "pages/calendar/index",
-			"style": {
-				"navigationBarTitleText": "选择日期",
-				"titlePenetrate": "YES",
 				"transparentTitle": "always"
 			}
 		}

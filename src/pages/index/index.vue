@@ -1,51 +1,97 @@
 <template>
-  <tm-app>
-    <view class="container">
-      <view class="carousel">
-        <tm-carousel autoplay :margin="[0, 10]" :round="0" :width="750" :height="380" :list="bannerList"></tm-carousel>
+<tm-app>
+  <view class="container">
+    <view class="carousel">
+      <tm-carousel autoplay :margin="[0, 0]" :round="0" :width="750" :height="380" :list="bannerList"></tm-carousel>
+    </view>
+    <view class="content">
+      <view
+        class="city-address-pickup"
+        @click="showCityPicker = true"
+      >
+        <view class="city-address">
+          <view>
+            {{ cityLbl }}
+          </view>
+          <view>&nbsp;|&nbsp;</view>
+          <view>{{ address }}</view>
+        </view>
+        <view class="pickup">到店</view>
       </view>
-      <view class="content">
-        <view class="city-address-pickup">
-          <view class="city-address">
-            <view>上海市</view>
-            <view>&nbsp;|&nbsp;</view>
-            <view>{{ address }}</view>
-          </view>
-          <view class="pickup">到店</view>
+
+      <tm-divider color="#efefef" :margin="[0, 0]"></tm-divider>
+
+      <view
+        class="time-weekday-date"
+        @click="startTimeShow = true"
+      >
+        <view
+          class="item"
+        >
+          <span class="time-weekday">
+            {{ startWeekDay }}
+            {{ startTimeHHmm }}
+          </span>
+          <span class="date">
+            {{ startTimeYYYYMMDD }}
+          </span>
         </view>
-
-        <tm-divider color="#efefef" :margin="[0, 0]"></tm-divider>
-
-        <view class="time-weekday-date">
-          <view class="item" @click="goCalendar">
-            <span class="time-weekday">{{ startWeekDay }}{{ startDateTime[1] }}</span>
-            <span class="date">{{ startDateTime[0] }}</span>
-          </view>
-          <view class="item">
-            <span></span>
-            <span class="total">{{ totalDayHour[0] ? (totalDayHour[0] + '天') : null }}&nbsp;{{ totalDayHour[1] ?
-              (totalDayHour[1] +
-                '时')
-              : null }}</span>
-          </view>
-          <view class="item" @click="goCalendar">
-            <span class="time-weekday">{{ endWeekDay }}{{ endDateTime[1] }}</span>
-            <span class="date">{{ endDateTime[0] }}</span>
-          </view>
+        <view class="item">
+          <span></span>
+          <span class="total">{{ totalDayHourStr }}</span>
         </view>
-
-        <tm-button font-color="#fff" :margin="[100, 20]" :round="10" :width="550">去选车</tm-button>
-
-        <view class="store-navigation-share">
-          <view class="item" @click="callPhone"><tm-icon color="blue" :font-size="32"
-              name="tmicon-phone-fill"></tm-icon>&nbsp;&nbsp;<span>联系门店</span>
-          </view>
-          <view class="item" @click="startNavigation"><tm-icon color="blue" :font-size="32"
-              name="tmicon-paperplane-fill"></tm-icon>&nbsp;&nbsp;<span>地址导航</span></view>
+        <view
+          class="item"
+        >
+          <span class="time-weekday">
+            {{ endWeekDay }}
+            {{ endTimeHHmm }}
+          </span>
+          <span class="date">
+            {{ endTimeYYYYMMDD }}
+          </span>
         </view>
+      </view>
+
+      <tm-button font-color="#fff" :margin="[100, 20]" :round="10" :width="550">去选车</tm-button>
+
+      <view class="store-navigation-share">
+        <view class="item" @click="callPhone"><tm-icon color="blue" :font-size="32"
+            name="tmicon-phone-fill"></tm-icon>&nbsp;&nbsp;<span>联系门店</span>
+        </view>
+        <view class="item" @click="startNavigation"><tm-icon color="blue" :font-size="32"
+            name="tmicon-paperplane-fill"></tm-icon>&nbsp;&nbsp;<span>地址导航</span></view>
       </view>
     </view>
-  </tm-app>
+  </view>
+  <tm-picker
+    :defaultValue="cityIndex"
+    v-model="cityIndex"
+    v-model:show="showCityPicker"
+    :columns="cityPickerData"
+  ></tm-picker>
+  
+  <tm-drawer
+    v-model:show="startTimeShow"
+    hideHeader
+  >
+    <view class="pa-16">
+      <tm-time-between
+        @confirm="startTimeShow = false"
+        :asyncModel="false"
+        v-model="startEndTime"
+        :default-value="startEndTime"
+        :showDetail="{
+          year: true,
+          month: true,
+          day: true,
+          hour: true,
+        }"
+        :quickBtn="[ ]"
+      ></tm-time-between>
+    </view>
+  </tm-drawer>
+</tm-app>
 </template>
 
 <script setup lang="ts">
@@ -56,32 +102,87 @@ import {
   getBannerList
 } from './Api'
 
-import useCalendarStore from "@/store/calendar";
-const calendarStore = useCalendarStore();
-
 let bannerList = $ref<string[]>([])
-let address = $ref<string>('质电出行(虹桥客运站店)')
 //应有一个自取点的下拉列表选择然后匹配对应的经纬度，点击下方导航就会导航到对应的自取点
 
-let startDateTime = $computed<string[]>(() => calendarStore.startDateTime)
-let endDateTime = $computed<string[]>(() => calendarStore.endDateTime)
-let totalDayHour = $computed<number[]>(() => calendarStore.totalDayHour)
-let startWeekDay = $computed<string>(() => {
-  const temp = dayjs(startDateTime[0]).format('dddd')
-  const weekDay = calendarStore.weekDay[temp as string]
-  return weekDay
-})
-let endWeekDay = $computed<string>(() => {
-  const temp = dayjs(endDateTime[0]).format('dddd')
-  const weekDay = calendarStore.weekDay[temp as string]
-  return weekDay
-})
+let startTimeShow = $ref<boolean>(false);
+const dateNow = new Date();
 
-function goCalendar() {
-  uni.navigateTo({
-    url: '/pages/calendar/index'
-  });
-}
+let startTime = $ref<Date>(dateNow);
+let endTime = $ref<Date>(dayjs(dateNow).add(2, "day").toDate());
+let startEndTime = $computed({
+  get() {
+    return [
+      startTime,
+      endTime,
+    ];
+  },
+  set(val: Date[]) {
+    startTime = dayjs(val[0]).toDate();
+    endTime = dayjs(val[1]).toDate();
+  },
+});
+
+const startTimeHHmm = $computed<string>(() => {
+  const str = dayjs(startTime).format("HH:mm");
+  return str;
+});
+
+const startTimeYYYYMMDD = $computed<string>(() => {
+  const str = dayjs(startTime).format("YYYY-MM-DD");
+  return str;
+});
+
+const totalDayHourStr = $computed<string>(() => {
+  const startTimeNum = startTime.getTime();
+  const endTimeNum = endTime.getTime();
+  const durationNum = endTimeNum - startTimeNum;
+  const dayDur = Math.floor(durationNum / 86400000);
+  const hourDur = Math.round((durationNum % 86400000) / 3600000);
+  let str = "";
+  if (dayDur > 0) {
+    str += `${ dayDur } 天 `;
+  }
+  if (hourDur > 0) {
+    str += `${ hourDur } 小时 `;
+  }
+  if (str.endsWith(" ")) {
+    str = str.substring(0, str.length - 1);
+  }
+  return str;
+});
+
+const endTimeHHmm = $computed<string>(() => {
+  const str = dayjs(endTime).format("HH:mm");
+  return str;
+});
+
+const endTimeYYYYMMDD = $computed<string>(() => {
+  const str = dayjs(endTime).format("YYYY-MM-DD");
+  return str;
+});
+
+const weekDay = {
+  "Monday": '周一',
+  "Tuesday": '周二',
+  "Wednesday": '周三',
+  "Thursday": '周四',
+  "Friday": '周五',
+  "Saturday": '周六',
+  "Sunday": '周日',
+};
+
+const startWeekDay = $computed<string>(() => {
+  const temp = dayjs(startTime).format('dddd')
+  const str = weekDay[temp as string]
+  return str;
+});
+
+const endWeekDay = $computed<string>(() => {
+  const temp = dayjs(endTime).format('dddd')
+  const str = weekDay[temp as string]
+  return str;
+});
 
 function callPhone() {
   uni.makePhoneCall({
@@ -97,6 +198,55 @@ function startNavigation() {
     address: "上海市闵行区申虹路298号", // 地址详情说明
   });
 }
+
+// 选择城市
+let showCityPicker = $ref<boolean>(false);
+let cityIndex = $ref<number[]>([ 0, 0 ]);
+let cityPickerData = $ref<any[]>([
+  {
+    text: "上海",
+    id: 1,
+    children: [
+      {
+        text: "虹桥客运站",
+        id: 11,
+      },
+      {
+        text: "浦东新区",
+        id: 12,
+      },
+      {
+        text: "徐汇区",
+        id: 13,
+      },
+    ],
+  },
+  {
+    text: "杭州",
+    id: 2,
+    children: [
+      {
+        text: "杭州客运站",
+        id: 21,
+      },
+      {
+        text: "萧山区",
+        id: 22,
+      },
+      {
+        text: "余杭区",
+        id: 23,
+      },
+    ],
+  },
+]);
+const cityLbl = $computed(() => {
+  return cityPickerData[cityIndex[0]]?.text ?? "";
+});
+const address = $computed(() => {
+  return cityPickerData[cityIndex[0]]?.children?.[cityIndex[1]]?.text ?? "";
+});
+
 
 onMounted(async () => {
   const res = await getBannerList()
@@ -125,11 +275,13 @@ onMounted(async () => {
   box-sizing: border-box;
   border-radius: 25rpx;
   position: relative;
-  top: -80rpx;
+  top: -60rpx;
   z-index: 2;
   background-color: #fff;
   padding-bottom: 20rpx;
-
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  
   .city-address-pickup {
     display: flex;
     align-items: center;
