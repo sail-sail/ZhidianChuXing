@@ -43,13 +43,6 @@
 				"navigationBarTitleText": "驾驶证认证",
 				"transparentTitle": "always"
 			}
-		},
-		{
-			"path": "pages/orderList/index",
-			"style": {
-				"navigationBarTitleText": "订单列表",
-				"transparentTitle": "always"
-			}
 		}
 	],
   "tabBar": {
