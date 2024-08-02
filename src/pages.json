@@ -12,36 +12,37 @@
 			"path": "pages/index/index",
 			"style": {
         "navigationStyle": "custom",
-				"navigationBarTitleText": "质电出行",
-				"transparentTitle": "always"
+				"navigationBarTitleText": "质电出行"
+			}
+		},
+    {
+			"path": "pages/car_list/index",
+			"style": {
+				"navigationBarTitleText": "租车列表"
 			}
 		},
 		{
 			"path": "pages/baseInfo/index",
 			"style": {
-				"navigationBarTitleText": "基本信息",
-				"transparentTitle": "always"
+				"navigationBarTitleText": "基本信息"
 			}
 		},
 		{
 			"path": "pages/my/index",
 			"style": {
-				"navigationBarTitleText": "个人中心",
-				"transparentTitle": "always"
+				"navigationBarTitleText": "个人中心"
 			}
 		},
 		{
 			"path": "pages/idCard/index",
 			"style": {
-				"navigationBarTitleText": "身份证认证",
-				"transparentTitle": "always"
+				"navigationBarTitleText": "身份证认证"
 			}
 		},
 		{
 			"path": "pages/driverCard/index",
 			"style": {
-				"navigationBarTitleText": "驾驶证认证",
-				"transparentTitle": "always"
+				"navigationBarTitleText": "驾驶证认证"
 			}
 		}
 	],

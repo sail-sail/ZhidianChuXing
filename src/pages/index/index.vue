@@ -18,9 +18,9 @@
         </view>
         <view class="pickup">到店</view>
       </view>
-
+      
       <tm-divider color="#efefef" :margin="[0, 0]"></tm-divider>
-
+      
       <view
         class="time-weekday-date"
         @click="startTimeShow = true"
@@ -53,7 +53,15 @@
         </view>
       </view>
 
-      <tm-button font-color="#fff" :margin="[100, 20]" :round="10" :width="550">去选车</tm-button>
+      <tm-button
+        font-color="#fff"
+        :margin="[100, 20]"
+        :round="10"
+        :width="550"
+        @click="toCarList"
+      >
+        去选车
+      </tm-button>
 
       <view class="store-navigation-share">
         <view class="item" @click="callPhone"><tm-icon color="blue" :font-size="32"
@@ -184,9 +192,19 @@ const endWeekDay = $computed<string>(() => {
   return str;
 });
 
-function callPhone() {
-  uni.makePhoneCall({
-    phoneNumber: '400-1234-1234'
+async function callPhone() {
+  try {
+    await uni.makePhoneCall({
+      phoneNumber: '400-1234-1234'
+    });
+  } catch(err) {
+  }
+}
+
+// 去选车
+async function toCarList() {
+  await uni.navigateTo({
+    url: "/pages/car_list/index",
   });
 }
 
