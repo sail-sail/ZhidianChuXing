@@ -9,6 +9,7 @@
     un-p="y-4 x-4"
     un-bg="white"
     un-m="2"
+    un-shadow="md"
   >
     
     <view
@@ -347,20 +348,6 @@
           </view>
         </view>
         
-        <view
-          un-flex="~"
-          un-items="start"
-        >
-          <view
-            un-bg="[#eaf0fa]"
-            un-text="[#768cc1]"
-            un-rounded="md"
-            un-p="x-2 y-1"
-            un-box-border
-          >
-            {{ model.license_plate }}
-          </view>
-        </view>
       </view>
       
       <tm-divider
@@ -385,12 +372,12 @@
             un-items="center"
           >
             <tm-tag
-              v-for="(tag, i) in model.tags"
+              v-for="(tag, t) in model.tags"
               :key="model.id + tag"
               size="xs"
               label="芝麻免押"
               :border="1"
-              :text="i > 0"
+              :text="t > 0"
             ></tm-tag>
           </view>
           <view
@@ -429,6 +416,16 @@
         </view>
         
       </view>
+    </view>
+    
+    <view
+      un-m="x-4"
+    >
+      <tm-divider
+        :font-size="24"
+        align="center"
+        label="我是有底线的"
+      ></tm-divider>
     </view>
   </view>
   
@@ -723,7 +720,6 @@ let car_models = $ref([
     // 车型
     car_type: "三厢车",
     color: "金色",
-    license_plate: "沪A*****",
     tags: ["芝麻免押", "可配司机", "送车上门"],
     price: 200,
     total: 806,
@@ -739,7 +735,6 @@ let car_models = $ref([
     // 车型
     car_type: "三厢车",
     color: "黑色",
-    license_plate: "沪A*****",
     tags: ["芝麻免押", "可配司机", "送车上门"],
     price: 300,
     total: 1206,
@@ -755,7 +750,6 @@ let car_models = $ref([
     // 车型
     car_type: "三厢车",
     color: "白色",
-    license_plate: "沪A*****",
     tags: ["芝麻免押", "可配司机", "送车上门"],
     price: 400,
     total: 1606,
@@ -771,7 +765,6 @@ let car_models = $ref([
     // 车型
     car_type: "三厢车",
     color: "黑色",
-    license_plate: "沪A*****",
     tags: ["芝麻免押", "可配司机", "送车上门"],
     price: 500,
     total: 2006,
