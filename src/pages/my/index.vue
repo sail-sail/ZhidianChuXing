@@ -71,8 +71,6 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue';
-import {
-} from './Api'
 
 function baseInfo() {
   uni.navigateTo({
