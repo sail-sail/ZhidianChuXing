@@ -71,6 +71,211 @@
             name="tmicon-paperplane-fill"></tm-icon>&nbsp;&nbsp;<span>地址导航</span></view>
       </view>
     </view>
+    
+    <!-- 芝麻免压 -->
+    <view
+      un-flex="~"
+      un-h="30"
+      un-m="x-2.5 t--5"
+      un-gap="2.5"
+    >
+      
+      <view
+        un-flex="~ [1_0_0] col"
+        un-overflow="hidden"
+        un-bg="white"
+        un-rounded="lg"
+        un-p="x-2 y-3"
+        un-box-border
+        un-text="3"
+        un-gap="1"
+      >
+        <view
+          un-flex="~"
+          un-text="[#64b0f3]"
+        >
+          <view>
+            <view
+              un-i="iconfont-zhima"
+            ></view>
+          </view>
+          <view>
+            芝麻免押
+          </view>
+        </view>
+        
+        <view
+          un-flex="~ [1_0_0] col"
+          un-overflow="hidden"
+          un-gap="1"
+        >
+          <view
+            un-font="bold"
+          >
+            免押租车
+          </view>
+          <view
+            un-text="gray-800"
+          >
+            租车押金, 违章押金, 双免
+          </view>
+        </view>
+        
+        <view
+          un-flex="~"
+          un-text="gray-500"
+        >
+          <view>
+            查看详情
+          </view>
+          <view>
+            <view
+              un-i="iconfont-right"
+            ></view>
+          </view>
+        </view>
+        
+      </view>
+      
+      <view
+        un-flex="~ [2_0_0] col"
+        un-gap="2"
+      >
+        <view
+          un-flex="~ [1_0_0]"
+          un-overflow="hidden"
+          un-bg="white"
+          un-rounded="lg"
+          un-items="center"
+        >
+          <view
+            un-flex="~ [1_0_0] col"
+            un-overflow="hidden"
+            un-gap="1"
+            un-p="l-2"
+            un-box-border
+          >
+            <view
+              un-font="bold"
+            >
+              全城上门送取
+            </view>
+            <view
+              un-text="3 gray-800"
+            >
+              预定时可选择上门送取服务
+            </view>
+          </view>
+          <view
+            un-flex="~"
+            un-text="3 gray-500"
+          >
+            <view>
+              查看详情
+            </view>
+            <view>
+              <view
+                un-i="iconfont-right"
+              ></view>
+            </view>
+          </view>
+        </view>
+        <view
+          un-flex="~ [1_0_0]"
+          un-overflow="hidden"
+          un-bg="white"
+          un-rounded="lg"
+          un-items="center"
+        >
+          <view
+            un-flex="~ [1_0_0] col"
+            un-overflow="hidden"
+            un-gap="1"
+            un-p="l-2"
+            un-box-border
+          >
+            <view
+              un-font="bold"
+            >
+              <text>
+                长租 精选
+              </text>
+              <text
+                un-text="[red]"
+              >
+                特惠
+              </text>
+            </view>
+            <view
+              un-text="3 gray-800"
+            >
+              个人/企业长租定制专属方案
+            </view>
+          </view>
+          <view
+            un-flex="~"
+            un-text="3 gray-500"
+          >
+            <view>
+              查看详情
+            </view>
+            <view>
+              <view
+                un-i="iconfont-right"
+              ></view>
+            </view>
+          </view>
+        </view>
+      </view>
+      
+    </view>
+    
+    <!-- 新手租车指南 -->
+    <view
+      un-flex="~"
+      un-justify-center
+      un-items-center
+      un-h="16"
+      un-m="x-2.5 y-2.5"
+      un-gap="2.5"
+      un-rounded="3.125"
+      un-bg="[#479ee3]"
+      un-p="2.5"
+      un-box-border
+      un-relative
+      un-text="white"
+    >
+      <view
+        un-flex="~ [1_0_0] col"
+        un-overflow="hidden"
+        un-gap="1"
+      >
+        <view
+          un-text="4 center"
+        >
+          新手租车指南
+        </view>
+        <view
+          un-text="3 center"
+        >
+          在线租车 高效服务
+        </view>
+      </view>
+      
+      <view
+        un-absolute
+        un-right="0"
+        un-h="full"
+        un-top="0"
+        un-flex="~"
+        un-items-center
+      >
+        <view
+          un-i="iconfont-right"
+        ></view>
+      </view>
+    </view>
+    
   </view>
   <tm-picker
     :defaultValue="cityIndex"
@@ -278,7 +483,7 @@ onMounted(async () => {
 .container {
   box-sizing: border-box;
   width: 100vw;
-  height: calc(100vh - env(safe-area-inset-bottom) - 75rpx);
+  height: calc(100vh - env(safe-area-inset-bottom));
   overflow: hidden;
   display: flex;
   flex-direction: column;
