@@ -264,7 +264,7 @@
       
       <view
         un-absolute
-        un-right="0"
+        un-right="2.5"
         un-h="full"
         un-top="0"
         un-flex="~"
