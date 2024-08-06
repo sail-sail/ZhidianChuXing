@@ -72,12 +72,13 @@
       </view>
     </view>
     
-    <!-- 芝麻免压 -->
+    <!-- 芝麻免押 -->
     <view
       un-flex="~"
       un-h="30"
       un-m="x-2.5 t--5"
       un-gap="2.5"
+      @click="onDeposit"
     >
       
       <view
@@ -470,6 +471,12 @@ const address = $computed(() => {
   return cityPickerData[cityIndex[0]]?.children?.[cityIndex[1]]?.text ?? "";
 });
 
+// 芝麻免押
+async function onDeposit() {
+  await uni.navigateTo({
+    url: "/pages/deposit/index",
+  });
+}
 
 onMounted(async () => {
   const res = await getBannerList()

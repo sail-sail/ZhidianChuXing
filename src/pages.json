@@ -21,6 +21,12 @@
 				"navigationBarTitleText": "租车列表"
 			}
 		},
+    {
+      "path": "pages/deposit/index",
+      "style": {
+        "navigationBarTitleText": "免押说明"
+      }
+    },
 		{
 			"path": "pages/baseInfo/index",
 			"style": {
