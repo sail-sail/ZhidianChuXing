@@ -75,7 +75,7 @@
     <!-- 芝麻免押 -->
     <view
       un-flex="~"
-      un-h="30"
+      un-h="36"
       un-m="x-2.5 t--5"
       un-gap="2.5"
       @click="onDeposit"
@@ -148,6 +148,8 @@
           un-bg="white"
           un-rounded="lg"
           un-items="center"
+          un-p="y-2"
+          un-box-border
         >
           <view
             un-flex="~ [1_0_0] col"
@@ -187,6 +189,8 @@
           un-bg="white"
           un-rounded="lg"
           un-items="center"
+          un-p="y-2"
+          un-box-border
         >
           <view
             un-flex="~ [1_0_0] col"
@@ -231,50 +235,103 @@
       
     </view>
     
-    <!-- 新手租车指南 -->
     <view
       un-flex="~"
-      un-justify-center
-      un-items-center
-      un-h="16"
       un-m="x-2.5 y-2.5"
       un-gap="2.5"
-      un-rounded="3.125"
-      un-bg="[#408ecc]"
-      un-p="2.5"
-      un-box-border
-      un-relative
-      un-text="white"
     >
+      
+      <!-- 新手租车指南 -->
       <view
-        un-flex="~ [1_0_0] col"
+        un-flex="~ [1_0_0]"
         un-overflow="hidden"
-        un-gap="1"
+        un-justify-center
+        un-items-center
+        un-gap="2.5"
+        un-rounded="3.125"
+        un-bg="[#408ecc]"
+        un-relative
+        un-text="white"
+        un-p="y-3"
+        un-box-border
       >
         <view
-          un-text="4 center"
+          un-flex="~ [1_0_0] col"
+          un-overflow="hidden"
+          un-gap="1"
         >
-          新手租车指南
+          <view
+            un-text="4 center"
+          >
+            新手租车指南
+          </view>
+          <view
+            un-text="3 center"
+          >
+            在线租车 高效服务
+          </view>
         </view>
+        
         <view
-          un-text="3 center"
+          un-absolute
+          un-right="2.5"
+          un-h="full"
+          un-top="0"
+          un-flex="~"
+          un-items-center
         >
-          在线租车 高效服务
+          <view
+            un-i="iconfont-right"
+          ></view>
         </view>
       </view>
       
+      <!-- 全车质检 洗车交付 -->
       <view
-        un-absolute
-        un-right="2.5"
-        un-h="full"
-        un-top="0"
-        un-flex="~"
+        un-flex="~ [1_0_0]"
+        un-overflow="hidden"
+        un-justify-center
         un-items-center
+        un-gap="2.5"
+        un-rounded="3.125"
+        un-bg="[#b3af82]"
+        un-relative
+        un-text="white"
+        un-p="y-3"
+        un-box-border
       >
+        
         <view
-          un-i="iconfont-right"
-        ></view>
+          un-absolute
+          un-top="3"
+          un-left="2.5"
+          un-text="8"
+          un-opacity="20"
+        >
+          <view
+            un-i="iconfont-shield"
+          ></view>
+        </view>
+      
+        <view
+          un-flex="~ [1_0_0] col"
+          un-overflow="hidden"
+          un-gap="1"
+        >
+          <view
+            un-text="4 center"
+          >
+            全车质检 洗车交付
+          </view>
+          <view
+            un-text="3 center"
+          >
+            为您提供清洁安全的车辆
+          </view>
+        </view>
+        
       </view>
+      
     </view>
     
   </view>
