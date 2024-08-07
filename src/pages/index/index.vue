@@ -1,6 +1,11 @@
 <template>
-<tm-app>
-  <view class="container">
+<tm-app
+  un-bg="gray-100"
+  un-gap="2"
+>
+  <view
+    class="container"
+  >
     <view class="carousel">
       <tm-carousel autoplay :margin="[0, 0]" :round="0" :width="750" :height="380" :list="bannerList"></tm-carousel>
     </view>
@@ -236,14 +241,14 @@
     </view>
     
     <view
-      un-flex="~"
+      un-flex="~ wrap"
       un-m="x-2.5 y-2.5"
       un-gap="2.5"
     >
       
       <!-- 新手租车指南 -->
       <view
-        un-flex="~ [1_0_0]"
+        un-flex="~"
         un-overflow="hidden"
         un-justify-center
         un-items-center
@@ -254,6 +259,8 @@
         un-text="white"
         un-p="y-3"
         un-box-border
+        un-min="w-43.125"
+        un-h="20"
       >
         <view
           un-flex="~ [1_0_0] col"
@@ -288,7 +295,7 @@
       
       <!-- 全车质检 洗车交付 -->
       <view
-        un-flex="~ [1_0_0]"
+        un-flex="~"
         un-overflow="hidden"
         un-justify-center
         un-items-center
@@ -299,6 +306,8 @@
         un-text="white"
         un-p="y-3"
         un-box-border
+        un-min="w-43.125"
+        un-h="20"
       >
         
         <view
@@ -332,9 +341,93 @@
         
       </view>
       
+      <view
+        v-for="car_model in car_models"
+        :key="car_model.id"
+        un-flex="~ col"
+        un-overflow="hidden"
+        un-justify-center
+        un-items-center
+        un-rounded="tr-10 b-md"
+        un-shadow="md"
+        un-relative
+        un-bg="white"
+        un-text="gray-800"
+        un-min="w-43.125"
+        un-box-border
+      >
+        <view
+          un-flex="~"
+          un-justify="start"
+          un-w="full"
+        >
+          <tm-tag
+            size="xs"
+            label="推荐"
+            color="green"
+          ></tm-tag>
+        </view>
+        <view
+          un-w="full"
+        >
+          <image
+            src="https://img.yzcdn.cn/vant/apple-1.jpg"
+            style="width: 100%;"
+            mode="widthFix"
+          ></image>
+        </view>
+        <view
+          un-p="x-2 y-2"
+          un-box-border
+          un-flex="~ col"
+          un-w="full"
+        >
+          <view
+            un-text="4"
+            un-font="bold"
+          >
+            腾势 MPV
+          </view>
+          <view
+            un-text="3.5 gray-500"
+          >
+            自动/1.5T/MPV
+          </view>
+        </view>
+        <view
+          un-p="x-2 y-2"
+          un-box-border
+          un-flex="~"
+          un-items="center"
+          un-w="full"
+          un-text="3.5"
+          un-gap="1"
+        >
+          <text>
+            日租金
+          </text>
+          <text
+            un-text="5 red"
+            un-font="bold"
+          >
+            ￥1358
+          </text>
+          <text>
+            起
+          </text>
+        </view>
+      </view>
+      
     </view>
     
   </view>
+  
+  <!-- #ifdef H5 -->
+  <view
+    un-min="h-6.25"
+  ></view>
+  <!-- #endif -->
+  
   <tm-picker
     :defaultValue="cityIndex"
     v-model="cityIndex"
@@ -366,7 +459,6 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
 import dayjs from 'dayjs';
 
 import {
@@ -528,6 +620,21 @@ const address = $computed(() => {
   return cityPickerData[cityIndex[0]]?.children?.[cityIndex[1]]?.text ?? "";
 });
 
+let car_models = $ref<any[]>([
+  {
+    id: "1",
+  },
+  {
+    id: "2",
+  },
+  {
+    id: "3",
+  },
+  {
+    id: "4",
+  },
+]);
+
 // 芝麻免押
 async function onDeposit() {
   await uni.navigateTo({
@@ -544,20 +651,6 @@ onMounted(async () => {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  box-sizing: border-box;
-  width: 100vw;
-  height: calc(100vh - env(safe-area-inset-bottom));
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  background-color: rgb(247, 246, 250);
-}
-
-.carousel {
-  width: 100%;
-}
-
 .content {
   box-sizing: border-box;
   border-radius: 25rpx;
