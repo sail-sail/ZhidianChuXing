@@ -341,82 +341,86 @@
         
       </view>
       
-      <view
-        v-for="car_model in car_models"
-        :key="car_model.id"
-        un-flex="~ col"
-        un-overflow="hidden"
-        un-justify-center
-        un-items-center
-        un-rounded="tr-10 b-md"
-        un-shadow="md"
-        un-relative
-        un-bg="white"
-        un-text="gray-800"
-        un-min="w-43.125"
-        un-box-border
+      <template
+        v-if="false"
       >
         <view
-          un-flex="~"
-          un-justify="start"
-          un-w="full"
-        >
-          <tm-tag
-            size="xs"
-            label="推荐"
-            color="green"
-          ></tm-tag>
-        </view>
-        <view
-          un-w="full"
-        >
-          <image
-            src="https://img.yzcdn.cn/vant/apple-1.jpg"
-            style="width: 100%;"
-            mode="widthFix"
-          ></image>
-        </view>
-        <view
-          un-p="x-2 y-2"
-          un-box-border
+          v-for="car_model in car_models"
+          :key="car_model.id"
           un-flex="~ col"
-          un-w="full"
-        >
-          <view
-            un-text="4"
-            un-font="bold"
-          >
-            腾势 MPV
-          </view>
-          <view
-            un-text="3.5 gray-500"
-          >
-            自动/1.5T/MPV
-          </view>
-        </view>
-        <view
-          un-p="x-2 y-2"
+          un-overflow="hidden"
+          un-justify-center
+          un-items-center
+          un-rounded="tr-10 b-md"
+          un-shadow="md"
+          un-relative
+          un-bg="white"
+          un-text="gray-800"
+          un-min="w-43.125"
           un-box-border
-          un-flex="~"
-          un-items="center"
-          un-w="full"
-          un-text="3.5"
-          un-gap="1"
         >
-          <text>
-            日租金
-          </text>
-          <text
-            un-text="5 red"
-            un-font="bold"
+          <view
+            un-flex="~"
+            un-justify="start"
+            un-w="full"
           >
-            ￥1358
-          </text>
-          <text>
-            起
-          </text>
+            <tm-tag
+              size="xs"
+              label="推荐"
+              color="green"
+            ></tm-tag>
+          </view>
+          <view
+            un-w="full"
+          >
+            <image
+              src="https://img.yzcdn.cn/vant/apple-1.jpg"
+              style="width: 100%;"
+              mode="widthFix"
+            ></image>
+          </view>
+          <view
+            un-p="x-2 y-2"
+            un-box-border
+            un-flex="~ col"
+            un-w="full"
+          >
+            <view
+              un-text="4"
+              un-font="bold"
+            >
+              腾势 MPV
+            </view>
+            <view
+              un-text="3.5 gray-500"
+            >
+              自动/1.5T/MPV
+            </view>
+          </view>
+          <view
+            un-p="x-2 y-2"
+            un-box-border
+            un-flex="~"
+            un-items="center"
+            un-w="full"
+            un-text="3.5"
+            un-gap="1"
+          >
+            <text>
+              日租金
+            </text>
+            <text
+              un-text="5 red"
+              un-font="bold"
+            >
+              ￥1358
+            </text>
+            <text>
+              起
+            </text>
+          </view>
         </view>
-      </view>
+      </template>
       
     </view>
     
