@@ -22,6 +22,18 @@
 			}
 		},
     {
+			"path": "pages/car_detail/index",
+			"style": {
+				"navigationBarTitleText": "详情"
+			}
+		},
+    {
+			"path": "pages/order/index",
+			"style": {
+				"navigationBarTitleText": "确认预定"
+			}
+		},
+    {
       "path": "pages/deposit/index",
       "style": {
         "navigationBarTitleText": "免押说明"

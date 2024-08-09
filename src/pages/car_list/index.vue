@@ -297,6 +297,8 @@
       un-m="2"
       un-p="2"
       un-shadow="lg"
+      un-bg="white"
+      @click="onCarDetail(model)"
     >
       <view
         un-flex="~"
@@ -375,7 +377,7 @@
               v-for="(tag, t) in model.tags"
               :key="model.id + tag"
               size="xs"
-              label="芝麻免押"
+              :label="tag"
               :border="1"
               :text="t > 0"
             ></tm-tag>
@@ -770,6 +772,13 @@ let car_models = $ref([
     total: 2006,
   },
 ]);
+
+// 打开详情页面
+async function onCarDetail(model: any) {
+  await uni.navigateTo({
+    url: `/pages/car_detail/index?id=${ encodeURIComponent(model.id) }`,
+  });
+}
 </script>
 
 <style lang="scss" scoped>
