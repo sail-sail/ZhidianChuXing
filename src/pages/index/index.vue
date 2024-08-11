@@ -196,6 +196,7 @@
           un-items="center"
           un-p="y-2"
           un-box-border
+          @click="onLongLease"
         >
           <view
             un-flex="~ [1_0_0] col"
@@ -643,6 +644,13 @@ let car_models = $ref<any[]>([
 async function onDeposit() {
   await uni.navigateTo({
     url: "/pages/deposit/index",
+  });
+}
+
+// 特惠长租
+async function onLongLease() {
+  await uni.navigateTo({
+    url: "/pages/long_lease/index",
   });
 }
 

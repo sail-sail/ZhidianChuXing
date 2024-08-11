@@ -15,6 +15,13 @@
 				"navigationBarTitleText": "质电出行"
 			}
 		},
+		{
+			"path": "pages/long_lease/index",
+			"style": {
+        "navigationStyle": "custom",
+				"navigationBarTitleText": "特惠长租"
+			}
+		},
     {
 			"path": "pages/car_list/index",
 			"style": {
