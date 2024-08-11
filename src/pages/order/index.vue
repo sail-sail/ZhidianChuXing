@@ -175,6 +175,37 @@
         un-p="x-4 y-4"
         un-bg="white"
       >
+        <tm-grid
+          :width="638"
+          :col="3"
+        >
+          <tm-grid-item
+            v-for="item in [1, 2, 3, 4, 5, 6]"
+            :height="120"
+            dot
+          >
+            
+            <tm-icon
+              name="tmicon-user-fill"
+              :font-size="42"
+            ></tm-icon>
+            
+            <tm-text
+              :font-size="22"
+              label="宫格文本"
+            ></tm-text>
+            
+          </tm-grid-item>
+        </tm-grid>
+      </view>
+      
+      <!-- 配驾司机 -->
+      <view
+        un-box-border
+        un-rounded="md"
+        un-p="x-4 y-4"
+        un-bg="white"
+      >
         <view
           un-text="4.5 black"
           un-font-bold
