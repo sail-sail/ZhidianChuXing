@@ -57,9 +57,11 @@
               <tm-icon name="tmicon-layergroup-fill" :font-size="42"></tm-icon>
               <tm-text :font-size="22" label="关于我们"></tm-text>
             </tm-grid-item>
-            <tm-grid-item>
+            <tm-grid-item
+              @click="onMyMerchant"
+            >
               <tm-icon name="tmicon-layergroup-fill" :font-size="42"></tm-icon>
-              <tm-text :font-size="22" label="后台管理"></tm-text>
+              <tm-text :font-size="22" label="我是商家"></tm-text>
             </tm-grid-item>
           </tm-grid>
         </template>
@@ -70,7 +72,6 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue';
 
 function baseInfo() {
   uni.navigateTo({
@@ -83,10 +84,15 @@ function orderList() {
     url: '/pages/orderList/index'
   })
 }
+
+async function onMyMerchant() {
+  await uni.navigateTo({
+    url: "/pages/my_merchant/index",
+  })
+}
+
 onMounted(async () => {
-})
-
-
+});
 </script>
 
 <style lang="scss" scoped>
