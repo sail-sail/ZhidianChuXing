@@ -262,6 +262,7 @@
         un-box-border
         un-min="w-43.125"
         un-h="20"
+        @click="onRentalGuide"
       >
         <view
           un-flex="~ [1_0_0] col"
@@ -651,6 +652,13 @@ async function onDeposit() {
 async function onLongLease() {
   await uni.navigateTo({
     url: "/pages/long_lease/index",
+  });
+}
+
+// 新手租车指南
+async function onRentalGuide() {
+  await uni.navigateTo({
+    url: "/pages/rental_guide/index",
   });
 }
 

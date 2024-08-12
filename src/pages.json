@@ -21,6 +21,12 @@
 				"navigationBarTitleText": "特惠长租"
 			}
 		},
+		{
+			"path": "pages/rental_guide/index",
+			"style": {
+				"navigationBarTitleText": "租车指南"
+			}
+		},
     {
 			"path": "pages/car_list/index",
 			"style": {
