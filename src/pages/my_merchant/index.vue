@@ -414,6 +414,7 @@
             <view
               un-flex="~ [1_0_0] col"
               un-overflow-hidden
+              @click="onPriceSet"
             >
               <view
                 un-flex="~ [1_0_0]"
@@ -533,6 +534,13 @@ async function onCreateOrder() {
 async function onCarMgt() {
   await uni.navigateTo({
     url: "/pages/car_mgt/index",
+  });
+}
+
+// 价格管理
+async function onPriceSet() {
+  await uni.navigateTo({
+    url: "/pages/price_set/index",
   });
 }
 </script>

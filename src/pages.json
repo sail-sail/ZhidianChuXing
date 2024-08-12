@@ -82,6 +82,12 @@
 			}
 		},
 		{
+			"path": "pages/price_set/index",
+			"style": {
+				"navigationBarTitleText": "价格设置"
+			}
+		},
+		{
 			"path": "pages/idCard/index",
 			"style": {
 				"navigationBarTitleText": "身份证认证"
