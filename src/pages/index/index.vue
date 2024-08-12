@@ -83,7 +83,6 @@
       un-h="36"
       un-m="x-2.5 t--5"
       un-gap="2.5"
-      @click="onDeposit"
     >
       
       <view
@@ -95,6 +94,7 @@
         un-box-border
         un-text="3"
         un-gap="1"
+        @click="onDeposit"
       >
         <view
           un-flex="~"

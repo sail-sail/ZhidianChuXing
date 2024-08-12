@@ -76,6 +76,12 @@
 			}
 		},
 		{
+			"path": "pages/car_mgt/index",
+			"style": {
+				"navigationBarTitleText": "车辆管理"
+			}
+		},
+		{
 			"path": "pages/idCard/index",
 			"style": {
 				"navigationBarTitleText": "身份证认证"

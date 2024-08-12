@@ -365,6 +365,7 @@
             <view
               un-flex="~ [1_0_0] col"
               un-overflow-hidden
+              @click="onCarMgt"
             >
               <view
                 un-flex="~ [1_0_0]"
@@ -525,6 +526,13 @@ async function tabschange(key: number) {
 async function onCreateOrder() {
   await uni.navigateTo({
     url: "/pages/create_order/select_mem",
+  });
+}
+
+// 车辆管理
+async function onCarMgt() {
+  await uni.navigateTo({
+    url: "/pages/car_mgt/index",
   });
 }
 </script>
