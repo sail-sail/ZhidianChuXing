@@ -70,6 +70,12 @@
 			}
 		},
 		{
+			"path": "pages/create_order/select_mem",
+			"style": {
+				"navigationBarTitleText": "创建订单-选择会员"
+			}
+		},
+		{
 			"path": "pages/idCard/index",
 			"style": {
 				"navigationBarTitleText": "身份证认证"

@@ -321,7 +321,7 @@
       :default-name="swiperCurrent"
       :round="2"
       activeFontColor="black"
-      activeFontSize="34"
+      :activeFontSize="34"
       showTabsLineAni
       :showTabsLine="false"
     ></tm-tabs>
@@ -340,6 +340,7 @@
             <view
               un-flex="~ [1_0_0] col"
               un-overflow-hidden
+              @click="onCreateOrder"
             >
               <view
                 un-flex="~ [1_0_0]"
@@ -518,5 +519,12 @@ let swiperCurrent = $ref(0);
 
 async function tabschange(key: number) {
   swiperCurrent = key;
+}
+
+// 创建订单
+async function onCreateOrder() {
+  await uni.navigateTo({
+    url: "/pages/create_order/select_mem",
+  });
 }
 </script>
