@@ -92,7 +92,9 @@
               </view>
               <tm-text :font-size="22" label="收藏车辆"></tm-text>
             </tm-grid-item>
-            <tm-grid-item>
+            <tm-grid-item
+              @click="onCoupon"
+            >
               <view
                 un-flex="~"
                 un-justify="center"
@@ -230,6 +232,13 @@ async function callPhone() {
 async function onAbout() {
   await uni.navigateTo({
     url: "/pages/about/index",
+  })
+}
+
+// 优惠卷
+async function onCoupon() {
+  await uni.navigateTo({
+    url: "/pages/coupon/index",
   })
 }
 
