@@ -26,7 +26,6 @@
       un-bg="white"
     >
       <tm-input
-        search
         prefix="tmicon-search"
         placeholder="请输入车牌号查询"
       ></tm-input>

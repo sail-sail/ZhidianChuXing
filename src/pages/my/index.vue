@@ -11,19 +11,63 @@
         <template v-slot:content>
           <tm-grid :width="650" :col="4">
             <tm-grid-item @click="orderList">
-              <tm-icon name="tmicon-layergroup-fill" :font-size="42"></tm-icon>
+              <view
+                un-flex="~"
+                un-justify="center"
+                un-items="center"
+                un-p="1"
+                un-box-border
+              >
+                <view
+                  un-i="iconfont-obligation"
+                  un-text="4.5 gray-800"
+                ></view>
+              </view>
               <tm-text :font-size="22" label="待付款"></tm-text>
             </tm-grid-item>
             <tm-grid-item @click="orderList">
-              <tm-icon name="tmicon-layergroup-fill" :font-size="42"></tm-icon>
+              <view
+                un-flex="~"
+                un-justify="center"
+                un-items="center"
+                un-p="1"
+                un-box-border
+              >
+                <view
+                  un-i="iconfont-pending_order"
+                  un-text="4.5 gray-800"
+                ></view>
+              </view>
               <tm-text :font-size="22" label="进行中"></tm-text>
             </tm-grid-item>
             <tm-grid-item @click="orderList">
-              <tm-icon name="tmicon-layergroup-fill" :font-size="42"></tm-icon>
+              <view
+                un-flex="~"
+                un-justify="center"
+                un-items="center"
+                un-p="1"
+                un-box-border
+              >
+                <view
+                  un-i="iconfont-bill"
+                  un-text="4.5 gray-800"
+                ></view>
+              </view>
               <tm-text :font-size="22" label="已完成"></tm-text>
             </tm-grid-item>
             <tm-grid-item @click="orderList">
-              <tm-icon name="tmicon-layergroup-fill" :font-size="42"></tm-icon>
+              <view
+                un-flex="~"
+                un-justify="center"
+                un-items="center"
+                un-p="1"
+                un-box-border
+              >
+                <view
+                  un-i="iconfont-cancel"
+                  un-text="4.5 gray-800"
+                ></view>
+              </view>
               <tm-text :font-size="22" label="已取消"></tm-text>
             </tm-grid-item>
           </tm-grid>
@@ -34,33 +78,110 @@
         <template v-slot:content>
           <tm-grid :width="650" :col="4">
             <tm-grid-item>
-              <tm-icon name="tmicon-layergroup-fill" :font-size="42"></tm-icon>
+              <view
+                un-flex="~"
+                un-justify="center"
+                un-items="center"
+                un-p="1"
+                un-box-border
+              >
+                <view
+                  un-i="iconfont-folder"
+                  un-text="4.5 gray-800"
+                ></view>
+              </view>
               <tm-text :font-size="22" label="收藏车辆"></tm-text>
             </tm-grid-item>
             <tm-grid-item>
-              <tm-icon name="tmicon-layergroup-fill" :font-size="42"></tm-icon>
+              <view
+                un-flex="~"
+                un-justify="center"
+                un-items="center"
+                un-p="1"
+                un-box-border
+              >
+                <view
+                  un-i="iconfont-coupon"
+                  un-text="4.5 gray-800"
+                ></view>
+              </view>
               <tm-text :font-size="22" label="优惠卷"></tm-text>
             </tm-grid-item>
             <tm-grid-item>
-              <tm-icon name="tmicon-layergroup-fill" :font-size="42"></tm-icon>
+              <view
+                un-flex="~"
+                un-justify="center"
+                un-items="center"
+                un-p="1"
+                un-box-border
+              >
+                <view
+                  un-i="iconfont-order"
+                  un-text="4.5 gray-800"
+                ></view>
+              </view>
               <tm-text :font-size="22" label="团购订单"></tm-text>
             </tm-grid-item>
             <tm-grid-item>
-              <tm-icon name="tmicon-layergroup-fill" :font-size="42"></tm-icon>
+              <view
+                un-flex="~"
+                un-justify="center"
+                un-items="center"
+                un-p="1"
+                un-box-border
+              >
+                <view
+                  un-i="iconfont-user"
+                  un-text="4.5 gray-800"
+                ></view>
+              </view>
               <tm-text :font-size="22" label="客服"></tm-text>
             </tm-grid-item>
             <tm-grid-item>
-              <tm-icon name="tmicon-layergroup-fill" :font-size="42"></tm-icon>
+              <view
+                un-flex="~"
+                un-justify="center"
+                un-items="center"
+                un-p="1"
+                un-box-border
+              >
+                <view
+                  un-i="iconfont-comment"
+                  un-text="4.5 gray-800"
+                ></view>
+              </view>
               <tm-text :font-size="22" label="意见反馈"></tm-text>
             </tm-grid-item>
             <tm-grid-item>
-              <tm-icon name="tmicon-layergroup-fill" :font-size="42"></tm-icon>
+              <view
+                un-flex="~"
+                un-justify="center"
+                un-items="center"
+                un-p="1"
+                un-box-border
+              >
+                <view
+                  un-i="iconfont-about"
+                  un-text="4.5 gray-800"
+                ></view>
+              </view>
               <tm-text :font-size="22" label="关于我们"></tm-text>
             </tm-grid-item>
             <tm-grid-item
               @click="onMyMerchant"
             >
-              <tm-icon name="tmicon-layergroup-fill" :font-size="42"></tm-icon>
+              <view
+                un-flex="~"
+                un-justify="center"
+                un-items="center"
+                un-p="1"
+                un-box-border
+              >
+                <view
+                  un-i="iconfont-home"
+                  un-text="4.5 gray-800"
+                ></view>
+              </view>
               <tm-text :font-size="22" label="我是商家"></tm-text>
             </tm-grid-item>
           </tm-grid>
@@ -79,9 +200,9 @@ function baseInfo() {
   })
 }
 
-function orderList() {
-  uni.navigateTo({
-    url: '/pages/orderList/index'
+async function orderList() {
+  await uni.navigateTo({
+    url: '/pages/order/list'
   })
 }
 

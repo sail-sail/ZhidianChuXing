@@ -46,6 +46,12 @@
 			}
 		},
     {
+			"path": "pages/order/list",
+			"style": {
+				"navigationBarTitleText": "订单列表"
+			}
+		},
+    {
       "path": "pages/deposit/index",
       "style": {
         "navigationBarTitleText": "免押说明"

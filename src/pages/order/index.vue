@@ -102,14 +102,18 @@
             un-flex="[1_0_0]"
             un-relative
           >
-            <tm-divider
-              color="#efefef"
-              un-m="x-8"
-            ></tm-divider>
+            <view
+              un-p="x-8"
+              un-box-border
+            >
+              <tm-divider
+                color="#efefef"
+              ></tm-divider>
+            </view>
             <view
               un-absolute
               un-right="50%"
-              un-top="3.5"
+              un-top="4"
               un-text="3.5 gray-600"
             >
               1天
@@ -179,23 +183,115 @@
           :width="638"
           :col="3"
         >
+          
           <tm-grid-item
-            v-for="item in [1, 2, 3, 4, 5, 6]"
             :height="120"
             dot
           >
-            
+            <view
+              un-flex="~"
+              un-justify="center"
+              un-items="center"
+              un-p="1"
+              un-box-border
+            >
+              <view
+                un-i="iconfont-deposit"
+                un-text="4.5 gray-800"
+              ></view>
+            </view>
+            <tm-text
+              :font-size="22"
+              label="定金"
+            ></tm-text>
+          </tm-grid-item>
+          
+          <tm-grid-item
+            :height="120"
+            dot
+          >
+            <view
+              un-flex="~"
+              un-justify="center"
+              un-items="center"
+              un-p="1"
+              un-box-border
+            >
+              <view
+                un-i="iconfont-coupon"
+                un-text="4.5 gray-800"
+              ></view>
+            </view>
+            <tm-text
+              :font-size="22"
+              label="费用支付"
+            ></tm-text>
+          </tm-grid-item>
+          
+          <tm-grid-item
+            :height="120"
+            dot
+          >
+            <view
+              un-flex="~"
+              un-justify="center"
+              un-items="center"
+              un-p="1"
+              un-box-border
+            >
+              <view
+                un-i="iconfont-contract"
+                un-text="4.5 gray-800"
+              ></view>
+            </view>
+            <tm-text
+              :font-size="22"
+              label="合同"
+            ></tm-text>
+          </tm-grid-item>
+          
+          <tm-grid-item
+            :height="120"
+            dot
+          >
             <tm-icon
               name="tmicon-user-fill"
               :font-size="42"
             ></tm-icon>
-            
             <tm-text
               :font-size="22"
-              label="宫格文本"
+              label="免押"
             ></tm-text>
-            
           </tm-grid-item>
+          
+          <tm-grid-item
+            :height="120"
+            dot
+          >
+            <tm-icon
+              name="tmicon-user-fill"
+              :font-size="42"
+            ></tm-icon>
+            <tm-text
+              :font-size="22"
+              label="整备"
+            ></tm-text>
+          </tm-grid-item>
+          
+          <tm-grid-item
+            :height="120"
+            dot
+          >
+            <tm-icon
+              name="tmicon-user-fill"
+              :font-size="42"
+            ></tm-icon>
+            <tm-text
+              :font-size="22"
+              label="发车"
+            ></tm-text>
+          </tm-grid-item>
+          
         </tm-grid>
       </view>
       

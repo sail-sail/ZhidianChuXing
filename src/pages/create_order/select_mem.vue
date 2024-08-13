@@ -12,7 +12,6 @@
     un-items="center"
   >
     <tm-input
-      search
       prefix="tmicon-search"
       placeholder="输入姓名/手机号查询"
       un-flex="[1_0_0]"

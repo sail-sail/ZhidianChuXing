@@ -235,6 +235,7 @@
       <view
         un-flex="~ [1_0_0] col"
         un-box-border
+        @click="onMemList"
       >
         <view
           un-text="6 black"
@@ -257,6 +258,7 @@
       <view
         un-flex="~ [1_0_0] col"
         un-box-border
+        @click="onOrderList"
       >
         <view
           un-text="6 black"
@@ -493,6 +495,10 @@
     </swiper>
   </view>
   
+  <view
+    un-h="8"
+  ></view>
+  
 </tm-app>
 </template>
 
@@ -541,6 +547,20 @@ async function onCarMgt() {
 async function onPriceSet() {
   await uni.navigateTo({
     url: "/pages/price_set/index",
+  });
+}
+
+// 会员列表
+async function onMemList() {
+  await uni.navigateTo({
+    url: "/pages/create_order/select_mem",
+  });
+}
+
+// 订单列表
+async function onOrderList() {
+  await uni.navigateTo({
+    url: "/pages/order/list",
   });
 }
 </script>
