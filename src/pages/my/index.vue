@@ -154,7 +154,9 @@
               </view>
               <tm-text :font-size="22" label="意见反馈"></tm-text>
             </tm-grid-item>
-            <tm-grid-item>
+            <tm-grid-item
+              @click="onAbout"
+            >
               <view
                 un-flex="~"
                 un-justify="center"
@@ -222,6 +224,13 @@ async function callPhone() {
     });
   } catch(err) {
   }
+}
+
+// 关于我们
+async function onAbout() {
+  await uni.navigateTo({
+    url: "/pages/about/index",
+  })
 }
 
 onMounted(async () => {

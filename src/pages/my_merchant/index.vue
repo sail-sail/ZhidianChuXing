@@ -8,7 +8,7 @@
     un-top="0"
     un-w="full"
     un-h="80"
-    style="background: linear-gradient(to bottom, #1c3eba 70%, #e5e7eb);"
+    style="background: linear-gradient(to bottom, #1c3eba 40%, #e5e7eb);"
   ></view>
   
   <swiper
