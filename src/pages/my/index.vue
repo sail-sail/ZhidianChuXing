@@ -122,7 +122,9 @@
               </view>
               <tm-text :font-size="22" label="团购订单"></tm-text>
             </tm-grid-item>
-            <tm-grid-item>
+            <tm-grid-item
+              @click="callPhone"
+            >
               <view
                 un-flex="~"
                 un-justify="center"
@@ -131,7 +133,7 @@
                 un-box-border
               >
                 <view
-                  un-i="iconfont-user"
+                  un-i="iconfont-customer_service"
                   un-text="4.5 gray-800"
                 ></view>
               </view>
@@ -210,6 +212,16 @@ async function onMyMerchant() {
   await uni.navigateTo({
     url: "/pages/my_merchant/index",
   })
+}
+
+// 客服
+async function callPhone() {
+  try {
+    await uni.makePhoneCall({
+      phoneNumber: '400-1234-1234'
+    });
+  } catch(err) {
+  }
 }
 
 onMounted(async () => {
