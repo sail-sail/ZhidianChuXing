@@ -77,7 +77,9 @@
       <tm-card title="更多">
         <template v-slot:content>
           <tm-grid :width="650" :col="4">
-            <tm-grid-item>
+            <tm-grid-item
+              @click="onCollectCar"
+            >
               <view
                 un-flex="~"
                 un-justify="center"
@@ -109,7 +111,9 @@
               </view>
               <tm-text :font-size="22" label="优惠卷"></tm-text>
             </tm-grid-item>
-            <tm-grid-item>
+            <tm-grid-item
+              @click="onGroupOrder"
+            >
               <view
                 un-flex="~"
                 un-justify="center"
@@ -239,6 +243,20 @@ async function onAbout() {
 async function onCoupon() {
   await uni.navigateTo({
     url: "/pages/coupon/index",
+  })
+}
+
+// 团购订单
+async function onGroupOrder() {
+  await uni.navigateTo({
+    url: "/pages/group_order/index",
+  })
+}
+
+// 收藏车辆
+async function onCollectCar() {
+  await uni.navigateTo({
+    url: "/pages/collect_car/index",
   })
 }
 
