@@ -100,6 +100,60 @@
 			}
 		},
 		{
+			"path": "pages/intention/index",
+			"style": {
+				"navigationBarTitleText": "意向管理"
+			}
+		},
+		{
+			"path": "pages/inventory_calendar/index",
+			"style": {
+				"navigationBarTitleText": "库存日历"
+			}
+		},
+		{
+			"path": "pages/electronic_contract/index",
+			"style": {
+				"navigationBarTitleText": "电子合同"
+			}
+		},
+		{
+			"path": "pages/risk_control/index",
+			"style": {
+				"navigationBarTitleText": "风控查询"
+			}
+		},
+		{
+			"path": "pages/channel_code/index",
+			"style": {
+				"navigationBarTitleText": "渠道码"
+			}
+		},
+		{
+			"path": "pages/dealer/index",
+			"style": {
+				"navigationBarTitleText": "经销商"
+			}
+		},
+		{
+			"path": "pages/store_set/index",
+			"style": {
+				"navigationBarTitleText": "门店设置"
+			}
+		},
+		{
+			"path": "pages/operate_set/index",
+			"style": {
+				"navigationBarTitleText": "运营设置"
+			}
+		},
+		{
+			"path": "pages/staff/index",
+			"style": {
+				"navigationBarTitleText": "员工管理"
+			}
+		},
+		{
 			"path": "pages/create_order/select_mem",
 			"style": {
 				"navigationBarTitleText": "创建订单-选择会员"

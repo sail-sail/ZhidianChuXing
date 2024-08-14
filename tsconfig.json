@@ -22,7 +22,8 @@
       "@vue-macros/reactivity-transform/macros-global",
       "node",
       "vite/client",
-      "@dcloudio/types"
+      "@dcloudio/types",
+      "@uni-helper/uni-app-types"
     ],
     "paths": {
       "@/*": [ "./src/*" ],
@@ -30,7 +31,10 @@
     }
   },
   "vueCompilerOptions": {
-    "strictTemplates": false
+    "strictTemplates": false,
+    "plugins": [
+      "@uni-helper/uni-app-types/volar-plugin"
+    ]
   },
   "include": [
     "**/*.ts",

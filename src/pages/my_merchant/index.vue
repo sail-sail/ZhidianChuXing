@@ -117,7 +117,7 @@
     un-shadow="md"
   >
     
-    <view
+    <!-- <view
       un-flex="~"
       un-justify="between"
       un-p="x-2"
@@ -133,7 +133,7 @@
       >
         了解套餐
       </view>
-    </view>
+    </view> -->
     
     <view
       un-text="4 black"
@@ -392,6 +392,7 @@
             <view
               un-flex="~ [1_0_0] col"
               un-overflow-hidden
+              @click="onInventoryCalendar"
             >
               <view
                 un-flex="~ [1_0_0]"
@@ -448,6 +449,7 @@
             <view
               un-flex="~ [1_0_0] col"
               un-overflow-hidden
+              @click="onElectronicContract"
             >
               <view
                 un-flex="~ [1_0_0]"
@@ -489,6 +491,435 @@
             
           </view>
           
+        </view>
+      </swiper-item>
+      
+      <swiper-item>
+        <view>
+          
+          <view
+            un-flex="~"
+            un-m="t-4"
+          >
+            
+            <view
+              un-flex="~ [1_0_0] col"
+              un-overflow-hidden
+              @click="onInventoryCalendar"
+            >
+              <view
+                un-flex="~ [1_0_0]"
+                un-justify="center"
+                un-items="center"
+              >
+                <view
+                  un-i="iconfont-calendar"
+                  un-text="6 gray-500"
+                ></view>
+              </view>
+              <view
+                un-text="3 gray-800"
+                un-flex="~"
+                un-justify="center"
+                un-items="center"
+              >
+                库存日历
+              </view>
+            </view>
+            
+            <view
+              un-flex="~ [1_0_0] col"
+              un-overflow-hidden
+              @click="onCreateOrder"
+            >
+              <view
+                un-flex="~ [1_0_0]"
+                un-justify="center"
+                un-items="center"
+              >
+                <view
+                  un-i="iconfont-order"
+                  un-text="5.5 gray-600"
+                ></view>
+              </view>
+              <view
+                un-text="3 gray-800"
+                un-flex="~"
+                un-justify="center"
+                un-items="center"
+              >
+                创建订单
+              </view>
+            </view>
+            
+            <view
+              un-flex="~ [1_0_0] col"
+              un-overflow-hidden
+              @click="onOrderList"
+            >
+              <view
+                un-flex="~ [1_0_0]"
+                un-justify="center"
+                un-items="center"
+              >
+                <view
+                  un-i="iconfont-order"
+                  un-text="5.5 gray-600"
+                ></view>
+              </view>
+              <view
+                un-text="3 gray-800"
+                un-flex="~"
+                un-justify="center"
+                un-items="center"
+              >
+                订单管理
+              </view>
+            </view>
+            
+            <view
+              un-flex="~ [1_0_0] col"
+              un-overflow-hidden
+              @click="onOrderList"
+            >
+              <view
+                un-flex="~ [1_0_0]"
+                un-justify="center"
+                un-items="center"
+              >
+                <view
+                  un-i="iconfont-order"
+                  un-text="5.5 gray-600"
+                ></view>
+              </view>
+              <view
+                un-text="3 gray-800"
+                un-flex="~"
+                un-justify="center"
+                un-items="center"
+              >
+                长租订单
+              </view>
+            </view>
+            
+          </view>
+          
+          <view
+            un-flex="~"
+            un-m="t-4"
+          >
+            
+            <view
+              un-flex="~ [1_0_0] col"
+              un-overflow-hidden
+              @click="onCarMgt"
+            >
+              <view
+                un-flex="~ [1_0_0]"
+                un-justify="center"
+                un-items="center"
+              >
+                <view
+                  un-i="iconfont-car"
+                  un-text="6"
+                ></view>
+              </view>
+              <view
+                un-text="3 gray-800"
+                un-flex="~"
+                un-justify="center"
+                un-items="center"
+              >
+                车辆管理
+              </view>
+            </view>
+            
+            <view
+              un-flex="~ [1_0_0] col"
+              un-overflow-hidden
+              @click="onPriceSet"
+            >
+              <view
+                un-flex="~ [1_0_0]"
+                un-justify="center"
+                un-items="center"
+              >
+                <view
+                  un-i="iconfont-price"
+                  un-text="5.5 gray-500"
+                ></view>
+              </view>
+              <view
+                un-text="3 gray-800"
+                un-flex="~"
+                un-justify="center"
+                un-items="center"
+              >
+                价格管理
+              </view>
+            </view>
+            
+            <view
+              un-flex="~ [1_0_0] col"
+              un-overflow-hidden
+              @click="onMemList"
+            >
+              <view
+                un-flex="~ [1_0_0]"
+                un-justify="center"
+                un-items="center"
+              >
+                <view
+                  un-i="iconfont-user"
+                  un-text="5.5 gray-600"
+                ></view>
+              </view>
+              <view
+                un-text="3 gray-800"
+                un-flex="~"
+                un-justify="center"
+                un-items="center"
+              >
+                会员管理
+              </view>
+            </view>
+            
+            <view
+              un-flex="~ [1_0_0] col"
+              un-overflow-hidden
+              @click="onIntention"
+            >
+              <view
+                un-flex="~ [1_0_0]"
+                un-justify="center"
+                un-items="center"
+              >
+                <view
+                  un-i="iconfont-folder"
+                  un-text="5.5 gray-600"
+                ></view>
+              </view>
+              <view
+                un-text="3 gray-800"
+                un-flex="~"
+                un-justify="center"
+                un-items="center"
+              >
+                意向管理
+              </view>
+            </view>
+            
+          </view>
+          
+        </view>
+      </swiper-item>
+      
+      <!-- 运营 -->
+      <swiper-item>
+        <view>
+          
+          <view
+            un-flex="~"
+            un-m="t-4"
+          >
+            
+            <view
+              un-flex="~ [1_0_0] col"
+              un-overflow-hidden
+              @click="onRiskControl"
+            >
+              <view
+                un-flex="~ [1_0_0]"
+                un-justify="center"
+                un-items="center"
+              >
+                <view
+                  un-i="iconfont-bell"
+                  un-text="6 gray-500"
+                ></view>
+              </view>
+              <view
+                un-text="3 gray-800"
+                un-flex="~"
+                un-justify="center"
+                un-items="center"
+              >
+                风控查询
+              </view>
+            </view>
+            
+            <view
+              un-flex="~ [1_0_0] col"
+              un-overflow-hidden
+              @click="onDealer"
+            >
+              <view
+                un-flex="~ [1_0_0]"
+                un-justify="center"
+                un-items="center"
+              >
+                <view
+                  un-i="iconfont-dealer"
+                  un-text="6 gray-500"
+                ></view>
+              </view>
+              <view
+                un-text="3 gray-800"
+                un-flex="~"
+                un-justify="center"
+                un-items="center"
+              >
+                经销商
+              </view>
+            </view>
+            
+            <view
+              un-flex="~ [1_0_0] col"
+              un-overflow-hidden
+              @click="onChannelCode"
+            >
+              <view
+                un-flex="~ [1_0_0]"
+                un-justify="center"
+                un-items="center"
+              >
+                <view
+                  un-i="iconfont-channel_code"
+                  un-text="6 gray-500"
+                ></view>
+              </view>
+              <view
+                un-text="3 gray-800"
+                un-flex="~"
+                un-justify="center"
+                un-items="center"
+              >
+                渠道码
+              </view>
+            </view>
+            
+            <view
+              un-flex="~ [1_0_0] col"
+              un-overflow-hidden
+              @click="onElectronicContract"
+            >
+              <view
+                un-flex="~ [1_0_0]"
+                un-justify="center"
+                un-items="center"
+              >
+                <view
+                  un-i="iconfont-contract"
+                  un-text="6 gray-500"
+                ></view>
+              </view>
+              <view
+                un-text="3 gray-800"
+                un-flex="~"
+                un-justify="center"
+                un-items="center"
+              >
+                电子合同
+              </view>
+            </view>
+            
+          </view>
+          
+        </view>
+      </swiper-item>
+      
+      <!-- 门店 -->
+      <swiper-item>
+        <view>
+          
+          <view
+            un-flex="~"
+            un-m="t-4"
+          >
+            
+            <view
+              un-flex="~ [1_0_0] col"
+              un-overflow-hidden
+              @click="onStoreSet"
+            >
+              <view
+                un-flex="~ [1_0_0]"
+                un-justify="center"
+                un-items="center"
+              >
+                <view
+                  un-i="iconfont-store"
+                  un-text="6 gray-500"
+                ></view>
+              </view>
+              <view
+                un-text="3 gray-800"
+                un-flex="~"
+                un-justify="center"
+                un-items="center"
+              >
+                门店设置
+              </view>
+            </view>
+            
+            <view
+              un-flex="~ [1_0_0] col"
+              un-overflow-hidden
+              @click="onOperateSet"
+            >
+              <view
+                un-flex="~ [1_0_0]"
+                un-justify="center"
+                un-items="center"
+              >
+                <view
+                  un-i="iconfont-operate"
+                  un-text="6 gray-500"
+                ></view>
+              </view>
+              <view
+                un-text="3 gray-800"
+                un-flex="~"
+                un-justify="center"
+                un-items="center"
+              >
+                运营设置
+              </view>
+            </view>
+            
+            <view
+              un-flex="~ [1_0_0] col"
+              un-overflow-hidden
+              @click="onStaff"
+            >
+              <view
+                un-flex="~ [1_0_0]"
+                un-justify="center"
+                un-items="center"
+              >
+                <view
+                  un-i="iconfont-staff"
+                  un-text="6 gray-500"
+                ></view>
+              </view>
+              <view
+                un-text="3 gray-800"
+                un-flex="~"
+                un-justify="center"
+                un-items="center"
+              >
+                员工管理
+              </view>
+            </view>
+            
+            <view
+              un-flex="~ [1_0_0] col"
+              un-overflow-hidden
+            >
+            </view>
+            
+          </view>
+        
         </view>
       </swiper-item>
       
@@ -561,6 +992,69 @@ async function onMemList() {
 async function onOrderList() {
   await uni.navigateTo({
     url: "/pages/order/list",
+  });
+}
+
+// 意向管理
+async function onIntention() {
+  await uni.navigateTo({
+    url: "/pages/intention/index",
+  });
+}
+
+// 库存日历
+async function onInventoryCalendar() {
+  await uni.navigateTo({
+    url: "/pages/inventory_calendar/index",
+  });
+}
+
+// 电子合同
+async function onElectronicContract() {
+  await uni.navigateTo({
+    url: "/pages/electronic_contract/index",
+  });
+}
+
+// 风控查询
+async function onRiskControl() {
+  await uni.navigateTo({
+    url: "/pages/risk_control/index",
+  });
+}
+
+// 经销商
+async function onDealer() {
+  await uni.navigateTo({
+    url: "/pages/dealer/index",
+  });
+}
+
+// 渠道码
+async function onChannelCode() {
+  await uni.navigateTo({
+    url: "/pages/channel_code/index",
+  });
+}
+
+// 门店设置
+async function onStoreSet() {
+  await uni.navigateTo({
+    url: "/pages/store_set/index",
+  });
+}
+
+// 运营设置
+async function onOperateSet() {
+  await uni.navigateTo({
+    url: "/pages/operate_set/index",
+  });
+}
+
+// 员工管理
+async function onStaff() {
+  await uni.navigateTo({
+    url: "/pages/staff/index",
   });
 }
 </script>
