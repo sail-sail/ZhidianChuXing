@@ -55,14 +55,15 @@
         scroll-x
         enable-flex
         un-m="t-4"
-        un-p="x-2"
+        un-p="x-6"
         un-box-border
         un-w="full"
         un-flex="~"
+        un-min="h-[720rpx] w-[380rpx]"
       >
         <view
           un-flex="~"
-          un-gap="4"
+          un-gap="6"
         >
           <view
             un-min="h-[720rpx] w-[380rpx]"
